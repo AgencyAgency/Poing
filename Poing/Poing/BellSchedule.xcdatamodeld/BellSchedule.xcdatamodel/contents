@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13A3017" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Bell" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bellCycles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BellCycle" inverseName="bell" inverseEntity="BellCycle" syncable="YES"/>
+    </entity>
+    <entity name="BellCycle" syncable="YES">
+        <relationship name="bell" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bell" inverseName="bellCycles" inverseEntity="Bell" syncable="YES"/>
+        <relationship name="bellCyclePeriods" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BellCyclePeriod" inverseName="bellCycle" inverseEntity="BellCyclePeriod" syncable="YES"/>
+        <relationship name="cycle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cycle" inverseName="bellCycles" inverseEntity="Cycle" syncable="YES"/>
+    </entity>
+    <entity name="BellCyclePeriod" syncable="YES">
+        <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="startTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="bellCycle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BellCycle" inverseName="bellCyclePeriods" inverseEntity="BellCycle" syncable="YES"/>
+        <relationship name="period" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Period" inverseName="bellCyclePeriods" inverseEntity="Period" syncable="YES"/>
+    </entity>
+    <entity name="Cycle" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bellCycles" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BellCycle" inverseName="cycle" inverseEntity="BellCycle" syncable="YES"/>
+    </entity>
+    <entity name="Period" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="bellCyclePeriods" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BellCyclePeriod" inverseName="period" inverseEntity="BellCyclePeriod" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Bell" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="BellCycle" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="BellCyclePeriod" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Cycle" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Period" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>

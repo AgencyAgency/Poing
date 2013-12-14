@@ -22,6 +22,7 @@
 		CF108C01185C0A01001E6706 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF108BE0185C0A01001E6706 /* UIKit.framework */; };
 		CF108C09185C0A01001E6706 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF108C07185C0A01001E6706 /* InfoPlist.strings */; };
 		CF108C0B185C0A01001E6706 /* PoingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108C0A185C0A01001E6706 /* PoingTests.m */; };
+		CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		CF108C06185C0A01001E6706 /* PoingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PoingTests-Info.plist"; sourceTree = "<group>"; };
 		CF108C08185C0A01001E6706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CF108C0A185C0A01001E6706 /* PoingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoingTests.m; sourceTree = "<group>"; };
+		CF108C15185C3D01001E6706 /* BellSchedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BellSchedule.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				CF108BF5185C0A01001E6706 /* AASecondViewController.m */,
 				CF108BF7185C0A01001E6706 /* Images.xcassets */,
 				CF108BE3185C0A01001E6706 /* Supporting Files */,
+				CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */,
 			);
 			path = Poing;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF108BF6185C0A01001E6706 /* AASecondViewController.m in Sources */,
+				CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */,
 				CF108BED185C0A01001E6706 /* AAAppDelegate.m in Sources */,
 				CF108BF3185C0A01001E6706 /* AAFirstViewController.m in Sources */,
 				CF108BE9185C0A01001E6706 /* main.m in Sources */,
@@ -469,6 +473,7 @@
 				CF108C10185C0A01001E6706 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF108C11185C0A01001E6706 /* Build configuration list for PBXNativeTarget "PoingTests" */ = {
 			isa = XCConfigurationList;
@@ -477,8 +482,22 @@
 				CF108C13185C0A01001E6706 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CF108C15185C3D01001E6706 /* BellSchedule.xcdatamodel */,
+			);
+			currentVersion = CF108C15185C3D01001E6706 /* BellSchedule.xcdatamodel */;
+			path = BellSchedule.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CF108BD1185C0A01001E6706 /* Project object */;
 }
