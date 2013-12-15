@@ -23,6 +23,14 @@
 		CF108C09185C0A01001E6706 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF108C07185C0A01001E6706 /* InfoPlist.strings */; };
 		CF108C0B185C0A01001E6706 /* PoingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108C0A185C0A01001E6706 /* PoingTests.m */; };
 		CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */; };
+		CF85FCE3185D4F7000C70BE1 /* Period.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE2185D4F7000C70BE1 /* Period.m */; };
+		CF85FCE6185D4F7000C70BE1 /* BellCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE5185D4F7000C70BE1 /* BellCycle.m */; };
+		CF85FCE9185D4F7000C70BE1 /* Bell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE8185D4F7000C70BE1 /* Bell.m */; };
+		CF85FCEC185D4F7000C70BE1 /* BellCyclePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCEB185D4F7000C70BE1 /* BellCyclePeriod.m */; };
+		CF85FCEF185D4F7000C70BE1 /* Cycle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCEE185D4F7000C70BE1 /* Cycle.m */; };
+		CF85FCF2185D4FB400C70BE1 /* AADataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCF1185D4FB400C70BE1 /* AADataLoader.m */; };
+		CF85FCF4185D501400C70BE1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF85FCF3185D501400C70BE1 /* CoreData.framework */; };
+		CF85FCF7185D5C7900C70BE1 /* Bell+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCF6185D5C7900C70BE1 /* Bell+Create.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +66,21 @@
 		CF108C08185C0A01001E6706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CF108C0A185C0A01001E6706 /* PoingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoingTests.m; sourceTree = "<group>"; };
 		CF108C15185C3D01001E6706 /* BellSchedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BellSchedule.xcdatamodel; sourceTree = "<group>"; };
+		CF85FCE1185D4F7000C70BE1 /* Period.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Period.h; sourceTree = "<group>"; };
+		CF85FCE2185D4F7000C70BE1 /* Period.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Period.m; sourceTree = "<group>"; };
+		CF85FCE4185D4F7000C70BE1 /* BellCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellCycle.h; sourceTree = "<group>"; };
+		CF85FCE5185D4F7000C70BE1 /* BellCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellCycle.m; sourceTree = "<group>"; };
+		CF85FCE7185D4F7000C70BE1 /* Bell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bell.h; sourceTree = "<group>"; };
+		CF85FCE8185D4F7000C70BE1 /* Bell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bell.m; sourceTree = "<group>"; };
+		CF85FCEA185D4F7000C70BE1 /* BellCyclePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellCyclePeriod.h; sourceTree = "<group>"; };
+		CF85FCEB185D4F7000C70BE1 /* BellCyclePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellCyclePeriod.m; sourceTree = "<group>"; };
+		CF85FCED185D4F7000C70BE1 /* Cycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cycle.h; sourceTree = "<group>"; };
+		CF85FCEE185D4F7000C70BE1 /* Cycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cycle.m; sourceTree = "<group>"; };
+		CF85FCF0185D4FB400C70BE1 /* AADataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AADataLoader.h; sourceTree = "<group>"; };
+		CF85FCF1185D4FB400C70BE1 /* AADataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AADataLoader.m; sourceTree = "<group>"; };
+		CF85FCF3185D501400C70BE1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CF85FCF5185D5C7900C70BE1 /* Bell+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bell+Create.h"; sourceTree = "<group>"; };
+		CF85FCF6185D5C7900C70BE1 /* Bell+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bell+Create.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF85FCF4185D501400C70BE1 /* CoreData.framework in Frameworks */,
 				CF108BDF185C0A01001E6706 /* CoreGraphics.framework in Frameworks */,
 				CF108BE1185C0A01001E6706 /* UIKit.framework in Frameworks */,
 				CF108BDD185C0A01001E6706 /* Foundation.framework in Frameworks */,
@@ -106,6 +130,7 @@
 		CF108BDB185C0A01001E6706 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CF85FCF3185D501400C70BE1 /* CoreData.framework */,
 				CF108BDC185C0A01001E6706 /* Foundation.framework */,
 				CF108BDE185C0A01001E6706 /* CoreGraphics.framework */,
 				CF108BE0185C0A01001E6706 /* UIKit.framework */,
@@ -117,8 +142,12 @@
 		CF108BE2185C0A01001E6706 /* Poing */ = {
 			isa = PBXGroup;
 			children = (
+				CF85FCF5185D5C7900C70BE1 /* Bell+Create.h */,
+				CF85FCF6185D5C7900C70BE1 /* Bell+Create.m */,
 				CF108BEB185C0A01001E6706 /* AAAppDelegate.h */,
 				CF108BEC185C0A01001E6706 /* AAAppDelegate.m */,
+				CF85FCF0185D4FB400C70BE1 /* AADataLoader.h */,
+				CF85FCF1185D4FB400C70BE1 /* AADataLoader.m */,
 				CF108BEE185C0A01001E6706 /* Main.storyboard */,
 				CF108BF1185C0A01001E6706 /* AAFirstViewController.h */,
 				CF108BF2185C0A01001E6706 /* AAFirstViewController.m */,
@@ -127,6 +156,16 @@
 				CF108BF7185C0A01001E6706 /* Images.xcassets */,
 				CF108BE3185C0A01001E6706 /* Supporting Files */,
 				CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */,
+				CF85FCED185D4F7000C70BE1 /* Cycle.h */,
+				CF85FCEE185D4F7000C70BE1 /* Cycle.m */,
+				CF85FCEA185D4F7000C70BE1 /* BellCyclePeriod.h */,
+				CF85FCEB185D4F7000C70BE1 /* BellCyclePeriod.m */,
+				CF85FCE7185D4F7000C70BE1 /* Bell.h */,
+				CF85FCE8185D4F7000C70BE1 /* Bell.m */,
+				CF85FCE4185D4F7000C70BE1 /* BellCycle.h */,
+				CF85FCE5185D4F7000C70BE1 /* BellCycle.m */,
+				CF85FCE1185D4F7000C70BE1 /* Period.h */,
+				CF85FCE2185D4F7000C70BE1 /* Period.m */,
 			);
 			path = Poing;
 			sourceTree = "<group>";
@@ -258,11 +297,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF85FCE9185D4F7000C70BE1 /* Bell.m in Sources */,
+				CF85FCEC185D4F7000C70BE1 /* BellCyclePeriod.m in Sources */,
+				CF85FCF7185D5C7900C70BE1 /* Bell+Create.m in Sources */,
+				CF85FCEF185D4F7000C70BE1 /* Cycle.m in Sources */,
 				CF108BF6185C0A01001E6706 /* AASecondViewController.m in Sources */,
+				CF85FCE6185D4F7000C70BE1 /* BellCycle.m in Sources */,
 				CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */,
 				CF108BED185C0A01001E6706 /* AAAppDelegate.m in Sources */,
 				CF108BF3185C0A01001E6706 /* AAFirstViewController.m in Sources */,
+				CF85FCE3185D4F7000C70BE1 /* Period.m in Sources */,
 				CF108BE9185C0A01001E6706 /* main.m in Sources */,
+				CF85FCF2185D4FB400C70BE1 /* AADataLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

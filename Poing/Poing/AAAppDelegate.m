@@ -7,12 +7,43 @@
 //
 
 #import "AAAppDelegate.h"
+#import "AADataLoader.h"
 
 @implementation AAAppDelegate
+
+- (void)documentIsReady
+{
+    if (self.document.documentState == UIDocumentStateNormal) {
+        self.managedObjectContext = self.document.managedObjectContext;
+        [AADataLoader loadScheduleDataWithContext:self.managedObjectContext];
+    }
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory
+                                                     inDomains:NSUserDomainMask] firstObject];
+    NSString *documentName = @"MyDocument";
+    NSURL *url = [documentsDirectory URLByAppendingPathComponent:documentName];
+    self.document = [[UIManagedDocument alloc] initWithFileURL:url];
+    
+    BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:[url path]];
+    if (fileExists) {
+        [self.document openWithCompletionHandler:^(BOOL success) {
+            if (success) [self documentIsReady];
+            if (!success) NSLog(@"couldn’t open document at %@", url);
+        }];
+    } else {
+        [self.document saveToURL:url
+           forSaveOperation:UIDocumentSaveForCreating
+          completionHandler:^(BOOL success) {
+            if (success) [self documentIsReady];
+            if (!success) NSLog(@"couldn’t create document at %@", url);
+        }];
+    }
+    
     return YES;
 }
 							
