@@ -2,7 +2,7 @@
 //  BellCycle.h
 //  Poing
 //
-//  Created by Kyle Oba on 12/14/13.
+//  Created by Kyle Oba on 12/15/13.
 //  Copyright (c) 2013 AgencyAgency. All rights reserved.
 //
 
@@ -16,6 +16,7 @@
 @property (nonatomic, retain) Bell *bell;
 @property (nonatomic, retain) NSSet *bellCyclePeriods;
 @property (nonatomic, retain) Cycle *cycle;
+@property (nonatomic, retain) NSSet *schoolDays;
 @end
 
 @interface BellCycle (CoreDataGeneratedAccessors)
@@ -24,5 +25,10 @@
 - (void)removeBellCyclePeriodsObject:(BellCyclePeriod *)value;
 - (void)addBellCyclePeriods:(NSSet *)values;
 - (void)removeBellCyclePeriods:(NSSet *)values;
+
+- (void)addSchoolDaysObject:(NSManagedObject *)value;
+- (void)removeSchoolDaysObject:(NSManagedObject *)value;
+- (void)addSchoolDays:(NSSet *)values;
+- (void)removeSchoolDays:(NSSet *)values;
 
 @end

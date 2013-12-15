@@ -2,7 +2,7 @@
 //  BellCycle.m
 //  Poing
 //
-//  Created by Kyle Oba on 12/14/13.
+//  Created by Kyle Oba on 12/15/13.
 //  Copyright (c) 2013 AgencyAgency. All rights reserved.
 //
 
@@ -17,5 +17,6 @@
 @dynamic bell;
 @dynamic bellCyclePeriods;
 @dynamic cycle;
+@dynamic schoolDays;
 
 @end

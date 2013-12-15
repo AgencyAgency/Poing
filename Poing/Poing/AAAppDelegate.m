@@ -19,13 +19,12 @@
     }
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (void)setupManagedDocument
 {
-    // Override point for customization after application launch.
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSURL *documentsDirectory = [[fileManager URLsForDirectory:NSDocumentDirectory
                                                      inDomains:NSUserDomainMask] firstObject];
-    NSString *documentName = @"MyDocument";
+    NSString *documentName = @"PoingDocument";
     NSURL *url = [documentsDirectory URLByAppendingPathComponent:documentName];
     self.document = [[UIManagedDocument alloc] initWithFileURL:url];
     
@@ -37,13 +36,32 @@
         }];
     } else {
         [self.document saveToURL:url
-           forSaveOperation:UIDocumentSaveForCreating
-          completionHandler:^(BOOL success) {
-            if (success) [self documentIsReady];
-            if (!success) NSLog(@"couldn’t create document at %@", url);
+                forSaveOperation:UIDocumentSaveForCreating
+               completionHandler:^(BOOL success) {
+                   if (success) [self documentIsReady];
+                   if (!success) NSLog(@"couldn’t create document at %@", url);
+               }];
+    }
+}
+
+- (void)closeManagedDocument
+{
+    if (self.document) {
+        if (self.document.documentState == UIDocumentStateClosed) return;
+        [self.document saveToURL:self.document.fileURL
+                forSaveOperation:UIDocumentSaveForOverwriting
+               completionHandler:^(BOOL success) {
+                   [self.document closeWithCompletionHandler:^(BOOL success) {
+                       if (!success) NSLog(@"failed to close document %@", self.document.localizedName);
+                   }];
         }];
     }
-    
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    // Override point for customization after application launch.
+    [self setupManagedDocument];
     return YES;
 }
 							
@@ -57,6 +75,7 @@
 {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self closeManagedDocument];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -72,6 +91,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [self closeManagedDocument];
 }
 
 @end

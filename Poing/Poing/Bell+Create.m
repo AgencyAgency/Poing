@@ -22,8 +22,10 @@
         
         if (!matches || ([matches count] > 1)) {
             // handle error
+            NSAssert(NO, @"wrong number of bell matches returned.");
             
         } else if (![matches count]) {
+            DLog(@"Creating new Bell: %@", name);
             bell = [NSEntityDescription insertNewObjectForEntityForName:@"Bell"
                                                  inManagedObjectContext:context];
             bell.name = name;

@@ -8,6 +8,7 @@
         <relationship name="bell" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bell" inverseName="bellCycles" inverseEntity="Bell" syncable="YES"/>
         <relationship name="bellCyclePeriods" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BellCyclePeriod" inverseName="bellCycle" inverseEntity="BellCyclePeriod" syncable="YES"/>
         <relationship name="cycle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cycle" inverseName="bellCycles" inverseEntity="Cycle" syncable="YES"/>
+        <relationship name="schoolDays" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SchoolDay" inverseName="bellCycle" inverseEntity="SchoolDay" syncable="YES"/>
     </entity>
     <entity name="BellCyclePeriod" representedClassName="BellCyclePeriod" syncable="YES">
         <attribute name="endTime" optional="YES" attributeType="Date" syncable="YES"/>
@@ -23,11 +24,16 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="bellCyclePeriods" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BellCyclePeriod" inverseName="period" inverseEntity="BellCyclePeriod" syncable="YES"/>
     </entity>
+    <entity name="SchoolDay" representedClassName="SchoolDay" syncable="YES">
+        <attribute name="day" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="bellCycle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BellCycle" inverseName="schoolDays" inverseEntity="BellCycle" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Bell" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="BellCycle" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="BellCyclePeriod" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Cycle" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Period" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Bell" positionX="-189" positionY="-36" width="128" height="75"/>
+        <element name="BellCycle" positionX="25" positionY="-36" width="128" height="103"/>
+        <element name="BellCyclePeriod" positionX="18" positionY="-249" width="128" height="105"/>
+        <element name="Cycle" positionX="223" positionY="-36" width="128" height="75"/>
+        <element name="Period" positionX="232" positionY="-252" width="128" height="75"/>
+        <element name="SchoolDay" positionX="36" positionY="117" width="128" height="73"/>
     </elements>
 </model>

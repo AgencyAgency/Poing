@@ -24,13 +24,19 @@
 		CF108C0B185C0A01001E6706 /* PoingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108C0A185C0A01001E6706 /* PoingTests.m */; };
 		CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */; };
 		CF85FCE3185D4F7000C70BE1 /* Period.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE2185D4F7000C70BE1 /* Period.m */; };
-		CF85FCE6185D4F7000C70BE1 /* BellCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE5185D4F7000C70BE1 /* BellCycle.m */; };
 		CF85FCE9185D4F7000C70BE1 /* Bell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE8185D4F7000C70BE1 /* Bell.m */; };
 		CF85FCEC185D4F7000C70BE1 /* BellCyclePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCEB185D4F7000C70BE1 /* BellCyclePeriod.m */; };
 		CF85FCEF185D4F7000C70BE1 /* Cycle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCEE185D4F7000C70BE1 /* Cycle.m */; };
 		CF85FCF2185D4FB400C70BE1 /* AADataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCF1185D4FB400C70BE1 /* AADataLoader.m */; };
 		CF85FCF4185D501400C70BE1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF85FCF3185D501400C70BE1 /* CoreData.framework */; };
 		CF85FCF7185D5C7900C70BE1 /* Bell+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCF6185D5C7900C70BE1 /* Bell+Create.m */; };
+		CF85FCFA185D712500C70BE1 /* Cycle+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCF9185D712500C70BE1 /* Cycle+Create.m */; };
+		CF85FCFD185D7EC100C70BE1 /* Period+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCFC185D7EC100C70BE1 /* Period+Create.m */; };
+		CF85FD05185E492C00C70BE1 /* BellCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD04185E492C00C70BE1 /* BellCycle.m */; };
+		CF85FD08185E492D00C70BE1 /* SchoolDay.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD07185E492D00C70BE1 /* SchoolDay.m */; };
+		CF85FD0B185E494F00C70BE1 /* SchoolDay+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD0A185E494F00C70BE1 /* SchoolDay+Create.m */; };
+		CF85FD0E185E4D1100C70BE1 /* BellCycle+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD0D185E4D1100C70BE1 /* BellCycle+Create.m */; };
+		CF85FD10185E5B5800C70BE1 /* schedule.json in Resources */ = {isa = PBXBuildFile; fileRef = CF85FD0F185E5B5800C70BE1 /* schedule.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +74,6 @@
 		CF108C15185C3D01001E6706 /* BellSchedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BellSchedule.xcdatamodel; sourceTree = "<group>"; };
 		CF85FCE1185D4F7000C70BE1 /* Period.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Period.h; sourceTree = "<group>"; };
 		CF85FCE2185D4F7000C70BE1 /* Period.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Period.m; sourceTree = "<group>"; };
-		CF85FCE4185D4F7000C70BE1 /* BellCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellCycle.h; sourceTree = "<group>"; };
-		CF85FCE5185D4F7000C70BE1 /* BellCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellCycle.m; sourceTree = "<group>"; };
 		CF85FCE7185D4F7000C70BE1 /* Bell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bell.h; sourceTree = "<group>"; };
 		CF85FCE8185D4F7000C70BE1 /* Bell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bell.m; sourceTree = "<group>"; };
 		CF85FCEA185D4F7000C70BE1 /* BellCyclePeriod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellCyclePeriod.h; sourceTree = "<group>"; };
@@ -81,6 +85,19 @@
 		CF85FCF3185D501400C70BE1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CF85FCF5185D5C7900C70BE1 /* Bell+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bell+Create.h"; sourceTree = "<group>"; };
 		CF85FCF6185D5C7900C70BE1 /* Bell+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bell+Create.m"; sourceTree = "<group>"; };
+		CF85FCF8185D712500C70BE1 /* Cycle+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Cycle+Create.h"; sourceTree = "<group>"; };
+		CF85FCF9185D712500C70BE1 /* Cycle+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Cycle+Create.m"; sourceTree = "<group>"; };
+		CF85FCFB185D7EC100C70BE1 /* Period+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Period+Create.h"; sourceTree = "<group>"; };
+		CF85FCFC185D7EC100C70BE1 /* Period+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Period+Create.m"; sourceTree = "<group>"; };
+		CF85FD03185E492C00C70BE1 /* BellCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellCycle.h; sourceTree = "<group>"; };
+		CF85FD04185E492C00C70BE1 /* BellCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellCycle.m; sourceTree = "<group>"; };
+		CF85FD06185E492D00C70BE1 /* SchoolDay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SchoolDay.h; sourceTree = "<group>"; };
+		CF85FD07185E492D00C70BE1 /* SchoolDay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SchoolDay.m; sourceTree = "<group>"; };
+		CF85FD09185E494F00C70BE1 /* SchoolDay+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SchoolDay+Create.h"; sourceTree = "<group>"; };
+		CF85FD0A185E494F00C70BE1 /* SchoolDay+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SchoolDay+Create.m"; sourceTree = "<group>"; };
+		CF85FD0C185E4D1100C70BE1 /* BellCycle+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BellCycle+Create.h"; sourceTree = "<group>"; };
+		CF85FD0D185E4D1100C70BE1 /* BellCycle+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BellCycle+Create.m"; sourceTree = "<group>"; };
+		CF85FD0F185E5B5800C70BE1 /* schedule.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schedule.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,12 +159,9 @@
 		CF108BE2185C0A01001E6706 /* Poing */ = {
 			isa = PBXGroup;
 			children = (
-				CF85FCF5185D5C7900C70BE1 /* Bell+Create.h */,
-				CF85FCF6185D5C7900C70BE1 /* Bell+Create.m */,
+				CF85FD00185E465300C70BE1 /* Data */,
 				CF108BEB185C0A01001E6706 /* AAAppDelegate.h */,
 				CF108BEC185C0A01001E6706 /* AAAppDelegate.m */,
-				CF85FCF0185D4FB400C70BE1 /* AADataLoader.h */,
-				CF85FCF1185D4FB400C70BE1 /* AADataLoader.m */,
 				CF108BEE185C0A01001E6706 /* Main.storyboard */,
 				CF108BF1185C0A01001E6706 /* AAFirstViewController.h */,
 				CF108BF2185C0A01001E6706 /* AAFirstViewController.m */,
@@ -155,17 +169,6 @@
 				CF108BF5185C0A01001E6706 /* AASecondViewController.m */,
 				CF108BF7185C0A01001E6706 /* Images.xcassets */,
 				CF108BE3185C0A01001E6706 /* Supporting Files */,
-				CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */,
-				CF85FCED185D4F7000C70BE1 /* Cycle.h */,
-				CF85FCEE185D4F7000C70BE1 /* Cycle.m */,
-				CF85FCEA185D4F7000C70BE1 /* BellCyclePeriod.h */,
-				CF85FCEB185D4F7000C70BE1 /* BellCyclePeriod.m */,
-				CF85FCE7185D4F7000C70BE1 /* Bell.h */,
-				CF85FCE8185D4F7000C70BE1 /* Bell.m */,
-				CF85FCE4185D4F7000C70BE1 /* BellCycle.h */,
-				CF85FCE5185D4F7000C70BE1 /* BellCycle.m */,
-				CF85FCE1185D4F7000C70BE1 /* Period.h */,
-				CF85FCE2185D4F7000C70BE1 /* Period.m */,
 			);
 			path = Poing;
 			sourceTree = "<group>";
@@ -197,6 +200,55 @@
 				CF108C07185C0A01001E6706 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CF85FD00185E465300C70BE1 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				CF85FD02185E469100C70BE1 /* Categories */,
+				CF85FD01185E468500C70BE1 /* ManagedObjects */,
+				CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */,
+				CF85FD0F185E5B5800C70BE1 /* schedule.json */,
+				CF85FCF0185D4FB400C70BE1 /* AADataLoader.h */,
+				CF85FCF1185D4FB400C70BE1 /* AADataLoader.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		CF85FD01185E468500C70BE1 /* ManagedObjects */ = {
+			isa = PBXGroup;
+			children = (
+				CF85FD06185E492D00C70BE1 /* SchoolDay.h */,
+				CF85FD07185E492D00C70BE1 /* SchoolDay.m */,
+				CF85FD03185E492C00C70BE1 /* BellCycle.h */,
+				CF85FD04185E492C00C70BE1 /* BellCycle.m */,
+				CF85FCED185D4F7000C70BE1 /* Cycle.h */,
+				CF85FCEE185D4F7000C70BE1 /* Cycle.m */,
+				CF85FCEA185D4F7000C70BE1 /* BellCyclePeriod.h */,
+				CF85FCEB185D4F7000C70BE1 /* BellCyclePeriod.m */,
+				CF85FCE7185D4F7000C70BE1 /* Bell.h */,
+				CF85FCE8185D4F7000C70BE1 /* Bell.m */,
+				CF85FCE1185D4F7000C70BE1 /* Period.h */,
+				CF85FCE2185D4F7000C70BE1 /* Period.m */,
+			);
+			name = ManagedObjects;
+			sourceTree = "<group>";
+		};
+		CF85FD02185E469100C70BE1 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				CF85FCF5185D5C7900C70BE1 /* Bell+Create.h */,
+				CF85FCF6185D5C7900C70BE1 /* Bell+Create.m */,
+				CF85FCF8185D712500C70BE1 /* Cycle+Create.h */,
+				CF85FCF9185D712500C70BE1 /* Cycle+Create.m */,
+				CF85FCFB185D7EC100C70BE1 /* Period+Create.h */,
+				CF85FCFC185D7EC100C70BE1 /* Period+Create.m */,
+				CF85FD09185E494F00C70BE1 /* SchoolDay+Create.h */,
+				CF85FD0A185E494F00C70BE1 /* SchoolDay+Create.m */,
+				CF85FD0C185E4D1100C70BE1 /* BellCycle+Create.h */,
+				CF85FD0D185E4D1100C70BE1 /* BellCycle+Create.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +330,7 @@
 			files = (
 				CF108BF8185C0A01001E6706 /* Images.xcassets in Resources */,
 				CF108BE7185C0A01001E6706 /* InfoPlist.strings in Resources */,
+				CF85FD10185E5B5800C70BE1 /* schedule.json in Resources */,
 				CF108BF0185C0A01001E6706 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -298,14 +351,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF85FCE9185D4F7000C70BE1 /* Bell.m in Sources */,
+				CF85FD05185E492C00C70BE1 /* BellCycle.m in Sources */,
+				CF85FD0B185E494F00C70BE1 /* SchoolDay+Create.m in Sources */,
+				CF85FD08185E492D00C70BE1 /* SchoolDay.m in Sources */,
 				CF85FCEC185D4F7000C70BE1 /* BellCyclePeriod.m in Sources */,
 				CF85FCF7185D5C7900C70BE1 /* Bell+Create.m in Sources */,
 				CF85FCEF185D4F7000C70BE1 /* Cycle.m in Sources */,
 				CF108BF6185C0A01001E6706 /* AASecondViewController.m in Sources */,
-				CF85FCE6185D4F7000C70BE1 /* BellCycle.m in Sources */,
+				CF85FCFD185D7EC100C70BE1 /* Period+Create.m in Sources */,
 				CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */,
 				CF108BED185C0A01001E6706 /* AAAppDelegate.m in Sources */,
 				CF108BF3185C0A01001E6706 /* AAFirstViewController.m in Sources */,
+				CF85FCFA185D712500C70BE1 /* Cycle+Create.m in Sources */,
+				CF85FD0E185E4D1100C70BE1 /* BellCycle+Create.m in Sources */,
 				CF85FCE3185D4F7000C70BE1 /* Period.m in Sources */,
 				CF108BE9185C0A01001E6706 /* main.m in Sources */,
 				CF85FCF2185D4FB400C70BE1 /* AADataLoader.m in Sources */,
