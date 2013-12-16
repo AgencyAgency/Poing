@@ -11,7 +11,41 @@
 #import "Cycle+Create.h"
 #import "Period+Create.h"
 #import "SchoolDay+Create.h"
+#import "BellCyclePeriod+Create.h"
 #import <CoreData/CoreData.h>
+
+#define BELL_ASSEMBLY_1 @"Assembly 1 Schedule"
+#define BELL_ASSEMBLY_2 @"Assembly 2 Schedule"
+#define BELL_ASSEMBLY_3 @"Assembly 3 Schedule"
+#define BELL_BASIC @"Basic Schedule"
+#define BELL_CHAPEL @"Chapel Schedule"
+#define BELL_EXTENDED_1_1357 @"Extended 1 Schedule 1357"
+#define BELL_EXTENDED_1_2468 @"Extended 1 Schedule 2468"
+#define BELL_EXTENDED_2_7153 @"Extended 2 Schedule 7153"
+#define BELL_EXTENDED_2_8264 @"Extended 2 Schedule 8264"
+#define BELL_EXTENDED_3_3751 @"Extended 3 Schedule 3751"
+#define BELL_EXTENDED_3_4862 @"Extended 3 Schedule 4862"
+#define BELL_SPECIAL_CONVOCATION @"Special Convocation Schedule"
+#define BELL_SPECIAL_FAIR_DAY @"Special Fair Day Schedule"
+#define BELL_SPECIAL_MAY_DAY @"Special May Day Schedule"
+#define BELL_VARSITY_ATHLETIC_ASSEMBLY @"VarietyAthletic Assembly Schedule"
+
+#define CYCLE_1 @"1"
+#define CYCLE_3 @"3"
+#define CYCLE_7 @"7"
+
+#define PERIOD_1 @"1"
+#define PERIOD_2 @"2"
+#define PERIOD_3 @"3"
+#define PERIOD_4 @"4"
+#define PERIOD_5 @"5"
+#define PERIOD_6 @"6"
+#define PERIOD_7 @"7"
+#define PERIOD_8 @"8"
+#define PERIOD_ASSEMBLY @"Assembly"
+#define PERIOD_CHAPEL   @"Chapel"
+#define PERIOD_LUNCH    @"Lunch"
+#define PERIOD_MEETING  @"Meeting"
 
 @implementation AADataLoader
 
@@ -44,25 +78,28 @@
     
     // Parse schedule:
     [self loadScheduleJSONIntoContext:context];
+    
+    // Load period times:
+    [self loadBellCyclePeriodDataIntoContext:context];
 }
 
 + (void)loadBellsIntoContext:(NSManagedObjectContext *)context
 {
-    NSArray *bells = @[@"Assembly 1 Schedule",
-                       @"Assembly 2 Schedule",
-                       @"Assembly 3 Schedule",
-                       @"Basic Schedule",
-                       @"Chapel Schedule",
-                       @"Extended 1 Schedule 1357",
-                       @"Extended 1 Schedule 2468",
-                       @"Extended 2 Schedule 7153",
-                       @"Extended 2 Schedule 8264",
-                       @"Extended 3 Schedule 3751",
-                       @"Extended 3 Schedule 4862",
-                       @"Special Convocation Schedule",
-                       @"Special Fair Day Schedule",
-                       @"Special May Day Schedule",
-                       @"VarietyAthletic Assembly Schedule"];
+    NSArray *bells = @[BELL_ASSEMBLY_1,
+                       BELL_ASSEMBLY_2,
+                       BELL_ASSEMBLY_3,
+                       BELL_BASIC,
+                       BELL_CHAPEL,
+                       BELL_EXTENDED_1_1357,
+                       BELL_EXTENDED_1_2468,
+                       BELL_EXTENDED_2_7153,
+                       BELL_EXTENDED_2_8264,
+                       BELL_EXTENDED_3_3751,
+                       BELL_EXTENDED_3_4862,
+                       BELL_SPECIAL_CONVOCATION,
+                       BELL_SPECIAL_FAIR_DAY,
+                       BELL_SPECIAL_MAY_DAY,
+                       BELL_VARSITY_ATHLETIC_ASSEMBLY];
     for (NSString *bellName in bells) {
         [Bell bellWithName:bellName inManagedObjectContext:context];
     }
@@ -70,9 +107,9 @@
 
 + (void)loadCyclesIntoContext:(NSManagedObjectContext *)context
 {
-    NSArray *cycles = @[@"1",
-                        @"3",
-                        @"7"];
+    NSArray *cycles = @[CYCLE_1,
+                        CYCLE_3,
+                        CYCLE_7];
     for (NSString *name in cycles) {
         [Cycle cycleWithName:name inManagedObjectContext:context];
     }
@@ -80,26 +117,25 @@
 
 + (void)loadPeriodsIntoContext:(NSManagedObjectContext *)context
 {
-    NSArray *periods = @[@"1",
-                         @"2",
-                         @"3",
-                         @"4",
-                         @"5",
-                         @"6",
-                         @"7",
-                         @"8",
-                         @"Assembly",
-                         @"Chapel",
-                         @"Lunch",
-                         @"Meeting"];
+    NSArray *periods = @[PERIOD_1,
+                         PERIOD_2,
+                         PERIOD_3,
+                         PERIOD_4,
+                         PERIOD_5,
+                         PERIOD_6,
+                         PERIOD_7,
+                         PERIOD_8,
+                         PERIOD_ASSEMBLY,
+                         PERIOD_CHAPEL,
+                         PERIOD_LUNCH,
+                         PERIOD_MEETING];
     for (NSString *name in periods) {
         [Period periodWithName:name inManagedObjectContext:context];
     }
 }
 
 
-#pragma mark - 
-#pragma mark JSON Schedule Data Load
+#pragma mark - JSON Schedule Data Load
 
 + (void)loadScheduleJSONIntoContext:(NSManagedObjectContext *)context
 {
@@ -123,6 +159,153 @@
 }
 
 
+#pragma mark - Load Bell Cycle Period Data
+
++ (void)loadBellName:(NSString *)bellName
+           cycleName:(NSString *)cycleName
+             periods:(NSArray*)periods
+               times:(NSArray *)times
+intoManagedObjectContext:(NSManagedObjectContext *)context
+{
+    for (int i=0; i<[periods count]; i++) {
+        [BellCyclePeriod bellCyclePeriodWithBellName:bellName
+                                           cycleName:cycleName
+                                          periodName:periods[i]
+                                     startTimeString:times[i][@"start"]
+                                       endTimeString:times[i][@"end"]
+                              inManagedObjectContext:context];
+    }
+}
+
++ (void)loadBellCyclePeriodDataIntoContext:(NSManagedObjectContext *)context
+{
+    [self loadBasicPeriodDataIntoContext:context];
+    [self loadChapelPeriodDataIntoContext:context];
+}
+
++ (void)loadBasicPeriodDataIntoContext:(NSManagedObjectContext *)context
+{
+    NSString *bellType = BELL_BASIC;
+    NSArray *periods = nil;
+    
+    // BASIC - CYCLE 1
+    NSArray *times = @[@{@"start": @"07:50", @"end": @"08:34"},
+                       @{@"start": @"08:39", @"end": @"08:39"},
+                       @{@"start": @"09:28", @"end": @"10:12"},
+                       @{@"start": @"10:17", @"end": @"11:01"},
+                       @{@"start": @"11:06", @"end": @"11:50"},
+                       @{@"start": @"11:50", @"end": @"12:33"},
+                       @{@"start": @"12:38", @"end": @"13:22"},
+                       @{@"start": @"13:27", @"end": @"14:11"},
+                       @{@"start": @"14:16", @"end": @"15:00"}];
+    periods = @[PERIOD_1,
+                PERIOD_2,
+                PERIOD_3,
+                PERIOD_4,
+                PERIOD_5,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_7,
+                PERIOD_8];
+    [self loadBellName:bellType
+             cycleName:CYCLE_1
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // BASIC - CYCLE 7
+    periods = @[PERIOD_7,
+                PERIOD_8,
+                PERIOD_1,
+                PERIOD_2,
+                PERIOD_5,
+                PERIOD_LUNCH,
+                PERIOD_6,    
+                PERIOD_3,    
+                PERIOD_4];
+    [self loadBellName:bellType
+             cycleName:CYCLE_7
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // BASIC - CYCLE 3
+    periods = @[PERIOD_3,
+                PERIOD_4,
+                PERIOD_7,
+                PERIOD_8,
+                PERIOD_5,
+                PERIOD_LUNCH,
+                PERIOD_6,    
+                PERIOD_1,
+                PERIOD_2];
+    [self loadBellName:bellType
+             cycleName:CYCLE_3
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+}
+
++ (void)loadChapelPeriodDataIntoContext:(NSManagedObjectContext *)context
+{
+    NSString *bellType = BELL_CHAPEL;
+    NSArray *periods = nil;
+    
+    // CHAPEL - CYCLE 1
+    NSArray *times = @[@{@"start": @"07:50", @"end": @"08:09"},
+                       @{@"start": @"08:14", @"end": @"08:55"},
+                       @{@"start": @"09:00", @"end": @"09:41"},
+                       @{@"start": @"09:46", @"end": @"10:27"},
+                       @{@"start": @"10:32", @"end": @"11:13"},
+                       @{@"start": @"11:18", @"end": @"11:59"},
+                       @{@"start": @"11:59", @"end": @"12:42"},
+                       @{@"start": @"12:47", @"end": @"13:28"},
+                       @{@"start": @"13:33", @"end": @"14:14"},
+                       @{@"start": @"14:19", @"end": @"15:00"}];
+    periods = @[PERIOD_CHAPEL,
+                PERIOD_1,
+                PERIOD_2,
+                PERIOD_3,
+                PERIOD_4,
+                PERIOD_5,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_7,
+                PERIOD_8];
+    [self loadBellName:bellType
+             cycleName:CYCLE_1
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // CHAPEL - CYCLE 7
+    periods = @[PERIOD_CHAPEL,
+                PERIOD_7,
+                PERIOD_8,
+                PERIOD_1,
+                PERIOD_2,
+                PERIOD_5,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_3,
+                PERIOD_4];
+    [self loadBellName:bellType
+             cycleName:CYCLE_7
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // CHAPEL - CYCLE 3
+    periods = @[PERIOD_CHAPEL,
+                PERIOD_3,
+                PERIOD_4,
+                PERIOD_7,
+                PERIOD_8,
+                PERIOD_5,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_1,
+                PERIOD_2];
+    [self loadBellName:bellType
+             cycleName:CYCLE_3
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+}
 
 
 @end
