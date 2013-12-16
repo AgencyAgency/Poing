@@ -15,6 +15,10 @@
 {
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"yyyy-MM-dd"];
+    
+    // If you appreciate your sanity, store times in UTC:
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
+    
     return [formatter dateFromString:schoolDayString];
 }
 
