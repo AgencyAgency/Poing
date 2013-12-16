@@ -6,7 +6,7 @@
     </entity>
     <entity name="BellCycle" representedClassName="BellCycle" syncable="YES">
         <relationship name="bell" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Bell" inverseName="bellCycles" inverseEntity="Bell" syncable="YES"/>
-        <relationship name="bellCyclePeriods" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="BellCyclePeriod" inverseName="bellCycle" inverseEntity="BellCyclePeriod" syncable="YES"/>
+        <relationship name="bellCyclePeriods" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="BellCyclePeriod" inverseName="bellCycle" inverseEntity="BellCyclePeriod" syncable="YES"/>
         <relationship name="cycle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Cycle" inverseName="bellCycles" inverseEntity="Cycle" syncable="YES"/>
         <relationship name="schoolDays" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SchoolDay" inverseName="bellCycle" inverseEntity="SchoolDay" syncable="YES"/>
     </entity>

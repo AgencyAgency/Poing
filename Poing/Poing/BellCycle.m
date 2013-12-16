@@ -10,6 +10,7 @@
 #import "Bell.h"
 #import "BellCyclePeriod.h"
 #import "Cycle.h"
+#import "SchoolDay.h"
 
 
 @implementation BellCycle

@@ -7,12 +7,13 @@
 //
 
 #import "AASchoolDayCDTVC.h"
+#import "AABellScheduleVC.h"
 #import "AAAppDelegate.h"
 #import "SchoolDay.h"
 #import "BellCycle+Info.h"
 
 @interface AASchoolDayCDTVC ()
-
+@property (strong, nonatomic) AABellScheduleVC *detailViewController;
 @end
 
 @implementation AASchoolDayCDTVC
@@ -45,24 +46,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-//    self.detailViewController = (AADetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.detailViewController = (AABellScheduleVC *)[self.splitViewController.viewControllers lastObject];
     
     DLog(@"view did load");
     if (!self.managedObjectContext) self.managedObjectContext = [(AAAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
 }
 
-#pragma mark - Table View
 
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return [[self.fetchedResultsController sections] count];
-//}
-
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    id <NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
-//    return [sectionInfo numberOfObjects];
-//}
+#pragma mark - Table View Data Source
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -74,9 +65,17 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     SchoolDay *schoolDay = (SchoolDay *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-//    cell.textLabel.text = [[object valueForKey:@"timeStamp"] description];
     cell.textLabel.text = [schoolDay.day description];
     cell.detailTextLabel.text = [schoolDay.bellCycle title];
+}
+
+
+#pragma mark - Table View Delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    SchoolDay *schoolDay = (SchoolDay *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    self.detailViewController.bellCycle = schoolDay.bellCycle;
 }
 
 @end
