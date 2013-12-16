@@ -7,11 +7,13 @@
 //
 
 #import "AABellScheduleVC.h"
+#import "BellCycle+Info.h"
 #import "BellCyclePeriod+Info.h"
 #import "Period.h"
 
 @interface AABellScheduleVC ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) NSArray *periods;
 @end
@@ -46,8 +48,13 @@
     // Update the user interface for the detail item.
     
     if (self.bellCycle) {
+        self.titleLabel.text = [self.bellCycle title];
         self.periods = [self.bellCycle.bellCyclePeriods array];
+        self.tableView.alpha = 1.0;
         [self.tableView reloadData];
+    } else {
+        self.tableView.alpha = 0.0;
+        self.titleLabel.text = @"Select a bell cycle.";
     }
 }
 
@@ -86,7 +93,7 @@
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
-    barButtonItem.title = NSLocalizedString(@"School Days", @"School Days");
+    barButtonItem.title = NSLocalizedString(@"Bell Cycles", @"Bell Cycles");
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }

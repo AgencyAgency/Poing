@@ -81,6 +81,13 @@
                                     <outlet property="delegate" destination="Z8E-vb-zeo" id="ilP-Di-kZ6"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Basic Schedule - Cycle: 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N85-bg-g3c">
+                                <rect key="frame" x="20" y="78" width="728" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -88,13 +95,14 @@
                     <navigationItem key="navigationItem" title="Periods" id="OuK-jy-Cg1"/>
                     <connections>
                         <outlet property="tableView" destination="9mN-97-6H8" id="2jd-p6-pwj"/>
+                        <outlet property="titleLabel" destination="N85-bg-g3c" id="cEh-Gr-3iw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuw-JK-8Uh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4942" y="147"/>
         </scene>
-        <!--School DayCDTVC - School Days-->
+        <!--School DayCDTVC - Bell Cycles-->
         <scene sceneID="Sul-Hb-qkI">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="7sC-D3-nPe" customClass="AASchoolDayCDTVC" sceneMemberID="viewController">
@@ -133,7 +141,7 @@
                             <outlet property="delegate" destination="7sC-D3-nPe" id="dze-GJ-rYA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="School Days" id="HzV-WZ-Odk"/>
+                    <navigationItem key="navigationItem" title="Bell Cycles" id="HzV-WZ-Odk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SY9-sv-FHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
