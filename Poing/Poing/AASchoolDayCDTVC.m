@@ -9,7 +9,7 @@
 #import "AASchoolDayCDTVC.h"
 #import "AABellScheduleVC.h"
 #import "AAAppDelegate.h"
-#import "SchoolDay.h"
+#import "SchoolDay+Info.h"
 #import "BellCycle+Info.h"
 
 @interface AASchoolDayCDTVC ()
@@ -73,7 +73,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     SchoolDay *schoolDay = (SchoolDay *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [schoolDay.day description];
+    cell.textLabel.text = [schoolDay formattedDay];
     cell.detailTextLabel.text = [schoolDay.bellCycle title];
 }
 

@@ -14,7 +14,7 @@
 
 - (NSString *)title
 {
-    return [NSString stringWithFormat:@"%@ - Cycle: %@", self.bell.name, self.cycle.name];
+    return [NSString stringWithFormat:@"%@ - Cycle %@", self.bell.name, self.cycle.name];
 }
 
 @end

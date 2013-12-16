@@ -43,6 +43,7 @@
 		CF85FD6A185EEE0900C70BE1 /* AABellScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD69185EEE0900C70BE1 /* AABellScheduleVC.m */; };
 		CF85FD6D185EF2B900C70BE1 /* BellCyclePeriod+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD6C185EF2B900C70BE1 /* BellCyclePeriod+Info.m */; };
 		CF85FD70185EF63100C70BE1 /* BellCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD6F185EF63100C70BE1 /* BellCycle.m */; };
+		CF85FD73185EFD5100C70BE1 /* SchoolDay+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD72185EFD5100C70BE1 /* SchoolDay+Info.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,8 @@
 		CF85FD6C185EF2B900C70BE1 /* BellCyclePeriod+Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BellCyclePeriod+Info.m"; sourceTree = "<group>"; };
 		CF85FD6E185EF63100C70BE1 /* BellCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BellCycle.h; sourceTree = "<group>"; };
 		CF85FD6F185EF63100C70BE1 /* BellCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellCycle.m; sourceTree = "<group>"; };
+		CF85FD71185EFD5100C70BE1 /* SchoolDay+Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SchoolDay+Info.h"; sourceTree = "<group>"; };
+		CF85FD72185EFD5100C70BE1 /* SchoolDay+Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SchoolDay+Info.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +267,8 @@
 				CF85FCFC185D7EC100C70BE1 /* Period+Create.m */,
 				CF85FD09185E494F00C70BE1 /* SchoolDay+Create.h */,
 				CF85FD0A185E494F00C70BE1 /* SchoolDay+Create.m */,
+				CF85FD71185EFD5100C70BE1 /* SchoolDay+Info.h */,
+				CF85FD72185EFD5100C70BE1 /* SchoolDay+Info.m */,
 				CF85FD0C185E4D1100C70BE1 /* BellCycle+Create.h */,
 				CF85FD0D185E4D1100C70BE1 /* BellCycle+Create.m */,
 				CF85FD62185E6EF800C70BE1 /* BellCycle+Info.h */,
@@ -404,6 +409,7 @@
 				CF85FD70185EF63100C70BE1 /* BellCycle.m in Sources */,
 				CF85FD0E185E4D1100C70BE1 /* BellCycle+Create.m in Sources */,
 				CF85FD16185E649500C70BE1 /* AASchoolDayCDTVC.m in Sources */,
+				CF85FD73185EFD5100C70BE1 /* SchoolDay+Info.m in Sources */,
 				CF85FCE3185D4F7000C70BE1 /* Period.m in Sources */,
 				CF85FD6D185EF2B900C70BE1 /* BellCyclePeriod+Info.m in Sources */,
 				CF85FD64185E6EF800C70BE1 /* BellCycle+Info.m in Sources */,
