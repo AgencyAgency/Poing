@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "BellCycle.h"
 
-@interface AABellScheduleVC : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface AABellScheduleVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) BellCycle *bellCycle;
 

@@ -18,6 +18,14 @@
 
 @implementation AASchoolDayCDTVC
 
+- (AABellScheduleVC *)detailViewController
+{
+    if (!_detailViewController) {
+        _detailViewController = (AABellScheduleVC *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    }
+    return _detailViewController;
+}
+
 - (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     _managedObjectContext = managedObjectContext;
@@ -34,11 +42,14 @@
     
 }
 
+
+
 - (void)awakeFromNib
 {
-    DLog(@"awake from nib");
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
+    self.splitViewController.delegate = self.detailViewController;
+    
     [super awakeFromNib];
 }
 
@@ -46,9 +57,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.detailViewController = (AABellScheduleVC *)[self.splitViewController.viewControllers lastObject];
-    
-    DLog(@"view did load");
     if (!self.managedObjectContext) self.managedObjectContext = [(AAAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
 }
 

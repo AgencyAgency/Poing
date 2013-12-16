@@ -34,7 +34,7 @@
             </objects>
             <point key="canvasLocation" x="3037" y="1874"/>
         </scene>
-        <!--Bell ScheduleVC-->
+        <!--Bell ScheduleVC - Periods-->
         <scene sceneID="tHe-pM-v1p">
             <objects>
                 <viewController id="Z8E-vb-zeo" customClass="AABellScheduleVC" sceneMemberID="viewController">
@@ -52,7 +52,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Period Cell" textLabel="xNL-6L-peC" detailTextLabel="DNd-xL-AdE" style="IBUITableViewCellStyleSubtitle" id="fcw-on-lmq">
-                                        <rect key="frame" x="0.0" y="22" width="249" height="44"/>
+                                        <rect key="frame" x="0.0" y="86" width="249" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fcw-on-lmq" id="dKc-ly-SW9">
                                             <rect key="frame" x="0.0" y="0.0" width="249" height="43"/>
@@ -85,15 +85,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Periods" id="OuK-jy-Cg1"/>
                     <connections>
                         <outlet property="tableView" destination="9mN-97-6H8" id="2jd-p6-pwj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuw-JK-8Uh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3968" y="147"/>
+            <point key="canvasLocation" x="4942" y="147"/>
         </scene>
-        <!--School DayCDTVC - Root View Controller-->
+        <!--School DayCDTVC - School Days-->
         <scene sceneID="Sul-Hb-qkI">
             <objects>
                 <tableViewController clearsSelectionOnViewWillAppear="NO" id="7sC-D3-nPe" customClass="AASchoolDayCDTVC" sceneMemberID="viewController">
@@ -132,7 +133,7 @@
                             <outlet property="delegate" destination="7sC-D3-nPe" id="dze-GJ-rYA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="HzV-WZ-Odk"/>
+                    <navigationItem key="navigationItem" title="School Days" id="HzV-WZ-Odk"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SY9-sv-FHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -161,7 +162,7 @@
                     <toolbarItems/>
                     <connections>
                         <segue destination="5E1-5R-Pqm" kind="relationship" relationship="masterViewController" id="dlJ-Q4-mXy"/>
-                        <segue destination="Z8E-vb-zeo" kind="relationship" relationship="detailViewController" id="dF3-vf-Uwp"/>
+                        <segue destination="JVd-3x-x5E" kind="relationship" relationship="detailViewController" id="dF3-vf-Uwp"/>
                     </connections>
                 </splitViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1EJ-V1-hSa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -241,6 +242,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2023" y="718"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bYR-cd-ek5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="JVd-3x-x5E" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7Ac-tV-63a">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Z8E-vb-zeo" kind="relationship" relationship="rootViewController" id="yIn-xp-x0W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hys-J8-SGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3968" y="147"/>
         </scene>
     </scenes>
     <resources>
