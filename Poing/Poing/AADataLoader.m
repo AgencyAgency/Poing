@@ -190,7 +190,7 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     
     // BASIC - CYCLE 1
     NSArray *times = @[@{@"start": @"07:50", @"end": @"08:34"},
-                       @{@"start": @"08:39", @"end": @"08:39"},
+                       @{@"start": @"08:39", @"end": @"09:23"},
                        @{@"start": @"09:28", @"end": @"10:12"},
                        @{@"start": @"10:17", @"end": @"11:01"},
                        @{@"start": @"11:06", @"end": @"11:50"},
