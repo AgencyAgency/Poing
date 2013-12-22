@@ -14,6 +14,7 @@
 #import "SchoolDay+Info.h"
 #import "AADate.h"
 #import "AASchedule.h"
+@import QuartzCore;
 
 @interface AACheckScheduleVC ()
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
@@ -28,6 +29,8 @@
 @property (strong, nonatomic) BellCycle *selectedBellCycle;
 @property (strong, nonatomic) NSOrderedSet *bellCyclePeriods;
 @property (strong, nonatomic) AASchedule *schedule;
+@property (strong, nonatomic) CADisplayLink *displayLink;
+@property (strong, nonatomic) BellCyclePeriod *currentBellCyclePeriod;
 @end
 
 @implementation AACheckScheduleVC
@@ -41,6 +44,20 @@
     }
     [self.pickerView reloadAllComponents];
     [self selectToday];
+    [self configureView];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (self.currentBellCyclePeriod) {
+        [self startTickerLoop];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.displayLink invalidate];
+    self.displayLink = nil;
 }
 
 - (void)selectToday
@@ -63,7 +80,6 @@
     _managedObjectContext = managedObjectContext;
  
     self.schoolDays = [SchoolDay allSchoolDaysInManagedObjectContext:_managedObjectContext];
-    [self configureView];
 }
 
 - (void)setSchoolDays:(NSArray *)schoolDays
@@ -95,15 +111,62 @@
     [self.tableView reloadData];
 }
 
-- (void)configureView
+- (void)setCurrentBellCyclePeriod:(BellCyclePeriod *)currentBellCyclePeriod
 {
-    BellCyclePeriod *currentBellCyclePeriod = [self.selectedSchoolDay currentBellCyclePeriod];
+    _currentBellCyclePeriod = currentBellCyclePeriod;
     
     NSString *periodText = nil;
-    if (currentBellCyclePeriod) {
-        periodText = [NSString stringWithFormat:@"left in period: %@", [currentBellCyclePeriod.period.name description]];
+    if (_currentBellCyclePeriod) {
+        [self startTickerLoop];
+        periodText = [NSString stringWithFormat:@"left in period: %@", [_currentBellCyclePeriod.period.name description]];
+    } else {
+        [self stopTickerLoop];
     }
     self.currentPeriodLabel.text = [periodText description];
+}
+
+- (void)configureView
+{
+    self.currentBellCyclePeriod = [self.selectedSchoolDay currentBellCyclePeriod];
+}
+
+
+#pragma mark - Display Link Tick-Tock
+
+- (CADisplayLink *)displayLink{
+    if (!_displayLink) {
+        _displayLink = [CADisplayLink displayLinkWithTarget:self
+                                                   selector:@selector(tick:)];
+        _displayLink.frameInterval = 60;
+        [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
+                           forMode:NSDefaultRunLoopMode];
+        _displayLink.paused = YES;
+    }
+    return _displayLink;
+}
+
+- (void)startTickerLoop
+{
+    self.displayLink.paused = NO;
+}
+
+- (void)stopTickerLoop
+{
+    self.displayLink.paused = YES;
+}
+
+- (void)tick:(CADisplayLink *)sender
+{
+    self.timeRemainingLabel.text = @"";
+    if (self.currentBellCyclePeriod) {
+        // get time left in period
+        NSDate *end = [self.currentBellCyclePeriod endTimeAssumingToday];
+        NSTimeInterval left = [end timeIntervalSinceDate:[AADate now]];
+        
+        NSUInteger mins = floor(left / 60);
+        NSUInteger secs = (int)left % 60;
+        self.timeRemainingLabel.text = [NSString stringWithFormat:@"%02d:%02d min", mins, secs];
+    }
 }
 
 

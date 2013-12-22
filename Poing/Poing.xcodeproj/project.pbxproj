@@ -46,6 +46,7 @@
 		CFB56D42186663FA007ABFB1 /* AACheckScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D41186663FA007ABFB1 /* AACheckScheduleVC.m */; };
 		CFB56D4518667B0A007ABFB1 /* AASchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D4418667B0A007ABFB1 /* AASchedule.m */; };
 		CFB56D481866D1D8007ABFB1 /* AADate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D471866D1D8007ABFB1 /* AADate.m */; };
+		CFB56D4A1866E197007ABFB1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB56D491866E197007ABFB1 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,6 +126,7 @@
 		CFB56D4418667B0A007ABFB1 /* AASchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASchedule.m; sourceTree = "<group>"; };
 		CFB56D461866D1D8007ABFB1 /* AADate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AADate.h; sourceTree = "<group>"; };
 		CFB56D471866D1D8007ABFB1 /* AADate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AADate.m; sourceTree = "<group>"; };
+		CFB56D491866E197007ABFB1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFB56D4A1866E197007ABFB1 /* QuartzCore.framework in Frameworks */,
 				CF85FCF4185D501400C70BE1 /* CoreData.framework in Frameworks */,
 				CF108BDF185C0A01001E6706 /* CoreGraphics.framework in Frameworks */,
 				CF108BE1185C0A01001E6706 /* UIKit.framework in Frameworks */,
@@ -174,6 +177,7 @@
 		CF108BDB185C0A01001E6706 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CFB56D491866E197007ABFB1 /* QuartzCore.framework */,
 				CF85FCF3185D501400C70BE1 /* CoreData.framework */,
 				CF108BDC185C0A01001E6706 /* Foundation.framework */,
 				CF108BDE185C0A01001E6706 /* CoreGraphics.framework */,
