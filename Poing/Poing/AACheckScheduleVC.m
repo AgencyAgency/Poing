@@ -8,7 +8,7 @@
 
 #import "AACheckScheduleVC.h"
 #import "AAAppDelegate.h"
-#import "BellCycle.h"
+#import "BellCycle+Info.h"
 #import "BellCyclePeriod+Info.h"
 #import "Period.h"
 #import "SchoolDay+Info.h"
@@ -16,8 +16,11 @@
 @interface AACheckScheduleVC ()
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *bellCycleLabel;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSArray *schoolDays;
+@property (strong, nonatomic) SchoolDay *selectedSchoolDay;
+@property (strong, nonatomic) BellCycle *selectedBellCycle;
 @property (strong, nonatomic) NSOrderedSet *bellCyclePeriods;
 @end
 
@@ -40,9 +43,25 @@
     [self configureView];
 }
 
+- (void)setSelectedSchoolDay:(SchoolDay *)selectedSchoolDay
+{
+    _selectedSchoolDay = selectedSchoolDay;
+    
+    self.selectedBellCycle = _selectedSchoolDay.bellCycle;
+}
+
+- (void)setSelectedBellCycle:(BellCycle *)selectedBellCycle
+{
+    _selectedBellCycle = selectedBellCycle;
+    
+    self.bellCycleLabel.text = [_selectedBellCycle title];
+    self.bellCyclePeriods = _selectedBellCycle.bellCyclePeriods;
+}
+
 - (void)setBellCyclePeriods:(NSOrderedSet *)bellCyclePeriods
 {
     _bellCyclePeriods = bellCyclePeriods;
+    
     [self.tableView reloadData];
 }
 
@@ -75,8 +94,8 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    SchoolDay *day = [self.schoolDays objectAtIndex:row];   
-    self.bellCyclePeriods = day.bellCycle.bellCyclePeriods;
+    SchoolDay *day = [self.schoolDays objectAtIndex:row];
+    self.selectedSchoolDay = day;
 }
 
 
