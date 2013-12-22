@@ -14,6 +14,7 @@
 
 @interface AASchoolDayCDTVC ()
 @property (strong, nonatomic) AABellScheduleVC *detailViewController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @end
 
 @implementation AASchoolDayCDTVC
@@ -42,8 +43,6 @@
     
 }
 
-
-
 - (void)awakeFromNib
 {
     self.clearsSelectionOnViewWillAppear = NO;
@@ -57,7 +56,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    if (!self.managedObjectContext) self.managedObjectContext = [(AAAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    if (!self.managedObjectContext) {
+        self.managedObjectContext = [(AAAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
+    }
 }
 
 

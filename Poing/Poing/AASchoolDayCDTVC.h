@@ -10,6 +10,4 @@
 
 @interface AASchoolDayCDTVC : CoreDataTableViewController
 
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
 @end
