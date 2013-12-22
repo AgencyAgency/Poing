@@ -9,6 +9,8 @@
 #import "BellCyclePeriod.h"
 
 @interface BellCyclePeriod (Info)
++ (NSDate *)dateFromFullFormattedHSTString:(NSString *)hstString;
 - (NSString *)formattedStartTime;
 - (NSString *)formattedEndTime;
+- (BOOL)containsTimePartOfDate:(NSDate *)date;
 @end

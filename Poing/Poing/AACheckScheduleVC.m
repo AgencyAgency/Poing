@@ -49,8 +49,6 @@
 {
     _schoolDays = schoolDays;
     self.schedule = [AASchedule scheduleOfSchoolDays:self.schoolDays];
-    SchoolDay *today = [self.schedule schoolDayForToday];
-    DLog(@"today: %@", today);
 }
 
 - (void)setSelectedSchoolDay:(SchoolDay *)selectedSchoolDay
@@ -140,6 +138,21 @@
     NSString *start = [bellCyclePeriod formattedStartTime];
     NSString *end = [bellCyclePeriod formattedEndTime];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", start, end];
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.selectedSchoolDay == [self.schedule schoolDayForToday]) {
+        BellCyclePeriod *bellCyclePeriod = (BellCyclePeriod *)[self.bellCyclePeriods objectAtIndex:indexPath.row];
+        
+        NSDate *now = [NSDate date];
+        now = [BellCyclePeriod dateFromFullFormattedHSTString:@"2014-01-07 09:00"];
+        if ([bellCyclePeriod containsTimePartOfDate:now]) {
+            cell.backgroundColor = [UIColor magentaColor];
+        }
+    } else {
+        cell.backgroundColor = [UIColor clearColor];
+    }
 }
 
 @end
