@@ -36,7 +36,6 @@
 {
     // Use beginning of 2001 since that is the 0 reference date:
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-//    [formatter setDateFormat:@"HH:mm"];
     formatter.timeStyle = NSDateFormatterNoStyle;
     formatter.dateStyle = NSDateFormatterFullStyle;
     
