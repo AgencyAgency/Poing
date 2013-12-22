@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AACheckScheduleVC : UIViewController
+@interface AACheckScheduleVC : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @end

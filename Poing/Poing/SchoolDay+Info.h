@@ -9,5 +9,6 @@
 #import "SchoolDay.h"
 
 @interface SchoolDay (Info)
++ (NSArray *)allSchoolDaysInManagedObjectContext:(NSManagedObjectContext *)context;
 - (NSString *)formattedDay;
 @end

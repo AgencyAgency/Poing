@@ -10,6 +10,28 @@
 
 @implementation SchoolDay (Info)
 
++ (NSArray *)allSchoolDaysInManagedObjectContext:(NSManagedObjectContext *)context
+{
+    NSArray *schoolDays = nil;
+
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SchoolDay"];
+    request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"day" ascending:YES]];
+    
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    if (!matches || ([matches count] < 1)) {
+        // handle error
+        NSAssert(NO, @"wrong number of school day matches returned.");
+        
+    } else {
+        DLog(@"school days loaded: %d", [matches count]);
+        schoolDays = matches;
+    }
+    
+    return schoolDays;
+}
+
 - (NSString *)formattedDay
 {
     // Use beginning of 2001 since that is the 0 reference date:
