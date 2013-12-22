@@ -121,6 +121,7 @@
         periodText = [NSString stringWithFormat:@"left in period: %@", [_currentBellCyclePeriod.period.name description]];
     } else {
         [self stopTickerLoop];
+        self.timeRemainingLabel.text = @"";
     }
     self.currentPeriodLabel.text = [periodText description];
 }
