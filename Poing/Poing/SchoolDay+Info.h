@@ -7,10 +7,14 @@
 //
 
 #import "SchoolDay.h"
+#import "BellCyclePeriod.h"
 
 @interface SchoolDay (Info)
 + (NSArray *)allSchoolDaysInManagedObjectContext:(NSManagedObjectContext *)context;
 - (NSString *)formattedDay;
 
 + (NSString *)codeForHSTDate:(NSDate *)date;
++ (BOOL)isTodaySchoolDayAsGMT:(NSDate *)gmtDate;
+- (BOOL)isToday;
+- (BellCyclePeriod *)currentBellCyclePeriod;
 @end

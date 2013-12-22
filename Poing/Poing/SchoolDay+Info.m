@@ -7,6 +7,10 @@
 //
 
 #import "SchoolDay+Info.h"
+#import "SchoolDay+Create.h"
+#import "BellCycle.h"
+#import "BellCyclePeriod+Info.h"
+#import "AADate.h"
 
 @implementation SchoolDay (Info)
 
@@ -60,6 +64,33 @@
 + (NSString *)codeForHSTDate:(NSDate *)date
 {
     return [self codeForDate:date timeZone:[NSTimeZone timeZoneWithAbbreviation:@"HST"]];
+}
+
++ (BOOL)isTodaySchoolDayAsGMT:(NSDate *)gmtDate
+{
+    NSString *hstDateCode = [self.class codeForHSTDate:[AADate now]];
+    NSDate *todayInGMT = [self.class dateFromSchoolDayString:hstDateCode];
+    return [gmtDate compare:todayInGMT] == NSOrderedSame;
+}
+
+- (BOOL)isToday
+{
+    return [self.class isTodaySchoolDayAsGMT:self.day];
+}
+
+- (BellCyclePeriod *)currentBellCyclePeriod
+{
+    BellCyclePeriod *bellCyclePeriod = nil;
+
+    if ([self isToday]) {
+        NSUInteger match = [self.bellCycle.bellCyclePeriods indexOfObjectPassingTest:^BOOL(BellCyclePeriod *bcp, NSUInteger idx, BOOL *stop) {
+            return [bcp containsTimePartOfDate:[AADate now]];
+        }];
+        if (match != NSNotFound) {
+            bellCyclePeriod = [self.bellCycle.bellCyclePeriods objectAtIndex:match];
+        }
+    }
+    return bellCyclePeriod;
 }
 
 @end

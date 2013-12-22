@@ -7,8 +7,8 @@
 //
 
 #import "AASchedule.h"
-#import "SchoolDay+Create.h"
 #import "SchoolDay+Info.h"
+#import "AADate.h"
 
 
 @interface AASchedule ()
@@ -33,12 +33,9 @@
 
 - (SchoolDay *)schoolDayForToday
 {
-    NSString *hstDateCode = [SchoolDay codeForHSTDate:[NSDate date]];
-    hstDateCode = @"2014-01-07";
-    NSDate *todayInGMT = [SchoolDay dateFromSchoolDayString:hstDateCode];
     SchoolDay *today = nil;
     NSUInteger match = [self.schoolDays indexOfObjectPassingTest:^BOOL(SchoolDay *schoolDay, NSUInteger idx, BOOL *stop) {
-        return [schoolDay.day compare:todayInGMT] == NSOrderedSame;
+        return [schoolDay isToday];
     }];
     if (match != NSNotFound) {
         today = [self.schoolDays objectAtIndex:match];

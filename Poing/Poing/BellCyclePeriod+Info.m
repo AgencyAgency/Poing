@@ -7,6 +7,7 @@
 //
 
 #import "BellCyclePeriod+Info.h"
+#import "AADate.h"
 
 #define FORMAT_DATE_STRING @"yyyy-MM-dd"
 #define FORMAT_TIME_STRING @"HH:mm"
@@ -30,17 +31,16 @@
     return [formatter stringFromDate:date];
 }
 
-+ (NSString *)fullFormattedTodayStringWithTimeString:(NSString *)timeString
++ (NSString *)fullFormattedHSTStringWithTimeString:(NSString *)timeString
 {
     // Use beginning of 2001 since that is the 0 reference date:
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:FORMAT_DATE_STRING];
     
     // If you appreciate your sanity, store times in UTC:
-    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
+    [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"HST"]];
     
-    NSString *datePart = [formatter stringFromDate:[NSDate date]];
-    datePart = @"2014-01-07";
+    NSString *datePart = [formatter stringFromDate:[AADate now]];
     return [NSString stringWithFormat:@"%@ %@", datePart, timeString];
 }
 
@@ -67,7 +67,7 @@
 
 + (NSDate *)dateAssumingTodayWithFormattedTime:(NSString *)formattedTime
 {
-    NSString *full = [self.class fullFormattedTodayStringWithTimeString:formattedTime];
+    NSString *full = [self.class fullFormattedHSTStringWithTimeString:formattedTime];
     return [self.class dateFromFullFormattedHSTString:full];
 }
 
