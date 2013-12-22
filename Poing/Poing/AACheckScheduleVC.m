@@ -12,6 +12,7 @@
 #import "BellCyclePeriod+Info.h"
 #import "Period.h"
 #import "SchoolDay+Info.h"
+#import "AASchedule.h"
 
 @interface AACheckScheduleVC ()
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
@@ -22,6 +23,7 @@
 @property (strong, nonatomic) SchoolDay *selectedSchoolDay;
 @property (strong, nonatomic) BellCycle *selectedBellCycle;
 @property (strong, nonatomic) NSOrderedSet *bellCyclePeriods;
+@property (strong, nonatomic) AASchedule *schedule;
 @end
 
 @implementation AACheckScheduleVC
@@ -41,6 +43,14 @@
  
     self.schoolDays = [SchoolDay allSchoolDaysInManagedObjectContext:_managedObjectContext];
     [self configureView];
+}
+
+- (void)setSchoolDays:(NSArray *)schoolDays
+{
+    _schoolDays = schoolDays;
+    self.schedule = [AASchedule scheduleOfSchoolDays:self.schoolDays];
+    SchoolDay *today = [self.schedule schoolDayForToday];
+    DLog(@"today: %@", today);
 }
 
 - (void)setSelectedSchoolDay:(SchoolDay *)selectedSchoolDay
@@ -89,7 +99,11 @@
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     SchoolDay *day = [self.schoolDays objectAtIndex:row];
-    return [day formattedDay];
+    NSString *title = [day formattedDay];
+    if (day == [self.schedule schoolDayForToday]) {
+        title = @"Today";
+    }
+    return title;
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component

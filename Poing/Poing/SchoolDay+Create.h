@@ -9,5 +9,6 @@
 #import "SchoolDay.h"
 
 @interface SchoolDay (Create)
++ (NSDate *)dateFromSchoolDayString:(NSString *)schoolDayString;
 + (SchoolDay *)schoolDayWithDayString:(NSString *)dayString bellName:(NSString *)bellName cycleName:(NSString *)cycleName inManagedObjectContext:(NSManagedObjectContext *)context;
 @end

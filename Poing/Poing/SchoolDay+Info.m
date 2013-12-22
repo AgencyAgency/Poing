@@ -45,4 +45,21 @@
     return [formatter stringFromDate:self.day];
 }
 
++ (NSString *)codeForDate:(NSDate *)date timeZone:(NSTimeZone *)timeZone
+{
+    // Use beginning of 2001 since that is the 0 reference date:
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyy-MM-dd";
+    
+    // If you appreciate your sanity, store times in UTC:
+    [formatter setTimeZone:timeZone];
+    
+    return [formatter stringFromDate:date];
+}
+
++ (NSString *)codeForHSTDate:(NSDate *)date
+{
+    return [self codeForDate:date timeZone:[NSTimeZone timeZoneWithAbbreviation:@"HST"]];
+}
+
 @end

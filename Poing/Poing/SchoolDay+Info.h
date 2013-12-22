@@ -11,4 +11,6 @@
 @interface SchoolDay (Info)
 + (NSArray *)allSchoolDaysInManagedObjectContext:(NSManagedObjectContext *)context;
 - (NSString *)formattedDay;
+
++ (NSString *)codeForHSTDate:(NSDate *)date;
 @end

@@ -44,6 +44,7 @@
 		CF85FD70185EF63100C70BE1 /* BellCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD6F185EF63100C70BE1 /* BellCycle.m */; };
 		CF85FD73185EFD5100C70BE1 /* SchoolDay+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD72185EFD5100C70BE1 /* SchoolDay+Info.m */; };
 		CFB56D42186663FA007ABFB1 /* AACheckScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D41186663FA007ABFB1 /* AACheckScheduleVC.m */; };
+		CFB56D4518667B0A007ABFB1 /* AASchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D4418667B0A007ABFB1 /* AASchedule.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +120,8 @@
 		CF85FD72185EFD5100C70BE1 /* SchoolDay+Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SchoolDay+Info.m"; sourceTree = "<group>"; };
 		CFB56D40186663FA007ABFB1 /* AACheckScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AACheckScheduleVC.h; sourceTree = "<group>"; };
 		CFB56D41186663FA007ABFB1 /* AACheckScheduleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AACheckScheduleVC.m; sourceTree = "<group>"; };
+		CFB56D4318667B0A007ABFB1 /* AASchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASchedule.h; sourceTree = "<group>"; };
+		CFB56D4418667B0A007ABFB1 /* AASchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASchedule.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +192,8 @@
 				CF108BF2185C0A01001E6706 /* AAFirstViewController.m */,
 				CFB56D40186663FA007ABFB1 /* AACheckScheduleVC.h */,
 				CFB56D41186663FA007ABFB1 /* AACheckScheduleVC.m */,
+				CFB56D4318667B0A007ABFB1 /* AASchedule.h */,
+				CFB56D4418667B0A007ABFB1 /* AASchedule.m */,
 				CF108BF7185C0A01001E6706 /* Images.xcassets */,
 				CF108BE3185C0A01001E6706 /* Supporting Files */,
 			);
@@ -404,6 +409,7 @@
 				CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */,
 				CF108BED185C0A01001E6706 /* AAAppDelegate.m in Sources */,
 				CF108BF3185C0A01001E6706 /* AAFirstViewController.m in Sources */,
+				CFB56D4518667B0A007ABFB1 /* AASchedule.m in Sources */,
 				CF85FCFA185D712500C70BE1 /* Cycle+Create.m in Sources */,
 				CF85FD70185EF63100C70BE1 /* BellCycle.m in Sources */,
 				CF85FD0E185E4D1100C70BE1 /* BellCycle+Create.m in Sources */,
