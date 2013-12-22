@@ -51,87 +51,36 @@
 
 + (void)loadScheduleDataWithContext:(NSManagedObjectContext *)context
 {
+    // Parse schedule:
+    [self loadScheduleJSONIntoContext:context];
+    
+    // Test data load:
+    [self verifyBellsCyclesPeriodsWithContext:context];
+    
+    // Load period times:
+    [self loadBellCyclePeriodDataIntoContext:context];
+}
+
++ (void)verifyBellsCyclesPeriodsWithContext:(NSManagedObjectContext *)context
+{
     // Test and load bells:
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Bell"];
     NSError *error;
     NSArray *bells = [context executeFetchRequest:request error:&error];
     NSAssert(!error, @"error loading bell data");
-    
-    [self loadBellsIntoContext:context];
     NSLog(@"Bells count: %i", [bells count]);
     
     // Test and load cycles:
     request = [NSFetchRequest fetchRequestWithEntityName:@"Cycle"];
     NSArray *cycles = [context executeFetchRequest:request error:&error];
     NSAssert(!error, @"error loading cycle data");
-    
-    [self loadCyclesIntoContext:context];
     NSLog(@"Cycles count: %i", [cycles count]);
     
     // Test and load periods:
     request = [NSFetchRequest fetchRequestWithEntityName:@"Period"];
     NSArray *periods = [context executeFetchRequest:request error:&error];
     NSAssert(!error, @"error loading period data");
-    
-    [self loadPeriodsIntoContext:context];
     NSLog(@"Cycles count: %i", [periods count]);
-    
-    // Parse schedule:
-    [self loadScheduleJSONIntoContext:context];
-    
-    // Load period times:
-    [self loadBellCyclePeriodDataIntoContext:context];
-}
-
-+ (void)loadBellsIntoContext:(NSManagedObjectContext *)context
-{
-    NSArray *bells = @[BELL_ASSEMBLY_1,
-                       BELL_ASSEMBLY_2,
-                       BELL_ASSEMBLY_3,
-                       BELL_BASIC,
-                       BELL_CHAPEL,
-                       BELL_EXTENDED_1_1357,
-                       BELL_EXTENDED_1_2468,
-                       BELL_EXTENDED_2_7153,
-                       BELL_EXTENDED_2_8264,
-                       BELL_EXTENDED_3_3751,
-                       BELL_EXTENDED_3_4862,
-                       BELL_SPECIAL_CONVOCATION,
-                       BELL_SPECIAL_FAIR_DAY,
-                       BELL_SPECIAL_MAY_DAY,
-                       BELL_VARSITY_ATHLETIC_ASSEMBLY];
-    for (NSString *bellName in bells) {
-        [Bell bellWithName:bellName inManagedObjectContext:context];
-    }
-}
-
-+ (void)loadCyclesIntoContext:(NSManagedObjectContext *)context
-{
-    NSArray *cycles = @[CYCLE_1,
-                        CYCLE_3,
-                        CYCLE_7];
-    for (NSString *name in cycles) {
-        [Cycle cycleWithName:name inManagedObjectContext:context];
-    }
-}
-
-+ (void)loadPeriodsIntoContext:(NSManagedObjectContext *)context
-{
-    NSArray *periods = @[PERIOD_1,
-                         PERIOD_2,
-                         PERIOD_3,
-                         PERIOD_4,
-                         PERIOD_5,
-                         PERIOD_6,
-                         PERIOD_7,
-                         PERIOD_8,
-                         PERIOD_ASSEMBLY,
-                         PERIOD_CHAPEL,
-                         PERIOD_LUNCH,
-                         PERIOD_MEETING];
-    for (NSString *name in periods) {
-        [Period periodWithName:name inManagedObjectContext:context];
-    }
 }
 
 
