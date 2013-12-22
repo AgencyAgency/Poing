@@ -8,12 +8,17 @@
 
 #import "AACheckScheduleVC.h"
 #import "AAAppDelegate.h"
+#import "BellCycle.h"
+#import "BellCyclePeriod+Info.h"
+#import "Period.h"
 #import "SchoolDay+Info.h"
 
 @interface AACheckScheduleVC ()
 @property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSArray *schoolDays;
+@property (strong, nonatomic) NSOrderedSet *bellCyclePeriods;
 @end
 
 @implementation AACheckScheduleVC
@@ -33,6 +38,12 @@
  
     self.schoolDays = [SchoolDay allSchoolDaysInManagedObjectContext:_managedObjectContext];
     [self configureView];
+}
+
+- (void)setBellCyclePeriods:(NSOrderedSet *)bellCyclePeriods
+{
+    _bellCyclePeriods = bellCyclePeriods;
+    [self.tableView reloadData];
 }
 
 - (void)configureView
@@ -60,6 +71,42 @@
 {
     SchoolDay *day = [self.schoolDays objectAtIndex:row];
     return [day formattedDay];
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    SchoolDay *day = [self.schoolDays objectAtIndex:row];   
+    self.bellCyclePeriods = day.bellCycle.bellCyclePeriods;
+}
+
+
+#pragma mark - Schedule, UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.bellCyclePeriods count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Period Cell" forIndexPath:indexPath];
+    [self configureCell:cell atIndexPath:indexPath];
+    return cell;
+}
+
+- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+{
+    BellCyclePeriod *bellCyclePeriod = [self.bellCyclePeriods objectAtIndex:indexPath.row];
+    cell.textLabel.text = bellCyclePeriod.period.name;
+    
+    NSString *start = [bellCyclePeriod formattedStartTime];
+    NSString *end = [bellCyclePeriod formattedEndTime];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", start, end];
 }
 
 @end
