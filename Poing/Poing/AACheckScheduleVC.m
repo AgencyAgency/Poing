@@ -37,6 +37,17 @@
     }
 }
 
+- (void)selectToday
+{
+    NSUInteger match = [self.schoolDays indexOfObjectPassingTest:^BOOL(SchoolDay *schoolDay, NSUInteger idx, BOOL *stop) {
+        return schoolDay == [self.schedule schoolDayForToday];
+    }];
+    if (match != NSNotFound) {
+        self.selectedSchoolDay = [self.schoolDays objectAtIndex:match];
+        [self.pickerView selectRow:match inComponent:0 animated:YES];
+    }
+}
+
 - (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
 {
     _managedObjectContext = managedObjectContext;
@@ -76,6 +87,7 @@
 - (void)configureView
 {
     [self.pickerView reloadAllComponents];
+    [self selectToday];
 }
 
 
@@ -132,6 +144,10 @@
 
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
+    // Clean up cell. Will be restyled in "willDisplayCell:".
+    cell.backgroundColor = [UIColor clearColor];
+    
+    // Configure cell:
     BellCyclePeriod *bellCyclePeriod = [self.bellCyclePeriods objectAtIndex:indexPath.row];
     cell.textLabel.text = bellCyclePeriod.period.name;
     
