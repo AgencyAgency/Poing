@@ -34,6 +34,13 @@
 
 @implementation AACheckScheduleVC
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.timeRemainingLabel.text = @"Loading...";
+    self.currentPeriodLabel.text = @"";
+}
+
 - (void)viewDidAppear:(BOOL)animated
 {
     if (self.currentBellCyclePeriod) {
