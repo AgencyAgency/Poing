@@ -26,7 +26,7 @@
     
     if (!matches || ([matches count] < 1)) {
         // handle error
-        NSAssert(NO, @"wrong number of school day matches returned.");
+        NSAssert(NO, @"wrong number of school day matches returned.g");
         
     } else {
         DLog(@"school days loaded: %d", [matches count]);

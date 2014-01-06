@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - First-->
+        <!--First View Controller - Teachers-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController id="9pv-A4-QxB" customClass="AAFirstViewController" sceneMemberID="viewController">
@@ -28,7 +28,7 @@
                             <constraint firstItem="iQr-d4-Ar2" firstAttribute="trailing" secondItem="tsR-hK-woN" secondAttribute="trailing" id="GCv-eZ-Lr1"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="Teachers" image="teachers" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,11 +162,11 @@
             </objects>
             <point key="canvasLocation" x="3980" y="-813"/>
         </scene>
-        <!--Split View Controller - Item-->
+        <!--Split View Controller - Experimental-->
         <scene sceneID="qeU-LH-zrA">
             <objects>
                 <splitViewController id="tDi-6K-aOA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Nql-na-Ifx"/>
+                    <tabBarItem key="tabBarItem" title="Experimental" image="schedule" id="Nql-na-Ifx"/>
                     <toolbarItems/>
                     <connections>
                         <segue destination="5E1-5R-Pqm" kind="relationship" relationship="masterViewController" id="dlJ-Q4-mXy"/>
@@ -177,7 +177,7 @@
             </objects>
             <point key="canvasLocation" x="2946" y="-349"/>
         </scene>
-        <!--Check ScheduleVC - Second-->
+        <!--Check ScheduleVC - Schedule-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="AACheckScheduleVC" sceneMemberID="viewController">
@@ -266,7 +266,7 @@
                             <constraint firstItem="ej5-n5-O85" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="dYc-7R-70W"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="second" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Schedule" image="schedule" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="bellCycleLabel" destination="W6u-LF-YKj" id="fuz-4C-Qo5"/>
                         <outlet property="currentPeriodLabel" destination="KlX-lw-16c" id="EfN-nP-ITp"/>
@@ -290,8 +290,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="tQ5-BS-eY2"/>
                         <segue destination="tDi-6K-aOA" kind="relationship" relationship="viewControllers" id="pKG-bw-A6T"/>
                     </connections>
                 </tabBarController>
@@ -319,8 +319,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="schedule" width="28" height="22"/>
+        <image name="teachers" width="28" height="18"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>
