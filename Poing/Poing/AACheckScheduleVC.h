@@ -10,4 +10,5 @@
 
 @interface AACheckScheduleVC : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate>
 
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @end

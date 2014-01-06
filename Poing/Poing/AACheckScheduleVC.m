@@ -22,7 +22,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *bellCycleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeRemainingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPeriodLabel;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSArray *schoolDays;
 @property (strong, nonatomic) SchoolDay *selectedSchoolDay;
 @property (assign, nonatomic) BOOL isSelectedSchoolDayToday;
@@ -34,18 +33,6 @@
 @end
 
 @implementation AACheckScheduleVC
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-    if (!self.managedObjectContext) {
-        self.managedObjectContext = [(AAAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    }
-    [self.pickerView reloadAllComponents];
-    [self selectToday];
-    [self configureView];
-}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -80,6 +67,10 @@
     _managedObjectContext = managedObjectContext;
  
     self.schoolDays = [SchoolDay allSchoolDaysInManagedObjectContext:_managedObjectContext];
+    
+    [self.pickerView reloadAllComponents];
+    [self selectToday];
+    [self configureView];
 }
 
 - (void)setSchoolDays:(NSArray *)schoolDays

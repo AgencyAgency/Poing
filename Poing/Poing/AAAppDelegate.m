@@ -7,6 +7,7 @@
 //
 
 #import "AAAppDelegate.h"
+#import "AACheckScheduleVC.h"
 #import "AAScheduleLoader.h"
 #import "AATeacherLoader.h"
 
@@ -18,6 +19,10 @@
         self.managedObjectContext = self.document.managedObjectContext;
         [AAScheduleLoader loadScheduleDataWithContext:self.managedObjectContext];
         [AATeacherLoader loadTeacherDataWithContext:self.managedObjectContext];
+        
+        UITabBarController *rootController = (UITabBarController *)self.window.rootViewController;
+        AACheckScheduleVC *initialVC = [rootController.viewControllers objectAtIndex:0];
+        initialVC.managedObjectContext = self.managedObjectContext;
     }
 }
 
