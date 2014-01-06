@@ -26,7 +26,7 @@
 		CF85FCE9185D4F7000C70BE1 /* Bell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE8185D4F7000C70BE1 /* Bell.m */; };
 		CF85FCEC185D4F7000C70BE1 /* BellCyclePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCEB185D4F7000C70BE1 /* BellCyclePeriod.m */; };
 		CF85FCEF185D4F7000C70BE1 /* Cycle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCEE185D4F7000C70BE1 /* Cycle.m */; };
-		CF85FCF2185D4FB400C70BE1 /* AADataLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCF1185D4FB400C70BE1 /* AADataLoader.m */; };
+		CF85FCF2185D4FB400C70BE1 /* AAScheduleLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCF1185D4FB400C70BE1 /* AAScheduleLoader.m */; };
 		CF85FCF4185D501400C70BE1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF85FCF3185D501400C70BE1 /* CoreData.framework */; };
 		CF85FCF7185D5C7900C70BE1 /* Bell+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCF6185D5C7900C70BE1 /* Bell+Create.m */; };
 		CF85FCFA185D712500C70BE1 /* Cycle+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCF9185D712500C70BE1 /* Cycle+Create.m */; };
@@ -43,10 +43,18 @@
 		CF85FD6D185EF2B900C70BE1 /* BellCyclePeriod+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD6C185EF2B900C70BE1 /* BellCyclePeriod+Info.m */; };
 		CF85FD70185EF63100C70BE1 /* BellCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD6F185EF63100C70BE1 /* BellCycle.m */; };
 		CF85FD73185EFD5100C70BE1 /* SchoolDay+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD72185EFD5100C70BE1 /* SchoolDay+Info.m */; };
+		CFB489F8187A84EC00B0C406 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB489F7187A84EC00B0C406 /* Section.m */; };
 		CFB56D42186663FA007ABFB1 /* AACheckScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D41186663FA007ABFB1 /* AACheckScheduleVC.m */; };
 		CFB56D4518667B0A007ABFB1 /* AASchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D4418667B0A007ABFB1 /* AASchedule.m */; };
 		CFB56D481866D1D8007ABFB1 /* AADate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D471866D1D8007ABFB1 /* AADate.m */; };
 		CFB56D4A1866E197007ABFB1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB56D491866E197007ABFB1 /* QuartzCore.framework */; };
+		CFB56D5C1867B770007ABFB1 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D5B1867B770007ABFB1 /* Teacher.m */; };
+		CFB56D5F1867B770007ABFB1 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D5E1867B770007ABFB1 /* Course.m */; };
+		CFB56D631867B7AC007ABFB1 /* Course+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D621867B7AC007ABFB1 /* Course+Create.m */; };
+		CFB56D661867B85F007ABFB1 /* Teacher+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D651867B85F007ABFB1 /* Teacher+Create.m */; };
+		CFB56D691867B9D3007ABFB1 /* Section+Create.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D681867B9D3007ABFB1 /* Section+Create.m */; };
+		CFB56D6C1867BBAB007ABFB1 /* AATeacherLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D6B1867BBAB007ABFB1 /* AATeacherLoader.m */; };
+		CFB56D6E1867C4A2007ABFB1 /* teachers.json in Resources */ = {isa = PBXBuildFile; fileRef = CFB56D6D1867C4A2007ABFB1 /* teachers.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,8 +96,8 @@
 		CF85FCEB185D4F7000C70BE1 /* BellCyclePeriod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellCyclePeriod.m; sourceTree = "<group>"; };
 		CF85FCED185D4F7000C70BE1 /* Cycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cycle.h; sourceTree = "<group>"; };
 		CF85FCEE185D4F7000C70BE1 /* Cycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cycle.m; sourceTree = "<group>"; };
-		CF85FCF0185D4FB400C70BE1 /* AADataLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AADataLoader.h; sourceTree = "<group>"; };
-		CF85FCF1185D4FB400C70BE1 /* AADataLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AADataLoader.m; sourceTree = "<group>"; };
+		CF85FCF0185D4FB400C70BE1 /* AAScheduleLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAScheduleLoader.h; sourceTree = "<group>"; };
+		CF85FCF1185D4FB400C70BE1 /* AAScheduleLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAScheduleLoader.m; sourceTree = "<group>"; };
 		CF85FCF3185D501400C70BE1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CF85FCF5185D5C7900C70BE1 /* Bell+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bell+Create.h"; sourceTree = "<group>"; };
 		CF85FCF6185D5C7900C70BE1 /* Bell+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Bell+Create.m"; sourceTree = "<group>"; };
@@ -120,6 +128,8 @@
 		CF85FD6F185EF63100C70BE1 /* BellCycle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BellCycle.m; sourceTree = "<group>"; };
 		CF85FD71185EFD5100C70BE1 /* SchoolDay+Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SchoolDay+Info.h"; sourceTree = "<group>"; };
 		CF85FD72185EFD5100C70BE1 /* SchoolDay+Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SchoolDay+Info.m"; sourceTree = "<group>"; };
+		CFB489F6187A84EC00B0C406 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
+		CFB489F7187A84EC00B0C406 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
 		CFB56D40186663FA007ABFB1 /* AACheckScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AACheckScheduleVC.h; sourceTree = "<group>"; };
 		CFB56D41186663FA007ABFB1 /* AACheckScheduleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AACheckScheduleVC.m; sourceTree = "<group>"; };
 		CFB56D4318667B0A007ABFB1 /* AASchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASchedule.h; sourceTree = "<group>"; };
@@ -127,6 +137,19 @@
 		CFB56D461866D1D8007ABFB1 /* AADate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AADate.h; sourceTree = "<group>"; };
 		CFB56D471866D1D8007ABFB1 /* AADate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AADate.m; sourceTree = "<group>"; };
 		CFB56D491866E197007ABFB1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		CFB56D5A1867B770007ABFB1 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
+		CFB56D5B1867B770007ABFB1 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
+		CFB56D5D1867B770007ABFB1 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		CFB56D5E1867B770007ABFB1 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
+		CFB56D611867B7AC007ABFB1 /* Course+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Course+Create.h"; sourceTree = "<group>"; };
+		CFB56D621867B7AC007ABFB1 /* Course+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Course+Create.m"; sourceTree = "<group>"; };
+		CFB56D641867B85F007ABFB1 /* Teacher+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Teacher+Create.h"; sourceTree = "<group>"; };
+		CFB56D651867B85F007ABFB1 /* Teacher+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Teacher+Create.m"; sourceTree = "<group>"; };
+		CFB56D671867B9D3007ABFB1 /* Section+Create.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Section+Create.h"; sourceTree = "<group>"; };
+		CFB56D681867B9D3007ABFB1 /* Section+Create.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Section+Create.m"; sourceTree = "<group>"; };
+		CFB56D6A1867BBAB007ABFB1 /* AATeacherLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AATeacherLoader.h; sourceTree = "<group>"; };
+		CFB56D6B1867BBAB007ABFB1 /* AATeacherLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AATeacherLoader.m; sourceTree = "<group>"; };
+		CFB56D6D1867C4A2007ABFB1 /* teachers.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = teachers.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,17 +264,22 @@
 		CF85FD00185E465300C70BE1 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				CF85FD02185E469100C70BE1 /* Categories */,
-				CF85FD01185E468500C70BE1 /* ManagedObjects */,
+				CFB56D601867B79B007ABFB1 /* TeacherCategories */,
+				CFB56D4D1867B72E007ABFB1 /* TeacherMOs */,
+				CF85FD02185E469100C70BE1 /* ScheduleCategories */,
+				CF85FD01185E468500C70BE1 /* ScheduleMOs */,
 				CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */,
 				CF85FD0F185E5B5800C70BE1 /* schedule.json */,
-				CF85FCF0185D4FB400C70BE1 /* AADataLoader.h */,
-				CF85FCF1185D4FB400C70BE1 /* AADataLoader.m */,
+				CFB56D6D1867C4A2007ABFB1 /* teachers.json */,
+				CF85FCF0185D4FB400C70BE1 /* AAScheduleLoader.h */,
+				CF85FCF1185D4FB400C70BE1 /* AAScheduleLoader.m */,
+				CFB56D6A1867BBAB007ABFB1 /* AATeacherLoader.h */,
+				CFB56D6B1867BBAB007ABFB1 /* AATeacherLoader.m */,
 			);
 			name = Data;
 			sourceTree = "<group>";
 		};
-		CF85FD01185E468500C70BE1 /* ManagedObjects */ = {
+		CF85FD01185E468500C70BE1 /* ScheduleMOs */ = {
 			isa = PBXGroup;
 			children = (
 				CF85FD6E185EF63100C70BE1 /* BellCycle.h */,
@@ -267,10 +295,10 @@
 				CF85FCE1185D4F7000C70BE1 /* Period.h */,
 				CF85FCE2185D4F7000C70BE1 /* Period.m */,
 			);
-			name = ManagedObjects;
+			name = ScheduleMOs;
 			sourceTree = "<group>";
 		};
-		CF85FD02185E469100C70BE1 /* Categories */ = {
+		CF85FD02185E469100C70BE1 /* ScheduleCategories */ = {
 			isa = PBXGroup;
 			children = (
 				CF85FCF5185D5C7900C70BE1 /* Bell+Create.h */,
@@ -292,7 +320,7 @@
 				CF85FD6B185EF2B900C70BE1 /* BellCyclePeriod+Info.h */,
 				CF85FD6C185EF2B900C70BE1 /* BellCyclePeriod+Info.m */,
 			);
-			name = Categories;
+			name = ScheduleCategories;
 			sourceTree = "<group>";
 		};
 		CF85FD17185E649D00C70BE1 /* TableViews */ = {
@@ -306,6 +334,32 @@
 				CF85FD69185EEE0900C70BE1 /* AABellScheduleVC.m */,
 			);
 			name = TableViews;
+			sourceTree = "<group>";
+		};
+		CFB56D4D1867B72E007ABFB1 /* TeacherMOs */ = {
+			isa = PBXGroup;
+			children = (
+				CFB489F6187A84EC00B0C406 /* Section.h */,
+				CFB489F7187A84EC00B0C406 /* Section.m */,
+				CFB56D5D1867B770007ABFB1 /* Course.h */,
+				CFB56D5E1867B770007ABFB1 /* Course.m */,
+				CFB56D5A1867B770007ABFB1 /* Teacher.h */,
+				CFB56D5B1867B770007ABFB1 /* Teacher.m */,
+			);
+			name = TeacherMOs;
+			sourceTree = "<group>";
+		};
+		CFB56D601867B79B007ABFB1 /* TeacherCategories */ = {
+			isa = PBXGroup;
+			children = (
+				CFB56D611867B7AC007ABFB1 /* Course+Create.h */,
+				CFB56D621867B7AC007ABFB1 /* Course+Create.m */,
+				CFB56D641867B85F007ABFB1 /* Teacher+Create.h */,
+				CFB56D651867B85F007ABFB1 /* Teacher+Create.m */,
+				CFB56D671867B9D3007ABFB1 /* Section+Create.h */,
+				CFB56D681867B9D3007ABFB1 /* Section+Create.m */,
+			);
+			name = TeacherCategories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,6 +439,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFB56D6E1867C4A2007ABFB1 /* teachers.json in Resources */,
 				CF108BF8185C0A01001E6706 /* Images.xcassets in Resources */,
 				CF108BE7185C0A01001E6706 /* InfoPlist.strings in Resources */,
 				CF85FD10185E5B5800C70BE1 /* schedule.json in Resources */,
@@ -411,8 +466,11 @@
 				CF85FD13185E635300C70BE1 /* CoreDataTableViewController.m in Sources */,
 				CF85FD0B185E494F00C70BE1 /* SchoolDay+Create.m in Sources */,
 				CF85FD08185E492D00C70BE1 /* SchoolDay.m in Sources */,
+				CFB56D631867B7AC007ABFB1 /* Course+Create.m in Sources */,
+				CFB56D6C1867BBAB007ABFB1 /* AATeacherLoader.m in Sources */,
 				CF85FCEC185D4F7000C70BE1 /* BellCyclePeriod.m in Sources */,
 				CF85FCF7185D5C7900C70BE1 /* Bell+Create.m in Sources */,
+				CFB489F8187A84EC00B0C406 /* Section.m in Sources */,
 				CF85FCEF185D4F7000C70BE1 /* Cycle.m in Sources */,
 				CF85FCFD185D7EC100C70BE1 /* Period+Create.m in Sources */,
 				CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */,
@@ -423,16 +481,20 @@
 				CF85FCFA185D712500C70BE1 /* Cycle+Create.m in Sources */,
 				CF85FD70185EF63100C70BE1 /* BellCycle.m in Sources */,
 				CF85FD0E185E4D1100C70BE1 /* BellCycle+Create.m in Sources */,
+				CFB56D5C1867B770007ABFB1 /* Teacher.m in Sources */,
+				CFB56D661867B85F007ABFB1 /* Teacher+Create.m in Sources */,
 				CF85FD16185E649500C70BE1 /* AASchoolDayCDTVC.m in Sources */,
+				CFB56D5F1867B770007ABFB1 /* Course.m in Sources */,
 				CF85FD73185EFD5100C70BE1 /* SchoolDay+Info.m in Sources */,
 				CF85FCE3185D4F7000C70BE1 /* Period.m in Sources */,
 				CF85FD6D185EF2B900C70BE1 /* BellCyclePeriod+Info.m in Sources */,
 				CF85FD64185E6EF800C70BE1 /* BellCycle+Info.m in Sources */,
 				CF85FD6A185EEE0900C70BE1 /* AABellScheduleVC.m in Sources */,
 				CF108BE9185C0A01001E6706 /* main.m in Sources */,
-				CF85FCF2185D4FB400C70BE1 /* AADataLoader.m in Sources */,
+				CF85FCF2185D4FB400C70BE1 /* AAScheduleLoader.m in Sources */,
 				CF85FD67185E7FBA00C70BE1 /* BellCyclePeriod+Create.m in Sources */,
 				CFB56D42186663FA007ABFB1 /* AACheckScheduleVC.m in Sources */,
+				CFB56D691867B9D3007ABFB1 /* Section+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -16,7 +16,7 @@
         <relationship name="bellCycle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BellCycle" inverseName="bellCyclePeriods" inverseEntity="BellCycle" syncable="YES"/>
         <relationship name="period" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Period" inverseName="bellCyclePeriods" inverseEntity="Period" syncable="YES"/>
     </entity>
-    <entity name="Course" syncable="YES">
+    <entity name="Course" representedClassName="Course" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="sections" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Section" inverseName="course" inverseEntity="Section" syncable="YES"/>
     </entity>
@@ -33,12 +33,15 @@
         <attribute name="day" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="bellCycle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BellCycle" inverseName="schoolDays" inverseEntity="BellCycle" syncable="YES"/>
     </entity>
-    <entity name="Section" syncable="YES">
+    <entity name="Section" representedClassName="Section" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="room" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="course" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Course" inverseName="sections" inverseEntity="Course" syncable="YES"/>
         <relationship name="period" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Period" inverseName="sections" inverseEntity="Period" syncable="YES"/>
         <relationship name="teacher" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Teacher" inverseName="sections" inverseEntity="Teacher" syncable="YES"/>
     </entity>
-    <entity name="Teacher" syncable="YES">
+    <entity name="Teacher" representedClassName="Teacher" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -48,11 +51,11 @@
         <element name="Bell" positionX="-189" positionY="-36" width="128" height="75"/>
         <element name="BellCycle" positionX="25" positionY="-36" width="128" height="103"/>
         <element name="BellCyclePeriod" positionX="18" positionY="-249" width="128" height="105"/>
+        <element name="Course" positionX="430" positionY="-342" width="128" height="73"/>
         <element name="Cycle" positionX="223" positionY="-36" width="128" height="75"/>
         <element name="Period" positionX="232" positionY="-205" width="128" height="88"/>
         <element name="SchoolDay" positionX="36" positionY="117" width="128" height="73"/>
-        <element name="Teacher" positionX="439" positionY="-70" width="128" height="103"/>
-        <element name="Section" positionX="423" positionY="-207" width="128" height="88"/>
-        <element name="Course" positionX="430" positionY="-342" width="128" height="73"/>
+        <element name="Section" positionX="423" positionY="-207" width="128" height="133"/>
+        <element name="Teacher" positionX="414" positionY="-31" width="128" height="103"/>
     </elements>
 </model>

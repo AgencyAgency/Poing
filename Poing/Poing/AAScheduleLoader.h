@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface AADataLoader : NSObject
+@interface AAScheduleLoader : NSObject
 
 + (void)loadScheduleDataWithContext:(NSManagedObjectContext *)context;
 

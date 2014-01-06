@@ -6,7 +6,7 @@
 //  Copyright (c) 2013 AgencyAgency. All rights reserved.
 //
 
-#import "AADataLoader.h"
+#import "AAScheduleLoader.h"
 #import "Bell+Create.h"
 #import "Cycle+Create.h"
 #import "Period+Create.h"
@@ -34,6 +34,7 @@
 #define CYCLE_3 @"3"
 #define CYCLE_7 @"7"
 
+#define PERIOD_HOME_ROOM @"Home Room"
 #define PERIOD_1 @"1"
 #define PERIOD_2 @"2"
 #define PERIOD_3 @"3"
@@ -47,7 +48,7 @@
 #define PERIOD_LUNCH    @"Lunch"
 #define PERIOD_MEETING  @"Meeting"
 
-@implementation AADataLoader
+@implementation AAScheduleLoader
 
 + (void)loadScheduleDataWithContext:(NSManagedObjectContext *)context
 {
@@ -138,7 +139,8 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     NSArray *periods = nil;
     
     // BASIC - CYCLE 1
-    NSArray *times = @[@{@"start": @"07:50", @"end": @"08:34"},
+    NSArray *times = @[@{@"start": @"07:40", @"end": @"07:45"},
+                       @{@"start": @"07:50", @"end": @"08:34"},
                        @{@"start": @"08:39", @"end": @"09:23"},
                        @{@"start": @"09:28", @"end": @"10:12"},
                        @{@"start": @"10:17", @"end": @"11:01"},
@@ -147,7 +149,8 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                        @{@"start": @"12:38", @"end": @"13:22"},
                        @{@"start": @"13:27", @"end": @"14:11"},
                        @{@"start": @"14:16", @"end": @"15:00"}];
-    periods = @[PERIOD_1,
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_1,
                 PERIOD_2,
                 PERIOD_3,
                 PERIOD_4,
@@ -162,7 +165,8 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                  times:times intoManagedObjectContext:context];
     
     // BASIC - CYCLE 7
-    periods = @[PERIOD_7,
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_7,
                 PERIOD_8,
                 PERIOD_1,
                 PERIOD_2,
@@ -177,7 +181,8 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                  times:times intoManagedObjectContext:context];
     
     // BASIC - CYCLE 3
-    periods = @[PERIOD_3,
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_3,
                 PERIOD_4,
                 PERIOD_7,
                 PERIOD_8,
@@ -198,7 +203,8 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     NSArray *periods = nil;
     
     // CHAPEL - CYCLE 1
-    NSArray *times = @[@{@"start": @"07:50", @"end": @"08:09"},
+    NSArray *times = @[@{@"start": @"07:40", @"end": @"07:45"},
+                       @{@"start": @"07:50", @"end": @"08:09"},
                        @{@"start": @"08:14", @"end": @"08:55"},
                        @{@"start": @"09:00", @"end": @"09:41"},
                        @{@"start": @"09:46", @"end": @"10:27"},
@@ -208,7 +214,8 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                        @{@"start": @"12:47", @"end": @"13:28"},
                        @{@"start": @"13:33", @"end": @"14:14"},
                        @{@"start": @"14:19", @"end": @"15:00"}];
-    periods = @[PERIOD_CHAPEL,
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CHAPEL,
                 PERIOD_1,
                 PERIOD_2,
                 PERIOD_3,
@@ -224,7 +231,8 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                  times:times intoManagedObjectContext:context];
     
     // CHAPEL - CYCLE 7
-    periods = @[PERIOD_CHAPEL,
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CHAPEL,
                 PERIOD_7,
                 PERIOD_8,
                 PERIOD_1,
@@ -240,7 +248,8 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                  times:times intoManagedObjectContext:context];
     
     // CHAPEL - CYCLE 3
-    periods = @[PERIOD_CHAPEL,
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CHAPEL,
                 PERIOD_3,
                 PERIOD_4,
                 PERIOD_7,

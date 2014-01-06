@@ -7,7 +7,8 @@
 //
 
 #import "AAAppDelegate.h"
-#import "AADataLoader.h"
+#import "AAScheduleLoader.h"
+#import "AATeacherLoader.h"
 
 @implementation AAAppDelegate
 
@@ -15,7 +16,8 @@
 {
     if (self.document.documentState == UIDocumentStateNormal) {
         self.managedObjectContext = self.document.managedObjectContext;
-        [AADataLoader loadScheduleDataWithContext:self.managedObjectContext];
+        [AAScheduleLoader loadScheduleDataWithContext:self.managedObjectContext];
+        [AATeacherLoader loadTeacherDataWithContext:self.managedObjectContext];
     }
 }
 
