@@ -13,8 +13,8 @@
 
 + (NSDate *)now
 {
-//    return [NSDate date];
-    return [BellCyclePeriod dateFromFullFormattedHSTString:@"2014-01-07 09:02"];
+    return [NSDate date];
+//    return [BellCyclePeriod dateFromFullFormattedHSTString:@"2014-01-07 09:02"];
 }
 
 @end
