@@ -29,7 +29,7 @@
         NSAssert(NO, @"wrong number of school day matches returned.");
         
     } else {
-        DLog(@"school days loaded: %d", [matches count]);
+        DLog(@"school days loaded: %lu", (unsigned long)[matches count]);
         schoolDays = matches;
     }
     

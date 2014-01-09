@@ -69,19 +69,19 @@
     NSError *error;
     NSArray *bells = [context executeFetchRequest:request error:&error];
     NSAssert(!error, @"error loading bell data");
-    NSLog(@"Bells count: %i", [bells count]);
+    NSLog(@"Bells count: %lu", (unsigned long)[bells count]);
     
     // Test and load cycles:
     request = [NSFetchRequest fetchRequestWithEntityName:@"Cycle"];
     NSArray *cycles = [context executeFetchRequest:request error:&error];
     NSAssert(!error, @"error loading cycle data");
-    NSLog(@"Cycles count: %i", [cycles count]);
+    NSLog(@"Cycles count: %lu", (unsigned long)[cycles count]);
     
     // Test and load periods:
     request = [NSFetchRequest fetchRequestWithEntityName:@"Period"];
     NSArray *periods = [context executeFetchRequest:request error:&error];
     NSAssert(!error, @"error loading period data");
-    NSLog(@"Cycles count: %i", [periods count]);
+    NSLog(@"Cycles count: %lu", (unsigned long)[periods count]);
 }
 
 

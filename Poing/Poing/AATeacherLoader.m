@@ -27,19 +27,19 @@
     NSError *error;
     NSArray *teachers = [context executeFetchRequest:request error:&error];
     NSAssert(!error, @"error loading teacher data");
-    NSLog(@"Teacher count: %i", [teachers count]);
+    NSLog(@"Teacher count: %lu", (unsigned long)[teachers count]);
     
     // Test and load courses:
     request = [NSFetchRequest fetchRequestWithEntityName:@"Course"];
     NSArray *courses = [context executeFetchRequest:request error:&error];
     NSAssert(!error, @"error loading course data");
-    NSLog(@"Course count: %i", [courses count]);
+    NSLog(@"Course count: %lu", (unsigned long)[courses count]);
     
     // Test and load sections:
     request = [NSFetchRequest fetchRequestWithEntityName:@"Section"];
     NSArray *sections = [context executeFetchRequest:request error:&error];
     NSAssert(!error, @"error loading section data");
-    NSLog(@"Section count: %i", [sections count]);
+    NSLog(@"Section count: %lu", (unsigned long)[sections count]);
 }
 
 

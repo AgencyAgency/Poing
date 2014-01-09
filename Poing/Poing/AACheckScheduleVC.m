@@ -157,7 +157,7 @@
         
         NSUInteger mins = floor(left / 60);
         NSUInteger secs = (int)left % 60;
-        self.timeRemainingLabel.text = [NSString stringWithFormat:@"%02d:%02d min", mins, secs];
+        self.timeRemainingLabel.text = [NSString stringWithFormat:@"%02lu:%02lu min", (unsigned long)mins, (unsigned long)secs];
     }
 }
 
