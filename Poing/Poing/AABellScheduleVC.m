@@ -7,6 +7,7 @@
 //
 
 #import "AABellScheduleVC.h"
+#import "AABellCyclePeriodCell.h"
 #import "AADate.h"
 #import "BellCycle+Info.h"
 #import "BellCyclePeriod+Info.h"
@@ -19,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeRemainingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPeriodLabel;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
-@property (strong, nonatomic) NSArray *periods;
+@property (strong, nonatomic) NSArray *bellCyclePeriods;
 @property (strong, nonatomic) BellCycle *bellCycle;
 
 @property (strong, nonatomic) CADisplayLink *displayLink;
@@ -32,14 +33,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.timeRemainingLabel.text = @"";
+    self.currentPeriodLabel.text = @"";
     [self configureView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    if (self.currentBellCyclePeriod) {
-        [self startTickerLoop];
-    }
+    [self startTickerLoop];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -52,21 +53,12 @@
 {
     _currentBellCyclePeriod = currentBellCyclePeriod;
     
-    NSString *periodText = nil;
     if (_currentBellCyclePeriod) {
-        [self startTickerLoop];
-        periodText = [NSString stringWithFormat:@"left in period: %@", [_currentBellCyclePeriod.period.name description]];
-    } else {
-        [self stopTickerLoop];
-        self.timeRemainingLabel.text = @"";
+        self.timeRemainingLabel.text = @"Loading...";
+        NSString *periodText = [NSString stringWithFormat:@"left in period: %@", [_currentBellCyclePeriod.period.name description]];
+        self.currentPeriodLabel.text = [periodText description];
     }
-    self.currentPeriodLabel.text = [periodText description];
 }
-
-//- (void)configureView
-//{
-//    self.currentBellCyclePeriod = [self.selectedSchoolDay currentBellCyclePeriod];
-//}
 
 
 #pragma mark - Managing the detail item
@@ -100,7 +92,7 @@
     
     if (self.bellCycle) {
         self.titleLabel.text = [self.bellCycle title];
-        self.periods = [self.bellCycle.bellCyclePeriods array];
+        self.bellCyclePeriods = [self.bellCycle.bellCyclePeriods array];
         self.tableView.alpha = 1.0;
         [self.tableView reloadData];
     } else {
@@ -119,25 +111,46 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.periods count];
+    return [self.bellCyclePeriods count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Period Cell" forIndexPath:indexPath];
+    AABellCyclePeriodCell *cell = (AABellCyclePeriodCell *)[tableView dequeueReusableCellWithIdentifier:@"Period Cell" forIndexPath:indexPath];
     [self configureCell:cell atIndexPath:indexPath];
     return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
+- (void)configureCell:(AABellCyclePeriodCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
-    BellCyclePeriod *bellCyclePeriod = [self.periods objectAtIndex:indexPath.row];
+    BellCyclePeriod *bellCyclePeriod = [self.bellCyclePeriods objectAtIndex:indexPath.row];
+    cell.bellCyclePeriod = bellCyclePeriod;
     cell.textLabel.text = bellCyclePeriod.period.name;
     
     NSString *start = [bellCyclePeriod formattedStartTime];
     NSString *end = [bellCyclePeriod formattedEndTime];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", start, end];
 }
+
+- (void)updateBackgroundForCell:(AABellCyclePeriodCell *)cell
+{
+    UIColor *backgroundColor = [UIColor clearColor];
+    if ([self.schoolDay isToday]) {
+        BellCyclePeriod *bellCyclePeriod = cell.bellCyclePeriod;
+        
+        NSDate *now = [AADate now];
+        if ([bellCyclePeriod containsTimePartOfDate:now]) {
+            backgroundColor = [UIColor magentaColor];
+        }
+    }
+    cell.backgroundColor = backgroundColor;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self updateBackgroundForCell:(AABellCyclePeriodCell *)cell];
+}
+
 
 
 #pragma mark - Split view
@@ -183,15 +196,31 @@
 
 - (void)tick:(CADisplayLink *)sender
 {
-    self.timeRemainingLabel.text = @"";
     if (self.currentBellCyclePeriod) {
         // get time left in period
         NSDate *end = [self.currentBellCyclePeriod endTimeAssumingToday];
         NSTimeInterval left = [end timeIntervalSinceDate:[AADate now]];
         
-        NSUInteger mins = floor(left / 60);
-        NSUInteger secs = (int)left % 60;
-        self.timeRemainingLabel.text = [NSString stringWithFormat:@"%02lu:%02lu min", (unsigned long)mins, (unsigned long)secs];
+        NSInteger mins = floor(left / 60);
+        NSInteger secs = (int)left % 60;
+        if (left < 0) {
+            mins = 0;
+            secs = 0;
+            self.currentBellCyclePeriod = nil;
+            [self updateVisibleCellBackgrounds];
+        }
+        self.timeRemainingLabel.text = [NSString stringWithFormat:@"%02ld:%02ld seconds", (long)mins, (long)secs];
+        
+    } else {
+        self.currentBellCyclePeriod = [self.schoolDay currentBellCyclePeriod];
+        if (self.currentBellCyclePeriod) [self updateVisibleCellBackgrounds];
+    }
+}
+
+- (void)updateVisibleCellBackgrounds
+{
+    for (AABellCyclePeriodCell *cell in [self.tableView visibleCells]) {
+        [self updateBackgroundForCell:cell];
     }
 }
 
