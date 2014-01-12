@@ -9,12 +9,16 @@
 #import "AASchoolDayCDTVC.h"
 #import "AABellScheduleVC.h"
 #import "AAAppDelegate.h"
+#import "AASchedule.h"
 #import "SchoolDay+Info.h"
 #import "BellCycle+Info.h"
 
 @interface AASchoolDayCDTVC ()
 @property (strong, nonatomic) AABellScheduleVC *detailViewController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
+@property (strong, nonatomic) AASchedule *schedule;
+@property (strong, nonatomic) SchoolDay *selectedSchoolDay;
 @end
 
 @implementation AASchoolDayCDTVC
@@ -25,6 +29,36 @@
         _detailViewController = (AABellScheduleVC *)[[self.splitViewController.viewControllers lastObject] topViewController];
     }
     return _detailViewController;
+}
+
+- (NSUInteger)indexOfMatchingSchoolDay:(SchoolDay *)schoolDay
+{
+    NSUInteger match = [[self.fetchedResultsController fetchedObjects] indexOfObjectPassingTest:^BOOL(SchoolDay *day, NSUInteger idx, BOOL *stop) {
+        return day == schoolDay;
+    }];
+    return match;
+}
+
+- (void)selectToday
+{
+    SchoolDay *today = [self.schedule schoolDayForToday];
+    if (today) {
+        NSUInteger match = [self indexOfMatchingSchoolDay:today];
+        if (match != NSNotFound) {
+            self.selectedSchoolDay = today;
+            NSUInteger idx = [self indexOfMatchingSchoolDay:today];
+            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+            [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+        }
+    }
+}
+
+- (void)setSelectedSchoolDay:(SchoolDay *)selectedSchoolDay
+{
+    if (_selectedSchoolDay != selectedSchoolDay) {
+        _selectedSchoolDay = selectedSchoolDay;
+        self.detailViewController.bellCycle = selectedSchoolDay.bellCycle;
+    }
 }
 
 - (void)setManagedObjectContext:(NSManagedObjectContext *)managedObjectContext
@@ -40,7 +74,16 @@
                                                                         managedObjectContext:self.managedObjectContext
                                                                           sectionNameKeyPath:nil
                                                                                    cacheName:nil];
+    self.schedule = [AASchedule scheduleOfSchoolDays:[self.fetchedResultsController fetchedObjects]];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
     
+    if (!self.selectedSchoolDay) {
+        [self selectToday];
+    }
 }
 
 - (void)awakeFromNib
@@ -84,7 +127,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SchoolDay *schoolDay = (SchoolDay *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
-    self.detailViewController.bellCycle = schoolDay.bellCycle;
+    self.selectedSchoolDay = schoolDay;
 }
 
 @end
