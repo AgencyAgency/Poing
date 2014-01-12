@@ -55,7 +55,7 @@
     
     if (_currentBellCyclePeriod) {
         self.timeRemainingLabel.text = @"Loading...";
-        NSString *periodText = [NSString stringWithFormat:@"left in period: %@", [_currentBellCyclePeriod.period.name description]];
+        NSString *periodText = [NSString stringWithFormat:@"left in period %@", [_currentBellCyclePeriod.period.name description]];
         self.currentPeriodLabel.text = [periodText description];
     }
 }

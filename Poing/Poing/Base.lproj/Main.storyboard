@@ -100,7 +100,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="left in period 4" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUr-UR-Q8u">
                                 <rect key="frame" x="584" y="101" width="164" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:42 seconds" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juH-pd-mmI">
@@ -109,7 +109,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="164" id="HQT-5r-U5P"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -323,7 +323,7 @@
                             <constraint firstAttribute="trailing" secondItem="ej5-n5-O85" secondAttribute="trailing" id="oxY-4v-5e0"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Second" image="E9053D5F-FA31-4935-A578-3E0D71F328AD" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="Second" image="F135A5EA-B752-4B44-88B6-18538DDE632E" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="bellCycleLabel" destination="W6u-LF-YKj" id="fuz-4C-Qo5"/>
                         <outlet property="currentPeriodLabel" destination="KlX-lw-16c" id="EfN-nP-ITp"/>
@@ -376,7 +376,7 @@
     </scenes>
     <resources>
         <image name="Casey's Picture.png" width="100" height="100"/>
-        <image name="E9053D5F-FA31-4935-A578-3E0D71F328AD" width="30" height="30">
+        <image name="F135A5EA-B752-4B44-88B6-18538DDE632E" width="30" height="30">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBEW
 GxwgISksLzU4VSRudWxs1AkKCwwNDg8QViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBzV05TQ29sb3KA
