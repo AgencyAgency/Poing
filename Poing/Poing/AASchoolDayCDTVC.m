@@ -57,7 +57,7 @@
 {
     if (_selectedSchoolDay != selectedSchoolDay) {
         _selectedSchoolDay = selectedSchoolDay;
-        self.detailViewController.bellCycle = selectedSchoolDay.bellCycle;
+        self.detailViewController.schoolDay = selectedSchoolDay;
     }
 }
 

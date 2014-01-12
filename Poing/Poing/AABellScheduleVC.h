@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BellCycle.h"
+#import "SchoolDay.h"
 
 @interface AABellScheduleVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UISplitViewControllerDelegate>
 
-@property (strong, nonatomic) BellCycle *bellCycle;
+@property (strong, nonatomic) SchoolDay *schoolDay;
 
 @end

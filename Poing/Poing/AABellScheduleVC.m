@@ -7,15 +7,23 @@
 //
 
 #import "AABellScheduleVC.h"
+#import "AADate.h"
 #import "BellCycle+Info.h"
 #import "BellCyclePeriod+Info.h"
 #import "Period.h"
+#import "SchoolDay+Info.h"
 
 @interface AABellScheduleVC ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeRemainingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *currentPeriodLabel;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) NSArray *periods;
+@property (strong, nonatomic) BellCycle *bellCycle;
+
+@property (strong, nonatomic) CADisplayLink *displayLink;
+@property (strong, nonatomic) BellCyclePeriod *currentBellCyclePeriod;
 @end
 
 @implementation AABellScheduleVC
@@ -27,7 +35,50 @@
     [self configureView];
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (self.currentBellCyclePeriod) {
+        [self startTickerLoop];
+    }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self.displayLink invalidate];
+    self.displayLink = nil;
+}
+
+- (void)setCurrentBellCyclePeriod:(BellCyclePeriod *)currentBellCyclePeriod
+{
+    _currentBellCyclePeriod = currentBellCyclePeriod;
+    
+    NSString *periodText = nil;
+    if (_currentBellCyclePeriod) {
+        [self startTickerLoop];
+        periodText = [NSString stringWithFormat:@"left in period: %@", [_currentBellCyclePeriod.period.name description]];
+    } else {
+        [self stopTickerLoop];
+        self.timeRemainingLabel.text = @"";
+    }
+    self.currentPeriodLabel.text = [periodText description];
+}
+
+//- (void)configureView
+//{
+//    self.currentBellCyclePeriod = [self.selectedSchoolDay currentBellCyclePeriod];
+//}
+
+
 #pragma mark - Managing the detail item
+
+- (void)setSchoolDay:(SchoolDay *)schoolDay
+{
+    if (_schoolDay != schoolDay) {
+        _schoolDay = schoolDay;
+        self.bellCycle = schoolDay.bellCycle;
+        self.currentBellCyclePeriod = [schoolDay currentBellCyclePeriod];
+    }
+}
 
 - (void)setBellCycle:(BellCycle *)bellCycle
 {
@@ -103,6 +154,45 @@
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+}
+
+
+#pragma mark - Display Link Tick-Tock
+
+- (CADisplayLink *)displayLink{
+    if (!_displayLink) {
+        _displayLink = [CADisplayLink displayLinkWithTarget:self
+                                                   selector:@selector(tick:)];
+        _displayLink.frameInterval = 60;
+        [_displayLink addToRunLoop:[NSRunLoop currentRunLoop]
+                           forMode:NSDefaultRunLoopMode];
+        _displayLink.paused = YES;
+    }
+    return _displayLink;
+}
+
+- (void)startTickerLoop
+{
+    self.displayLink.paused = NO;
+}
+
+- (void)stopTickerLoop
+{
+    self.displayLink.paused = YES;
+}
+
+- (void)tick:(CADisplayLink *)sender
+{
+    self.timeRemainingLabel.text = @"";
+    if (self.currentBellCyclePeriod) {
+        // get time left in period
+        NSDate *end = [self.currentBellCyclePeriod endTimeAssumingToday];
+        NSTimeInterval left = [end timeIntervalSinceDate:[AADate now]];
+        
+        NSUInteger mins = floor(left / 60);
+        NSUInteger secs = (int)left % 60;
+        self.timeRemainingLabel.text = [NSString stringWithFormat:@"%02lu:%02lu min", (unsigned long)mins, (unsigned long)secs];
+    }
 }
 
 
