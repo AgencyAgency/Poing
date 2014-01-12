@@ -33,8 +33,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.timeRemainingLabel.text = @"";
-    self.currentPeriodLabel.text = @"";
     [self configureView];
 }
 
@@ -74,22 +72,18 @@
 
 - (void)setBellCycle:(BellCycle *)bellCycle
 {
-    if (_bellCycle != bellCycle) {
-        _bellCycle = bellCycle;
-        
-        // Update the view.
-        [self configureView];
-    }
+    _bellCycle = bellCycle;
     
-    if (self.masterPopoverController != nil) {
-        [self.masterPopoverController dismissPopoverAnimated:YES];
-    }
+    // Update the view.
+    [self configureView];
 }
 
 - (void)configureView
 {
     // Update the user interface for the detail item.
-    
+   
+    self.timeRemainingLabel.text = @"";
+    self.currentPeriodLabel.text = @"";
     if (self.bellCycle) {
         self.titleLabel.text = [self.bellCycle title];
         self.bellCyclePeriods = [self.bellCycle.bellCyclePeriods array];
@@ -150,7 +144,6 @@
 {
     [self updateBackgroundForCell:(AABellCyclePeriodCell *)cell];
 }
-
 
 
 #pragma mark - Split view

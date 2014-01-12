@@ -7,8 +7,8 @@
 //
 
 #import "AAAppDelegate.h"
-#import "AACheckScheduleVC.h"
 #import "AAScheduleLoader.h"
+#import "AASchoolDayCDTVC.h"
 #import "AATeacherLoader.h"
 
 @implementation AAAppDelegate
@@ -21,8 +21,11 @@
         [AATeacherLoader loadTeacherDataWithContext:self.managedObjectContext];
         
         UITabBarController *rootController = (UITabBarController *)self.window.rootViewController;
-        AACheckScheduleVC *initialVC = [rootController.viewControllers objectAtIndex:0];
-        initialVC.managedObjectContext = self.managedObjectContext;
+        UISplitViewController *splitVC = rootController.viewControllers[0];
+        UINavigationController *navVC = splitVC.viewControllers[0];
+        AASchoolDayCDTVC *schoolDayCDTVC = navVC.viewControllers[0];
+        schoolDayCDTVC.managedObjectContext = self.managedObjectContext;
+        [schoolDayCDTVC selectToday];
     }
 }
 

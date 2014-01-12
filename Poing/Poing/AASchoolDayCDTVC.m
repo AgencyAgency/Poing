@@ -15,7 +15,6 @@
 
 @interface AASchoolDayCDTVC ()
 @property (strong, nonatomic) AABellScheduleVC *detailViewController;
-@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (strong, nonatomic) AASchedule *schedule;
 @property (strong, nonatomic) SchoolDay *selectedSchoolDay;
@@ -77,15 +76,6 @@
     self.schedule = [AASchedule scheduleOfSchoolDays:[self.fetchedResultsController fetchedObjects]];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    if (!self.selectedSchoolDay) {
-        [self selectToday];
-    }
-}
-
 - (void)awakeFromNib
 {
     self.clearsSelectionOnViewWillAppear = NO;
@@ -93,15 +83,6 @@
     self.splitViewController.delegate = self.detailViewController;
     
     [super awakeFromNib];
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    if (!self.managedObjectContext) {
-        self.managedObjectContext = [(AAAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext];
-    }
 }
 
 

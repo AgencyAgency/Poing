@@ -9,5 +9,7 @@
 #import "CoreDataTableViewController.h"
 
 @interface AASchoolDayCDTVC : CoreDataTableViewController
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
+- (void)selectToday;
 @end
