@@ -98,11 +98,7 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     SchoolDay *schoolDay = (SchoolDay *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    NSString *title = [schoolDay formattedDay];
-    if ([SchoolDay isTodaySchoolDayAsGMT:schoolDay.day]) {
-        title = [NSString stringWithFormat:@"Today: %@", title];
-    }
-    cell.textLabel.text = title;
+    cell.textLabel.text = [schoolDay formattedDay];
     cell.detailTextLabel.text = [schoolDay.bellCycle title];
 }
 

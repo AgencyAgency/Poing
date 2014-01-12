@@ -46,7 +46,11 @@
     // If you appreciate your sanity, store times in UTC:
     [formatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"GMT"]];
     
-    return [formatter stringFromDate:self.day];
+    NSString *text = [formatter stringFromDate:self.day];
+    if ([self.class isTodaySchoolDayAsGMT:self.day]) {
+        text = [NSString stringWithFormat:@"Today: %@", text];
+    }
+    return text;
 }
 
 + (NSString *)codeForDate:(NSDate *)date timeZone:(NSTimeZone *)timeZone

@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timeRemainingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPeriodLabel;
+@property (weak, nonatomic) IBOutlet UILabel *selectedDateLabel;
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) NSArray *bellCyclePeriods;
 @property (strong, nonatomic) BellCycle *bellCycle;
@@ -84,7 +85,9 @@
    
     self.timeRemainingLabel.text = @"";
     self.currentPeriodLabel.text = @"";
+    self.selectedDateLabel.text = @"";
     if (self.bellCycle) {
+        self.selectedDateLabel.text = [self.schoolDay formattedDay];
         self.titleLabel.text = [self.bellCycle title];
         self.bellCyclePeriods = [self.bellCycle.bellCyclePeriods array];
         self.tableView.alpha = 1.0;
@@ -160,6 +163,13 @@
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
+}
+
+- (void)dismissPopover
+{
+    if (self.masterPopoverController != nil) {
+        [self.masterPopoverController dismissPopoverAnimated:YES];
+    }
 }
 
 

@@ -13,4 +13,6 @@
 
 @property (strong, nonatomic) SchoolDay *schoolDay;
 
+- (void)dismissPopover;
+
 @end

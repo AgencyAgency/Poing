@@ -94,18 +94,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="left in period 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUr-UR-Q8u">
-                                <rect key="frame" x="20" y="101" width="164" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" text="Selected Data Here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Vdx-n0-GdX">
+                                <rect key="frame" x="20" y="72" width="312" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="18"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" text="left in period 4" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUr-UR-Q8u">
+                                <rect key="frame" x="20" y="129" width="312" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:42 seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juH-pd-mmI">
-                                <rect key="frame" x="20" y="72" width="164" height="20"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" text="0:42 seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juH-pd-mmI">
+                                <rect key="frame" x="20" y="101" width="312" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="164" id="HQT-5r-U5P"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -113,23 +117,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="mUr-UR-Q8u" firstAttribute="width" secondItem="juH-pd-mmI" secondAttribute="width" id="5G5-f9-G0H"/>
                             <constraint firstItem="9mN-97-6H8" firstAttribute="leading" secondItem="N85-bg-g3c" secondAttribute="leading" id="7J2-Zd-Rum"/>
-                            <constraint firstItem="mUr-UR-Q8u" firstAttribute="top" secondItem="juH-pd-mmI" secondAttribute="bottom" constant="8" id="Cnb-X5-pMW"/>
                             <constraint firstAttribute="centerX" secondItem="9mN-97-6H8" secondAttribute="centerX" constant="-80" id="FRe-k1-PnX"/>
-                            <constraint firstItem="mUr-UR-Q8u" firstAttribute="leading" secondItem="juH-pd-mmI" secondAttribute="leading" id="M4n-Gy-Qjd"/>
+                            <constraint firstItem="juH-pd-mmI" firstAttribute="top" secondItem="Vdx-n0-GdX" secondAttribute="bottom" constant="8" id="HJD-n0-1Dv"/>
+                            <constraint firstItem="N85-bg-g3c" firstAttribute="leading" secondItem="Vdx-n0-GdX" secondAttribute="trailing" constant="8" id="Ipb-oE-zv2"/>
+                            <constraint firstItem="Vdx-n0-GdX" firstAttribute="leading" secondItem="Vtr-MJ-Pt5" secondAttribute="leading" constant="20" symbolic="YES" id="J1Q-us-goC"/>
                             <constraint firstAttribute="trailing" secondItem="N85-bg-g3c" secondAttribute="trailing" constant="20" symbolic="YES" id="UYC-l9-LpT"/>
                             <constraint firstItem="9mN-97-6H8" firstAttribute="top" secondItem="jdV-pl-aRr" secondAttribute="bottom" constant="20" symbolic="YES" id="YRR-uP-Yeg"/>
                             <constraint firstItem="1o2-cI-bsE" firstAttribute="top" secondItem="9mN-97-6H8" secondAttribute="bottom" constant="21" id="aoT-BP-Eky"/>
                             <constraint firstItem="N85-bg-g3c" firstAttribute="top" secondItem="jdV-pl-aRr" secondAttribute="bottom" constant="8" id="bWs-oP-bPp"/>
-                            <constraint firstItem="juH-pd-mmI" firstAttribute="leading" secondItem="Vtr-MJ-Pt5" secondAttribute="leading" constant="20" symbolic="YES" id="d8F-KV-ArB"/>
-                            <constraint firstItem="N85-bg-g3c" firstAttribute="top" secondItem="juH-pd-mmI" secondAttribute="top" id="nXE-qU-4Ls"/>
+                            <constraint firstItem="Vdx-n0-GdX" firstAttribute="leading" secondItem="juH-pd-mmI" secondAttribute="leading" id="dTh-Kb-QHG"/>
+                            <constraint firstItem="mUr-UR-Q8u" firstAttribute="width" secondItem="Vdx-n0-GdX" secondAttribute="width" id="nna-cJ-4L3"/>
+                            <constraint firstItem="mUr-UR-Q8u" firstAttribute="top" secondItem="juH-pd-mmI" secondAttribute="bottom" constant="8" id="pI1-4G-Vcq"/>
+                            <constraint firstItem="mUr-UR-Q8u" firstAttribute="leading" secondItem="juH-pd-mmI" secondAttribute="leading" id="pac-yC-eQy"/>
+                            <constraint firstItem="mUr-UR-Q8u" firstAttribute="width" secondItem="juH-pd-mmI" secondAttribute="width" id="v0j-p7-eHo"/>
+                            <constraint firstItem="Vdx-n0-GdX" firstAttribute="top" secondItem="jdV-pl-aRr" secondAttribute="bottom" constant="20" symbolic="YES" id="z92-XB-XAa"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Periods" id="OuK-jy-Cg1"/>
                     <connections>
                         <outlet property="currentPeriodLabel" destination="mUr-UR-Q8u" id="uXd-1b-ewC"/>
+                        <outlet property="selectedDateLabel" destination="Vdx-n0-GdX" id="J0C-yA-6E1"/>
                         <outlet property="tableView" destination="9mN-97-6H8" id="2jd-p6-pwj"/>
                         <outlet property="timeRemainingLabel" destination="juH-pd-mmI" id="Wgs-HE-dhZ"/>
                         <outlet property="titleLabel" destination="N85-bg-g3c" id="cEh-Gr-3iw"/>
