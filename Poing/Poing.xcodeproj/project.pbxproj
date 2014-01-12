@@ -16,7 +16,6 @@
 		CF108BE9185C0A01001E6706 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108BE8185C0A01001E6706 /* main.m */; };
 		CF108BED185C0A01001E6706 /* AAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108BEC185C0A01001E6706 /* AAAppDelegate.m */; };
 		CF108BF0185C0A01001E6706 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF108BEE185C0A01001E6706 /* Main.storyboard */; };
-		CF108BF3185C0A01001E6706 /* AAFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108BF2185C0A01001E6706 /* AAFirstViewController.m */; };
 		CF108BF8185C0A01001E6706 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF108BF7185C0A01001E6706 /* Images.xcassets */; };
 		CF108BFF185C0A01001E6706 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF108BFE185C0A01001E6706 /* XCTest.framework */; };
 		CF108C00185C0A01001E6706 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF108BDC185C0A01001E6706 /* Foundation.framework */; };
@@ -25,6 +24,7 @@
 		CF108C0B185C0A01001E6706 /* PoingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108C0A185C0A01001E6706 /* PoingTests.m */; };
 		CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */; };
 		CF75D9BD188314550089899D /* AABellCyclePeriodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75D9BC188314550089899D /* AABellCyclePeriodCell.m */; };
+		CF75DA0B18834E000089899D /* AATeamVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75DA0A18834E000089899D /* AATeamVC.m */; };
 		CF85FCE3185D4F7000C70BE1 /* Period.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE2185D4F7000C70BE1 /* Period.m */; };
 		CF85FCE9185D4F7000C70BE1 /* Bell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE8185D4F7000C70BE1 /* Bell.m */; };
 		CF85FCEC185D4F7000C70BE1 /* BellCyclePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCEB185D4F7000C70BE1 /* BellCyclePeriod.m */; };
@@ -84,8 +84,6 @@
 		CF108BEB185C0A01001E6706 /* AAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAppDelegate.h; sourceTree = "<group>"; };
 		CF108BEC185C0A01001E6706 /* AAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAppDelegate.m; sourceTree = "<group>"; };
 		CF108BEF185C0A01001E6706 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CF108BF1185C0A01001E6706 /* AAFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAFirstViewController.h; sourceTree = "<group>"; };
-		CF108BF2185C0A01001E6706 /* AAFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAFirstViewController.m; sourceTree = "<group>"; };
 		CF108BF7185C0A01001E6706 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF108BFD185C0A01001E6706 /* PoingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF108BFE185C0A01001E6706 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -95,6 +93,8 @@
 		CF108C15185C3D01001E6706 /* BellSchedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BellSchedule.xcdatamodel; sourceTree = "<group>"; };
 		CF75D9BB188314550089899D /* AABellCyclePeriodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABellCyclePeriodCell.h; sourceTree = "<group>"; };
 		CF75D9BC188314550089899D /* AABellCyclePeriodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AABellCyclePeriodCell.m; sourceTree = "<group>"; };
+		CF75DA0918834E000089899D /* AATeamVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AATeamVC.h; path = ../AATeamVC.h; sourceTree = "<group>"; };
+		CF75DA0A18834E000089899D /* AATeamVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AATeamVC.m; path = ../AATeamVC.m; sourceTree = "<group>"; };
 		CF85FCE1185D4F7000C70BE1 /* Period.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Period.h; sourceTree = "<group>"; };
 		CF85FCE2185D4F7000C70BE1 /* Period.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Period.m; sourceTree = "<group>"; };
 		CF85FCE7185D4F7000C70BE1 /* Bell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bell.h; sourceTree = "<group>"; };
@@ -225,8 +225,8 @@
 				CF108BEB185C0A01001E6706 /* AAAppDelegate.h */,
 				CF108BEC185C0A01001E6706 /* AAAppDelegate.m */,
 				CF108BEE185C0A01001E6706 /* Main.storyboard */,
-				CF108BF1185C0A01001E6706 /* AAFirstViewController.h */,
-				CF108BF2185C0A01001E6706 /* AAFirstViewController.m */,
+				CF75DA0918834E000089899D /* AATeamVC.h */,
+				CF75DA0A18834E000089899D /* AATeamVC.m */,
 				CFB56D40186663FA007ABFB1 /* AACheckScheduleVC.h */,
 				CFB56D41186663FA007ABFB1 /* AACheckScheduleVC.m */,
 				CFB56D461866D1D8007ABFB1 /* AADate.h */,
@@ -496,7 +496,6 @@
 				CF85FCFD185D7EC100C70BE1 /* Period+Create.m in Sources */,
 				CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */,
 				CF108BED185C0A01001E6706 /* AAAppDelegate.m in Sources */,
-				CF108BF3185C0A01001E6706 /* AAFirstViewController.m in Sources */,
 				CFB56D481866D1D8007ABFB1 /* AADate.m in Sources */,
 				CFB56D4518667B0A007ABFB1 /* AASchedule.m in Sources */,
 				CF85FCFA185D712500C70BE1 /* Cycle+Create.m in Sources */,
@@ -516,6 +515,7 @@
 				CF85FCF2185D4FB400C70BE1 /* AAScheduleLoader.m in Sources */,
 				CF85FD67185E7FBA00C70BE1 /* BellCyclePeriod+Create.m in Sources */,
 				CFB56D42186663FA007ABFB1 /* AACheckScheduleVC.m in Sources */,
+				CF75DA0B18834E000089899D /* AATeamVC.m in Sources */,
 				CFB56D691867B9D3007ABFB1 /* Section+Create.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
