@@ -13,6 +13,7 @@
 #import "SchoolDay+Create.h"
 #import "BellCycle+Create.h"
 #import "BellCyclePeriod+Create.h"
+#import "SchoolDay+Info.h"
 #import <CoreData/CoreData.h>
 
 #define BELL_ASSEMBLY_1 @"Assembly 1 Schedule"
@@ -56,19 +57,8 @@
 
 + (BOOL)scheduleLoadRequired:(NSManagedObjectContext *)context
 {
-    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SchoolDay"];
-    NSString *dayString = @"2013-08-26";
-    NSDate *day = [SchoolDay dateFromSchoolDayString:dayString];
-    request.predicate = [NSPredicate predicateWithFormat:@"day = %@", day];
-    
-    NSError *error;
-    NSArray *matches = [context executeFetchRequest:request error:&error];
-    
-    if (!matches || ![matches count]) {
-        return YES;
-    } else {
-        return NO;
-    }
+    return ![SchoolDay schoolDayForString:@"2013-08-26"
+                                inContext:context];
 }
 
 + (void)loadScheduleDataWithContext:(NSManagedObjectContext *)context

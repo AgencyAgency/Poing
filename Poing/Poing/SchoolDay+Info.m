@@ -14,6 +14,23 @@
 
 @implementation SchoolDay (Info)
 
+// Expects dayString == @"2013-08-26"
++ (SchoolDay *)schoolDayForString:(NSString *)dayString inContext:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SchoolDay"];
+    NSDate *day = [SchoolDay dateFromSchoolDayString:dayString];
+    request.predicate = [NSPredicate predicateWithFormat:@"day = %@", day];
+    
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    if (!matches || ![matches count]) {
+        return nil;
+    } else {
+        return [matches lastObject];
+    }
+}
+
 + (NSArray *)allSchoolDaysInManagedObjectContext:(NSManagedObjectContext *)context
 {
     NSArray *schoolDays = nil;

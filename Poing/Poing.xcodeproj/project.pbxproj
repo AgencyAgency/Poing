@@ -49,7 +49,6 @@
 		CF85FD70185EF63100C70BE1 /* BellCycle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD6F185EF63100C70BE1 /* BellCycle.m */; };
 		CF85FD73185EFD5100C70BE1 /* SchoolDay+Info.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FD72185EFD5100C70BE1 /* SchoolDay+Info.m */; };
 		CFB489F8187A84EC00B0C406 /* Section.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB489F7187A84EC00B0C406 /* Section.m */; };
-		CFB56D42186663FA007ABFB1 /* AACheckScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D41186663FA007ABFB1 /* AACheckScheduleVC.m */; };
 		CFB56D4518667B0A007ABFB1 /* AASchedule.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D4418667B0A007ABFB1 /* AASchedule.m */; };
 		CFB56D481866D1D8007ABFB1 /* AADate.m in Sources */ = {isa = PBXBuildFile; fileRef = CFB56D471866D1D8007ABFB1 /* AADate.m */; };
 		CFB56D4A1866E197007ABFB1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB56D491866E197007ABFB1 /* QuartzCore.framework */; };
@@ -143,8 +142,6 @@
 		CF85FD72185EFD5100C70BE1 /* SchoolDay+Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SchoolDay+Info.m"; sourceTree = "<group>"; };
 		CFB489F6187A84EC00B0C406 /* Section.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Section.h; sourceTree = "<group>"; };
 		CFB489F7187A84EC00B0C406 /* Section.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Section.m; sourceTree = "<group>"; };
-		CFB56D40186663FA007ABFB1 /* AACheckScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AACheckScheduleVC.h; sourceTree = "<group>"; };
-		CFB56D41186663FA007ABFB1 /* AACheckScheduleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AACheckScheduleVC.m; sourceTree = "<group>"; };
 		CFB56D4318667B0A007ABFB1 /* AASchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASchedule.h; sourceTree = "<group>"; };
 		CFB56D4418667B0A007ABFB1 /* AASchedule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASchedule.m; sourceTree = "<group>"; };
 		CFB56D461866D1D8007ABFB1 /* AADate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AADate.h; sourceTree = "<group>"; };
@@ -232,8 +229,6 @@
 				CF108BEB185C0A01001E6706 /* AAAppDelegate.h */,
 				CF108BEC185C0A01001E6706 /* AAAppDelegate.m */,
 				CF108BEE185C0A01001E6706 /* Main.storyboard */,
-				CFB56D40186663FA007ABFB1 /* AACheckScheduleVC.h */,
-				CFB56D41186663FA007ABFB1 /* AACheckScheduleVC.m */,
 				CFB56D461866D1D8007ABFB1 /* AADate.h */,
 				CFB56D471866D1D8007ABFB1 /* AADate.m */,
 				CFB56D4318667B0A007ABFB1 /* AASchedule.h */,
@@ -533,7 +528,6 @@
 				CF108BE9185C0A01001E6706 /* main.m in Sources */,
 				CF85FCF2185D4FB400C70BE1 /* AAScheduleLoader.m in Sources */,
 				CF85FD67185E7FBA00C70BE1 /* BellCyclePeriod+Create.m in Sources */,
-				CFB56D42186663FA007ABFB1 /* AACheckScheduleVC.m in Sources */,
 				CF75DA0B18834E000089899D /* AATeamVC.m in Sources */,
 				CFB56D691867B9D3007ABFB1 /* Section+Create.m in Sources */,
 				CF75DA12188394050089899D /* AAMemberDetailVC.m in Sources */,

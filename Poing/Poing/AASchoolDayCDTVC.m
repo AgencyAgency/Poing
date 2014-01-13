@@ -38,18 +38,39 @@
     return match;
 }
 
+- (SchoolDay *)schoolDayDaysAhead:(NSUInteger)daysAhead
+{
+    double dayInSecs = 24 * 60 * 60;
+    NSTimeInterval offset = daysAhead * dayInSecs;
+    
+    NSDate *nextDate = [NSDate dateWithTimeInterval:offset
+                                          sinceDate:[NSDate date]];
+    NSString *dateCode = [SchoolDay codeForHSTDate:nextDate];
+    return [SchoolDay schoolDayForString:dateCode
+                               inContext:self.managedObjectContext];
+}
+
+- (void)selectSchoolDay:(SchoolDay *)schoolDay iteration:(NSUInteger)iteration
+{
+    if (iteration > 10) return;
+    
+    if (schoolDay) {
+        NSUInteger match = [self indexOfMatchingSchoolDay:schoolDay];
+        if (match != NSNotFound) {
+            self.selectedSchoolDay = schoolDay;
+            return;
+        }
+    }
+    
+    iteration++;
+    SchoolDay *nextSchoolDay = [self schoolDayDaysAhead:iteration];
+    [self selectSchoolDay:nextSchoolDay iteration:iteration];
+}
+
 - (void)selectToday
 {
     SchoolDay *today = [self.schedule schoolDayForToday];
-    if (today) {
-        NSUInteger match = [self indexOfMatchingSchoolDay:today];
-        if (match != NSNotFound) {
-            self.selectedSchoolDay = today;
-            NSUInteger idx = [self indexOfMatchingSchoolDay:today];
-            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
-            [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
-        }
-    }
+    [self selectSchoolDay:today iteration:0];
 }
 
 - (void)setSelectedSchoolDay:(SchoolDay *)selectedSchoolDay
@@ -57,6 +78,10 @@
     if (_selectedSchoolDay != selectedSchoolDay) {
         _selectedSchoolDay = selectedSchoolDay;
         self.detailViewController.schoolDay = selectedSchoolDay;
+        
+        NSUInteger idx = [self indexOfMatchingSchoolDay:selectedSchoolDay];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     }
 }
 

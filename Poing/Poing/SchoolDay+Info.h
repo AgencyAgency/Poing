@@ -10,6 +10,7 @@
 #import "BellCyclePeriod.h"
 
 @interface SchoolDay (Info)
++ (SchoolDay *)schoolDayForString:(NSString *)dayString inContext:(NSManagedObjectContext *)context;
 + (NSArray *)allSchoolDaysInManagedObjectContext:(NSManagedObjectContext *)context;
 - (NSString *)formattedDay;
 

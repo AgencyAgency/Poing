@@ -37,10 +37,10 @@
 
 + (NSDate *)now
 {
-    return [[self sharedDate] now];
+    // Fake a date with this.
+//    return [[self sharedDate] now];
     
-//    return [NSDate date];
-//    return [BellCyclePeriod dateFromFullFormattedHSTString:@"2014-01-07 09:02"];
+    return [NSDate date];
 }
 
 - (NSDate *)now
