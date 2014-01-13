@@ -161,6 +161,7 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     [self loadVarietyAtheleticPeriodDataIntoContext:context];
     [self loadConvocationPeriodDataIntoContext:context];
     [self loadFairPeriodDataIntoContext:context];
+    [self loadMayDayPeriodDataIntoContext:context];
 }
 
 + (void)loadBasicPeriodDataIntoContext:(NSManagedObjectContext *)context
@@ -705,7 +706,7 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     NSArray *periods = nil;
     
     // Fair Day - CYCLE 1
-    NSArray *times = @[@{@"start": @"07:40", @"end": @"07:50"},
+    NSArray *times = @[@{@"start": @"07:40", @"end": @"07:45"},
                        @{@"start": @"07:50", @"end": @"08:10"},
                        @{@"start": @"08:15", @"end": @"08:35"},
                        @{@"start": @"08:40", @"end": @"09:00"},
@@ -728,5 +729,40 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                periods:periods
                  times:times intoManagedObjectContext:context];
 }
+
++ (void)loadMayDayPeriodDataIntoContext:(NSManagedObjectContext *)context
+{
+    NSString *bellType = BELL_SPECIAL_MAY_DAY;
+    NSArray *periods = nil;
+    
+    // Fair Day - CYCLE 1
+    NSArray *times = @[@{@"start": @"07:40", @"end": @"07:45"},
+                       @{@"start": @"07:50", @"end": @"08:26"},
+                       @{@"start": @"08:31", @"end": @"09:07"},
+                       @{@"start": @"09:12", @"end": @"10:12"},
+                       @{@"start": @"10:17", @"end": @"10:53"},
+                       @{@"start": @"10:58", @"end": @"11:34"},
+                       @{@"start": @"11:39", @"end": @"12:15"},
+                       @{@"start": @"12:15", @"end": @"12:57"},
+                       @{@"start": @"13:02", @"end": @"13:38"},
+                       @{@"start": @"13:43", @"end": @"14:19"},
+                       @{@"start": @"14:24", @"end": @"15:00"}];
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_7,
+                PERIOD_8,
+                PERIOD_ASSEMBLY,
+                PERIOD_1,
+                PERIOD_2,
+                PERIOD_5,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_3,
+                PERIOD_4];
+    [self loadBellName:bellType
+             cycleName:CYCLE_7
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+}
+
 
 @end
