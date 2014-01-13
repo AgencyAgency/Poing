@@ -19,12 +19,19 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collViewWidthConstraint;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *aboutTextBottomConstraint;
 
 @property (strong, nonatomic) UIPopoverController *detailsPopoverController;
 
 @end
 
 @implementation AATeamVC
+
+- (void)awakeFromNib
+{
+    [super awakeFromNib];
+    [self adjustToOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+}
 
 - (void)setCollViewRightSpacerConstraint:(NSLayoutConstraint *)collViewRightSpacerConstraint
 {
@@ -39,16 +46,22 @@
         self.collViewWidthConstraint.priority = 999;
         
         self.collViewTopSpacerConstraint.priority = 999;
-        self.collViewHeightConstraint.constant = 100.0f;
+        self.collViewHeightConstraint.constant = 100.0;
         self.collViewHeightConstraint.priority = 1;
+        
+        self.aboutTextBottomConstraint.constant = 350.0;
+        NSLog(@"set up portrait");
         
     } else {
         self.collViewRightSpacerConstraint.priority = 999;
         self.collViewWidthConstraint.priority = 1;
 
         self.collViewTopSpacerConstraint.priority = 1;
-        self.collViewHeightConstraint.constant = 210.0f;
+        self.collViewHeightConstraint.constant = 210.0;
         self.collViewHeightConstraint.priority = 999;
+        
+        self.aboutTextBottomConstraint.constant = 250.0;
+        NSLog(@"set up landscape");
     }
 }
 
