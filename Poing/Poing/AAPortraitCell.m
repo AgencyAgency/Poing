@@ -20,6 +20,7 @@
     NSString *imageName = [NSString stringWithFormat:@"portrait%lu", (unsigned long)index];
     [self.portraitButton setImage:[UIImage imageNamed:imageName]
                          forState:UIControlStateNormal];
+    self.portraitButton.tag = index;
 }
 
 @end

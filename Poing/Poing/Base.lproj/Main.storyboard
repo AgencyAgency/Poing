@@ -113,20 +113,51 @@ This team-based and activity-oriented course also covers general software develo
             </objects>
             <point key="canvasLocation" x="3018" y="1282"/>
         </scene>
-        <!--View Controller-->
+        <!--Member DetailVC-->
         <scene sceneID="XKr-KG-3GE">
             <objects>
-                <viewController storyboardIdentifier="Pop Details" id="a5y-dW-eu8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Pop Details" id="a5y-dW-eu8" customClass="AAMemberDetailVC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Y2K-Fz-8Ne"/>
                         <viewControllerLayoutGuide type="bottom" id="ykN-XX-iBw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="pes-Yf-Ta6">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="210"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cara" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAD-oW-IUj">
+                                <rect key="frame" x="20" y="20" width="360" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWi-as-42I">
+                                <rect key="frame" x="20" y="63" width="360" height="127"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fAD-oW-IUj" firstAttribute="leading" secondItem="pes-Yf-Ta6" secondAttribute="leading" constant="20" symbolic="YES" id="9dT-tY-wZJ"/>
+                            <constraint firstAttribute="trailing" secondItem="NWi-as-42I" secondAttribute="trailing" constant="20" symbolic="YES" id="Yo8-Vl-DdM"/>
+                            <constraint firstAttribute="trailing" secondItem="fAD-oW-IUj" secondAttribute="trailing" constant="20" symbolic="YES" id="dJa-ga-vxL"/>
+                            <constraint firstItem="NWi-as-42I" firstAttribute="leading" secondItem="pes-Yf-Ta6" secondAttribute="leading" constant="20" symbolic="YES" id="eC3-LN-Pxb"/>
+                            <constraint firstItem="NWi-as-42I" firstAttribute="top" secondItem="fAD-oW-IUj" secondAttribute="bottom" constant="8" id="vLx-sg-iqJ"/>
+                            <constraint firstItem="ykN-XX-iBw" firstAttribute="top" secondItem="NWi-as-42I" secondAttribute="bottom" constant="20" id="vct-Js-ahl"/>
+                            <constraint firstItem="fAD-oW-IUj" firstAttribute="top" secondItem="Y2K-Fz-8Ne" secondAttribute="bottom" constant="20" id="zte-Au-SaF"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="bioTextView" destination="NWi-as-42I" id="XUD-qV-RDN"/>
+                        <outlet property="nameLabel" destination="fAD-oW-IUj" id="IuT-dc-HYZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJ2-iV-Bhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

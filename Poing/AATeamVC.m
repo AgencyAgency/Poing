@@ -8,6 +8,7 @@
 
 #import "AATeamVC.h"
 #import "AAPortraitCell.h"
+#import "AAMemberDetailVC.h"
 
 @interface AATeamVC () <UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -85,9 +86,38 @@
 #pragma mark - Popover
 
 - (IBAction)portraitPressed:(UIButton *)sender {
-    UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Pop Details"];
-    self.
+    AAMemberDetailVC *vc = (AAMemberDetailVC *)[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Pop Details"];
+    vc.memberIndex = sender.tag;
     self.detailsPopoverController = [[UIPopoverController alloc] initWithContentViewController:vc];
+    
+    CGSize contentSize = self.detailsPopoverController.popoverContentSize;
+    CGFloat offset;
+    switch (vc.memberIndex) {
+        case 0:
+            offset = 25.0;
+            break;
+        case 2:
+            offset = 10.0;
+            break;
+        case 3:
+            offset = -40.0;
+            break;
+        case 4:
+            offset = -10.0;
+            break;
+        case 5:
+            offset = -25.0;
+            break;
+        case 8:
+            offset = 5.0;
+            break;
+            
+        default:
+            offset = 0.0;
+            break;
+    }
+    contentSize.height += offset;
+    self.detailsPopoverController.popoverContentSize = contentSize;
     
     CGFloat w = [sender bounds].size.width;
     CGFloat h = [sender bounds].size.height;
