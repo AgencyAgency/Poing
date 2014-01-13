@@ -11,6 +11,7 @@
 #import "Cycle+Create.h"
 #import "Period+Create.h"
 #import "SchoolDay+Create.h"
+#import "BellCycle+Create.h"
 #import "BellCyclePeriod+Create.h"
 #import <CoreData/CoreData.h>
 
@@ -29,6 +30,7 @@
 #define BELL_SPECIAL_FAIR_DAY @"Special Fair Day Schedule"
 #define BELL_SPECIAL_MAY_DAY @"Special May Day Schedule"
 #define BELL_VARIETY_ATHLETIC_ASSEMBLY @"VarietyAthletic Assembly Schedule"
+#define BELL_CHAPEL_MOVING_UP @"Moving Up Chapel Schedule"
 
 #define CYCLE_1 @"1"
 #define CYCLE_3 @"3"
@@ -48,6 +50,7 @@
 #define PERIOD_LUNCH    @"Lunch"
 #define PERIOD_MEETING  @"Meeting"
 #define PERIOD_CONVOCATION @"Convocation"
+#define PERIOD_CEREMONY @"Ceremony"
 
 @implementation AAScheduleLoader
 
@@ -70,7 +73,7 @@
 
 + (void)loadScheduleDataWithContext:(NSManagedObjectContext *)context
 {
-//    if (![self scheduleLoadRequired:context]) return;
+    if (![self scheduleLoadRequired:context]) return;
     
     // Parse schedule:
     [self loadScheduleJSONIntoContext:context];
@@ -162,6 +165,32 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     [self loadConvocationPeriodDataIntoContext:context];
     [self loadFairPeriodDataIntoContext:context];
     [self loadMayDayPeriodDataIntoContext:context];
+    [self loadMovingUpChapelPeriodDataIntoContext:context];
+ 
+    // These must go last. They correct errors in the raw schedule.
+    [self overrides:context];
+}
+
++ (void)overrides:(NSManagedObjectContext *)context
+{
+    // Change bell-cycle for Moving Up Chapel day from
+    // regular "Chapel" to "Chapel Moving Up".
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SchoolDay"];
+    NSString *dayString = @"2014-05-22";
+    NSDate *day = [SchoolDay dateFromSchoolDayString:dayString];
+    request.predicate = [NSPredicate predicateWithFormat:@"day = %@", day];
+    
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    if (!matches || ([matches count] > 1 || ![matches count])) {
+        // handle error
+        NSAssert(NO, @"wrong number of school day matches returned.");
+    } else {
+        BellCycle *bellCycle = [BellCycle bellCycleWithBellName:BELL_CHAPEL_MOVING_UP cycleName:CYCLE_7 inManagedObjectContext:context];
+        SchoolDay *schoolDay = [matches lastObject];
+        schoolDay.bellCycle = bellCycle;
+    }
 }
 
 + (void)loadBasicPeriodDataIntoContext:(NSManagedObjectContext *)context
@@ -735,7 +764,7 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     NSString *bellType = BELL_SPECIAL_MAY_DAY;
     NSArray *periods = nil;
     
-    // Fair Day - CYCLE 1
+    // Fair Day - CYCLE 7
     NSArray *times = @[@{@"start": @"07:40", @"end": @"07:45"},
                        @{@"start": @"07:50", @"end": @"08:26"},
                        @{@"start": @"08:31", @"end": @"09:07"},
@@ -764,5 +793,38 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                  times:times intoManagedObjectContext:context];
 }
 
++ (void)loadMovingUpChapelPeriodDataIntoContext:(NSManagedObjectContext *)context
+{
+    NSString *bellType = BELL_CHAPEL_MOVING_UP;
+    NSArray *periods = nil;
+    
+    // Moving Up Chapel - CYCLE 7
+    NSArray *times = @[@{@"start": @"07:40", @"end": @"07:45"},
+                       @{@"start": @"07:50", @"end": @"08:20"},
+                       @{@"start": @"08:25", @"end": @"09:05"},
+                       @{@"start": @"09:10", @"end": @"09:50"},
+                       @{@"start": @"09:55", @"end": @"10:35"},
+                       @{@"start": @"10:40", @"end": @"11:20"},
+                       @{@"start": @"11:25", @"end": @"12:05"},
+                       @{@"start": @"12:05", @"end": @"12:45"},
+                       @{@"start": @"12:50", @"end": @"13:30"},
+                       @{@"start": @"13:35", @"end": @"14:15"},
+                       @{@"start": @"14:20", @"end": @"15:00"}];
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CEREMONY,
+                PERIOD_7,
+                PERIOD_8,
+                PERIOD_1,
+                PERIOD_2,
+                PERIOD_5,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_3,
+                PERIOD_4];
+    [self loadBellName:bellType
+             cycleName:CYCLE_7
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+}
 
 @end
