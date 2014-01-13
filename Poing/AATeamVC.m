@@ -19,6 +19,8 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collView;
 
+@property (strong, nonatomic) UIPopoverController *detailsPopoverController;
+
 @end
 
 @implementation AATeamVC
@@ -78,5 +80,32 @@
     [cell configureForIndex:indexPath.row];
     return cell;
 }
+
+
+#pragma mark - Popover
+
+- (IBAction)portraitPressed:(UIButton *)sender {
+    UIViewController *vc = [[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Pop Details"];
+    self.
+    self.detailsPopoverController = [[UIPopoverController alloc] initWithContentViewController:vc];
+    
+    CGFloat w = [sender bounds].size.width;
+    CGFloat h = [sender bounds].size.height;
+    CGFloat xOffset = 0;
+    CGFloat yOffset = 0;
+    UIPopoverArrowDirection arrowDirection;
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+        xOffset = -w/3.0;
+        arrowDirection = UIPopoverArrowDirectionLeft;
+    } else {
+        arrowDirection = UIPopoverArrowDirectionDown;
+    }
+    CGRect small = CGRectMake([sender bounds].origin.x + xOffset,
+                              [sender bounds].origin.y + yOffset,
+                              w, h);
+    CGRect rect = [self.view convertRect:small fromView:sender];
+    [self.detailsPopoverController presentPopoverFromRect:rect inView:self.view permittedArrowDirections:arrowDirection animated:YES];
+}
+
 
 @end

@@ -48,6 +48,9 @@
                                                     <state key="normal" title="Button" image="portrait7">
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="portraitPressed:" destination="9pv-A4-QxB" eventType="touchUpInside" id="mcB-Nb-uny"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -108,7 +111,26 @@ This team-based and activity-oriented course also covers general software develo
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3037" y="1310"/>
+            <point key="canvasLocation" x="3018" y="1282"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="XKr-KG-3GE">
+            <objects>
+                <viewController storyboardIdentifier="Pop Details" id="a5y-dW-eu8" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y2K-Fz-8Ne"/>
+                        <viewControllerLayoutGuide type="bottom" id="ykN-XX-iBw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pes-Yf-Ta6">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nJ2-iV-Bhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3956" y="1694"/>
         </scene>
         <!--Bell ScheduleVC - Periods-->
         <scene sceneID="tHe-pM-v1p">
