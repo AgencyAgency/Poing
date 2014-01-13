@@ -157,6 +157,7 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     [self loadAssembly1PeriodDataIntoContext:context];
     [self loadAssembly2PeriodDataIntoContext:context];
     [self loadAssembly3PeriodDataIntoContext:context];
+    [self loadVarsityAtheleticPeriodDataIntoContext:context];
 }
 
 + (void)loadBasicPeriodDataIntoContext:(NSManagedObjectContext *)context
@@ -587,6 +588,74 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                 PERIOD_1,
                 PERIOD_2,
                 PERIOD_ASSEMBLY];
+    [self loadBellName:bellType
+             cycleName:CYCLE_3
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+}
+
++ (void)loadVarsityAtheleticPeriodDataIntoContext:(NSManagedObjectContext *)context
+{
+    NSString *bellType = BELL_VARSITY_ATHLETIC_ASSEMBLY;
+    NSArray *periods = nil;
+    
+    // VarsityAthletic - CYCLE 1
+    NSArray *times = @[@{@"start": @"07:40", @"end": @"07:45"},
+                       @{@"start": @"07:50", @"end": @"08:26"},
+                       @{@"start": @"08:31", @"end": @"09:07"},
+                       @{@"start": @"09:12", @"end": @"09:48"},
+                       @{@"start": @"09:53", @"end": @"10:29"},
+                       @{@"start": @"10:34", @"end": @"11:10"},
+                       @{@"start": @"11:15", @"end": @"12:15"},
+                       @{@"start": @"12:15", @"end": @"12:57"},
+                       @{@"start": @"13:02", @"end": @"13:38"},
+                       @{@"start": @"13:43", @"end": @"14:19"},
+                       @{@"start": @"14:24", @"end": @"15:00"}];
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_1,
+                PERIOD_2,
+                PERIOD_3,
+                PERIOD_4,
+                PERIOD_5,
+                PERIOD_ASSEMBLY,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_7,
+                PERIOD_8];
+    [self loadBellName:bellType
+             cycleName:CYCLE_1
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // VarsityAthletic - CYCLE 7
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_7,
+                PERIOD_8,
+                PERIOD_1,
+                PERIOD_2,
+                PERIOD_5,
+                PERIOD_ASSEMBLY,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_3,
+                PERIOD_4];
+    [self loadBellName:bellType
+             cycleName:CYCLE_7
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // VarsityAthletic - CYCLE 3
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_3,
+                PERIOD_4,
+                PERIOD_7,
+                PERIOD_8,
+                PERIOD_5,
+                PERIOD_ASSEMBLY,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_1,
+                PERIOD_2];
     [self loadBellName:bellType
              cycleName:CYCLE_3
                periods:periods
