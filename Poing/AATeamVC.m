@@ -10,7 +10,7 @@
 #import "AAPortraitCell.h"
 #import "AAMemberDetailVC.h"
 
-@interface AATeamVC () <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface AATeamVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collViewTopSpacerConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collViewHeightConstraint;
@@ -89,6 +89,7 @@
     AAMemberDetailVC *vc = (AAMemberDetailVC *)[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Pop Details"];
     vc.memberIndex = sender.tag;
     self.detailsPopoverController = [[UIPopoverController alloc] initWithContentViewController:vc];
+    self.detailsPopoverController.delegate = self;
     
     CGSize contentSize = self.detailsPopoverController.popoverContentSize;
     CGFloat offset;
@@ -119,22 +120,37 @@
     contentSize.height += offset;
     self.detailsPopoverController.popoverContentSize = contentSize;
     
-    CGFloat w = [sender bounds].size.width;
-    CGFloat h = [sender bounds].size.height;
-    CGFloat xOffset = 0;
-    CGFloat yOffset = 0;
     UIPopoverArrowDirection arrowDirection;
     if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-        xOffset = -w/3.0;
         arrowDirection = UIPopoverArrowDirectionLeft;
     } else {
         arrowDirection = UIPopoverArrowDirectionDown;
     }
-    CGRect small = CGRectMake([sender bounds].origin.x + xOffset,
-                              [sender bounds].origin.y + yOffset,
-                              w, h);
-    CGRect rect = [self.view convertRect:small fromView:sender];
+    CGRect rect = [self popoverRectForSourceView:sender];
     [self.detailsPopoverController presentPopoverFromRect:rect inView:self.view permittedArrowDirections:arrowDirection animated:YES];
+}
+
+- (CGRect)popoverRectForSourceView:(UIView *)sourceView
+{
+    CGFloat w = [sourceView bounds].size.width;
+    CGFloat h = [sourceView bounds].size.height;
+    CGFloat xOffset = 0;
+    CGFloat yOffset = 0;
+    if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
+        xOffset = -w/3.0;
+    }
+    CGRect small = CGRectMake([sourceView bounds].origin.x + xOffset,
+                              [sourceView bounds].origin.y + yOffset,
+                              w, h);
+    return [self.view convertRect:small fromView:sourceView];
+}
+
+
+#pragma mark - Popover Controller Delegate
+
+- (void)popoverController:(UIPopoverController *)popoverController willRepositionPopoverToRect:(inout CGRect *)rect inView:(inout UIView **)view
+{
+    [self.detailsPopoverController dismissPopoverAnimated:NO];
 }
 
 
