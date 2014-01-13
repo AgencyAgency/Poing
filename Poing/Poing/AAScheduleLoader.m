@@ -50,8 +50,27 @@
 
 @implementation AAScheduleLoader
 
++ (BOOL)scheduleLoadRequired:(NSManagedObjectContext *)context
+{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SchoolDay"];
+    NSString *dayString = @"2013-08-26";
+    NSDate *day = [SchoolDay dateFromSchoolDayString:dayString];
+    request.predicate = [NSPredicate predicateWithFormat:@"day = %@", day];
+    
+    NSError *error;
+    NSArray *matches = [context executeFetchRequest:request error:&error];
+    
+    if (!matches || ![matches count]) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
 + (void)loadScheduleDataWithContext:(NSManagedObjectContext *)context
 {
+//    if (![self scheduleLoadRequired:context]) return;
+    
     // Parse schedule:
     [self loadScheduleJSONIntoContext:context];
     
@@ -127,10 +146,14 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     }
 }
 
+
+#pragma mark - Load Bell Cycle Periods
+
 + (void)loadBellCyclePeriodDataIntoContext:(NSManagedObjectContext *)context
 {
     [self loadBasicPeriodDataIntoContext:context];
     [self loadChapelPeriodDataIntoContext:context];
+    [self loadExtPeriodDataIntoContext:context];
 }
 
 + (void)loadBasicPeriodDataIntoContext:(NSManagedObjectContext *)context
@@ -260,6 +283,104 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                 PERIOD_1,
                 PERIOD_2];
     [self loadBellName:bellType
+             cycleName:CYCLE_3
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+}
+
++ (void)loadExtPeriodDataIntoContext:(NSManagedObjectContext *)context
+{
+    NSArray *periods = nil;
+    
+    NSArray *times = @[@{@"start": @"07:40", @"end": @"07:45"},
+                       @{@"start": @"07:50", @"end": @"08:10"},
+                       @{@"start": @"08:15", @"end": @"09:25"},
+                       @{@"start": @"09:30", @"end": @"10:40"},
+                       @{@"start": @"10:45", @"end": @"11:40"},
+                       @{@"start": @"11:45", @"end": @"12:30"},
+                       @{@"start": @"12:35", @"end": @"13:45"},
+                       @{@"start": @"13:50", @"end": @"15:00"}];
+    
+    // Extended 1:1357 - CYCLE 1
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CHAPEL,
+                PERIOD_1,
+                PERIOD_3,
+                PERIOD_MEETING,
+                PERIOD_LUNCH,
+                PERIOD_5,
+                PERIOD_7];
+    [self loadBellName:BELL_EXTENDED_1_1357
+             cycleName:CYCLE_1
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // Extended 1:2468 - CYCLE 1
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CHAPEL,
+                PERIOD_2,
+                PERIOD_4,
+                PERIOD_MEETING,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_8];
+    [self loadBellName:BELL_EXTENDED_1_2468
+             cycleName:CYCLE_1
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // Extended 2:7153 - CYCLE 7
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CHAPEL,
+                PERIOD_7,
+                PERIOD_1,
+                PERIOD_MEETING,
+                PERIOD_LUNCH,
+                PERIOD_5,
+                PERIOD_3];
+    [self loadBellName:BELL_EXTENDED_2_7153
+             cycleName:CYCLE_7
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // Extended 2:8264 - CYCLE 7
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CHAPEL,
+                PERIOD_8,
+                PERIOD_2,
+                PERIOD_MEETING,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_4];
+    [self loadBellName:BELL_EXTENDED_2_8264
+             cycleName:CYCLE_7
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // Extended 3:3751 - CYCLE 3
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CHAPEL,
+                PERIOD_3,
+                PERIOD_7,
+                PERIOD_MEETING,
+                PERIOD_LUNCH,
+                PERIOD_5,
+                PERIOD_1];
+    [self loadBellName:BELL_EXTENDED_3_3751
+             cycleName:CYCLE_3
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+    
+    // Extended 3:4862 - CYCLE 3
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CHAPEL,
+                PERIOD_4,
+                PERIOD_8,
+                PERIOD_MEETING,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_2];
+    [self loadBellName:BELL_EXTENDED_3_4862
              cycleName:CYCLE_3
                periods:periods
                  times:times intoManagedObjectContext:context];

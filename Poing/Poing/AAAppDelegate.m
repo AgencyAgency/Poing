@@ -18,7 +18,7 @@
     if (self.document.documentState == UIDocumentStateNormal) {
         self.managedObjectContext = self.document.managedObjectContext;
         [AAScheduleLoader loadScheduleDataWithContext:self.managedObjectContext];
-        [AATeacherLoader loadTeacherDataWithContext:self.managedObjectContext];
+//        [AATeacherLoader loadTeacherDataWithContext:self.managedObjectContext];
         
         UITabBarController *rootController = (UITabBarController *)self.window.rootViewController;
         UISplitViewController *splitVC = rootController.viewControllers[0];
