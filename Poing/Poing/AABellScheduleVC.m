@@ -83,6 +83,7 @@
 {
     // Update the user interface for the detail item.
    
+    self.titleLabel.text = @"Loading...";
     self.timeRemainingLabel.text = @"";
     self.currentPeriodLabel.text = @"";
     self.selectedDateLabel.text = @"";
@@ -94,7 +95,6 @@
         [self.tableView reloadData];
     } else {
         self.tableView.alpha = 0.0;
-        self.titleLabel.text = @"Select a bell cycle.";
     }
 }
 
