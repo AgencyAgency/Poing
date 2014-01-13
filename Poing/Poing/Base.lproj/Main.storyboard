@@ -17,34 +17,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pb2-Sz-HLK">
-                                <rect key="frame" x="20" y="28" width="185" height="917"/>
+                                <rect key="frame" x="20" y="28" width="100" height="917"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" priority="1" constant="185" id="GAn-zP-F5e"/>
-                                    <constraint firstAttribute="width" priority="900" constant="185" id="s3a-O3-Vl3"/>
+                                    <constraint firstAttribute="height" priority="1" constant="100" id="GAn-zP-F5e"/>
+                                    <constraint firstAttribute="width" priority="900" constant="100" id="s3a-O3-Vl3"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Hxy-J9-4FA">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="N9v-Hy-ODj">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PortraitCell" id="N9v-Hy-ODj" customClass="AAPortraitCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8P6-9l-acL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="146" height="100"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="Button" image="portrait7">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="portraitButton" destination="8P6-9l-acL" id="34P-Ks-tY8"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="9pv-A4-QxB" id="132-DB-VJv"/>
+                                    <outlet property="delegate" destination="9pv-A4-QxB" id="m85-x4-tQl"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Pb2-Sz-HLK" secondAttribute="trailing" priority="1" constant="563" id="8Ph-Q2-tTS"/>
+                            <constraint firstAttribute="trailing" secondItem="Pb2-Sz-HLK" secondAttribute="trailing" priority="1" constant="648" id="8Ph-Q2-tTS"/>
                             <constraint firstItem="Pb2-Sz-HLK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" symbolic="YES" id="h5L-hZ-Kav"/>
                             <constraint firstItem="Pb2-Sz-HLK" firstAttribute="top" secondItem="Td3-S2-q0E" secondAttribute="bottom" priority="999" constant="20" symbolic="YES" id="nMh-PO-odY"/>
                             <constraint firstAttribute="bottom" secondItem="Pb2-Sz-HLK" secondAttribute="bottom" constant="79" id="tgl-Ca-P6Y"/>
@@ -290,6 +307,7 @@
     <resources>
         <image name="AboutTabIcon" width="28" height="14"/>
         <image name="ScheduleTabIcon" width="28" height="22"/>
+        <image name="portrait7" width="100" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar" statusBarStyle="blackOpaque"/>

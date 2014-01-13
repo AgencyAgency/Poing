@@ -7,8 +7,9 @@
 //
 
 #import "AATeamVC.h"
+#import "AAPortraitCell.h"
 
-@interface AATeamVC ()
+@interface AATeamVC () <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collViewTopSpacerConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collViewHeightConstraint;
@@ -58,6 +59,22 @@
     [super viewWillAppear:animated];
     UIInterfaceOrientation toInterfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     [self adjustToOrientation:toInterfaceOrientation];
+    self.collView.backgroundColor = [UIColor clearColor];
+}
+
+
+#pragma mark - Collection View
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 9;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    AAPortraitCell *cell = (AAPortraitCell *)[self.collView dequeueReusableCellWithReuseIdentifier:@"PortraitCell" forIndexPath:indexPath];
+    [cell configureForIndex:indexPath.row];
+    return cell;
 }
 
 @end
