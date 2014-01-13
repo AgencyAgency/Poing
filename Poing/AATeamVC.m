@@ -26,7 +26,7 @@
 - (void)setCollViewRightSpacerConstraint:(NSLayoutConstraint *)collViewRightSpacerConstraint
 {
     _collViewRightSpacerConstraint = collViewRightSpacerConstraint;
-    _collViewRightSpacerConstraint.constant = 20.0f;
+    _collViewRightSpacerConstraint.constant = 400.0f;
 }
 
 - (void)adjustToOrientation:(UIInterfaceOrientation)toInterfaceOrientation
@@ -36,6 +36,7 @@
         self.collViewWidthConstraint.priority = 999;
         
         self.collViewTopSpacerConstraint.priority = 999;
+        self.collViewHeightConstraint.constant = 100.0f;
         self.collViewHeightConstraint.priority = 1;
         
     } else {
@@ -43,6 +44,7 @@
         self.collViewWidthConstraint.priority = 1;
 
         self.collViewTopSpacerConstraint.priority = 1;
+        self.collViewHeightConstraint.constant = 210.0f;
         self.collViewHeightConstraint.priority = 999;
     }
 }

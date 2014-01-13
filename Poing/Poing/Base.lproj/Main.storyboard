@@ -16,6 +16,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cornerPoing" translatesAutoresizingMaskIntoConstraints="NO" id="T0w-O3-1Qv">
+                                <rect key="frame" x="383" y="550" width="395" height="454"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pb2-Sz-HLK">
                                 <rect key="frame" x="20" y="28" width="100" height="917"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,14 +63,14 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meet the Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQe-p9-e7o">
-                                <rect key="frame" x="137" y="20" width="495" height="64"/>
+                                <rect key="frame" x="264" y="59" width="240" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Vh-oh-aj3">
-                                <rect key="frame" x="184" y="104" width="400" height="475"/>
+                                <rect key="frame" x="184" y="125" width="400" height="475"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="400" id="sG8-jh-wj2"/>
@@ -83,7 +87,9 @@ This team-based and activity-oriented course also covers general software develo
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Pb2-Sz-HLK" secondAttribute="trailing" priority="1" constant="648" id="8Ph-Q2-tTS"/>
                             <constraint firstAttribute="centerX" secondItem="7Vh-oh-aj3" secondAttribute="centerX" id="8Yz-rT-roN"/>
-                            <constraint firstItem="XQe-p9-e7o" firstAttribute="top" secondItem="Td3-S2-q0E" secondAttribute="bottom" constant="20" symbolic="YES" id="dR6-9O-OFf"/>
+                            <constraint firstAttribute="bottom" secondItem="T0w-O3-1Qv" secondAttribute="bottom" constant="20" symbolic="YES" id="MgV-x2-MWC"/>
+                            <constraint firstAttribute="trailing" secondItem="T0w-O3-1Qv" secondAttribute="trailing" constant="-10" id="Tdg-37-e2t"/>
+                            <constraint firstItem="XQe-p9-e7o" firstAttribute="top" secondItem="Td3-S2-q0E" secondAttribute="bottom" constant="39" id="dR6-9O-OFf"/>
                             <constraint firstItem="Pb2-Sz-HLK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" symbolic="YES" id="h5L-hZ-Kav"/>
                             <constraint firstItem="7Vh-oh-aj3" firstAttribute="top" secondItem="XQe-p9-e7o" secondAttribute="bottom" constant="20" id="hGN-Yj-S0y"/>
                             <constraint firstItem="Pb2-Sz-HLK" firstAttribute="top" secondItem="Td3-S2-q0E" secondAttribute="bottom" priority="999" constant="20" symbolic="YES" id="nMh-PO-odY"/>
@@ -331,6 +337,7 @@ This team-based and activity-oriented course also covers general software develo
     <resources>
         <image name="AboutTabIcon" width="28" height="14"/>
         <image name="ScheduleTabIcon" width="28" height="22"/>
+        <image name="cornerPoing" width="395" height="454"/>
         <image name="portrait7" width="100" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
