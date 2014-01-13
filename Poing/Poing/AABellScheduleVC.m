@@ -20,6 +20,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeRemainingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPeriodLabel;
 @property (weak, nonatomic) IBOutlet UILabel *selectedDateLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *hidePoingConstraint;
+@property (nonatomic, assign) CGFloat unhidePoingOffset;
+@property (nonatomic, assign) CGFloat hidePoingOffset;
+
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) NSArray *bellCyclePeriods;
 @property (strong, nonatomic) BellCycle *bellCycle;
@@ -35,6 +39,10 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self configureView];
+    
+    self.hidePoingOffset = -500;
+    self.unhidePoingOffset = self.hidePoingConstraint.constant;
+    self.hidePoingConstraint.constant = self.hidePoingOffset;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -151,11 +159,27 @@
 
 #pragma mark - Split view
 
+- (void)barButtonPressed:(id)sender
+{
+    [self.masterPopoverController presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    self.hidePoingConstraint.constant = self.unhidePoingOffset;
+    [UIView animateWithDuration:0.25f delay:0.0f
+                        options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseIn |UIViewAnimationOptionOverrideInheritedDuration | UIViewAnimationOptionOverrideInheritedCurve | UIViewAnimationOptionAllowAnimatedContent | UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:nil];
+}
+
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
     barButtonItem.title = NSLocalizedString(@"Bell Cycles", @"Bell Cycles");
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
+    self.masterPopoverController.delegate = self;
+    
+    [barButtonItem setTarget:self];
+    [barButtonItem setAction:@selector(barButtonPressed:)];
 }
 
 - (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
@@ -170,6 +194,19 @@
     if (self.masterPopoverController != nil) {
         [self.masterPopoverController dismissPopoverAnimated:YES];
     }
+}
+
+
+#pragma mark - Popover Controller Delegate
+- (void)popoverControllerDidDismissPopover:(UIPopoverController *)popoverController
+{
+    self.hidePoingConstraint.constant = self.hidePoingOffset;
+    [UIView animateWithDuration:0.5f delay:0.10f
+                        options:UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionCurveEaseIn |UIViewAnimationOptionOverrideInheritedDuration | UIViewAnimationOptionOverrideInheritedCurve | UIViewAnimationOptionAllowAnimatedContent | UIViewAnimationOptionBeginFromCurrentState
+                     animations:^{
+                         [self.view layoutIfNeeded];
+                     }
+                     completion:nil];
 }
 
 

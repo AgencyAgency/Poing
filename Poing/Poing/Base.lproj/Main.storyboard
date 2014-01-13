@@ -187,10 +187,16 @@ This team-based and activity-oriented course also covers general software develo
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lookingRightPoing" translatesAutoresizingMaskIntoConstraints="NO" id="JUE-ft-gFq">
+                                <rect key="frame" x="-158" y="648" width="395" height="454"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9mN-97-6H8" firstAttribute="leading" secondItem="N85-bg-g3c" secondAttribute="leading" id="7J2-Zd-Rum"/>
+                            <constraint firstItem="1o2-cI-bsE" firstAttribute="top" secondItem="JUE-ft-gFq" secondAttribute="bottom" constant="-127" id="9iv-L8-l89"/>
+                            <constraint firstItem="JUE-ft-gFq" firstAttribute="leading" secondItem="Vtr-MJ-Pt5" secondAttribute="leading" constant="-158" id="Epv-F2-31Z"/>
                             <constraint firstAttribute="centerX" secondItem="9mN-97-6H8" secondAttribute="centerX" constant="-80" id="FRe-k1-PnX"/>
                             <constraint firstItem="juH-pd-mmI" firstAttribute="top" secondItem="Vdx-n0-GdX" secondAttribute="bottom" constant="8" id="HJD-n0-1Dv"/>
                             <constraint firstItem="N85-bg-g3c" firstAttribute="leading" secondItem="Vdx-n0-GdX" secondAttribute="trailing" constant="8" id="Ipb-oE-zv2"/>
@@ -211,6 +217,7 @@ This team-based and activity-oriented course also covers general software develo
                     <navigationItem key="navigationItem" title="Periods" id="OuK-jy-Cg1"/>
                     <connections>
                         <outlet property="currentPeriodLabel" destination="mUr-UR-Q8u" id="uXd-1b-ewC"/>
+                        <outlet property="hidePoingConstraint" destination="Epv-F2-31Z" id="cGU-FA-OxJ"/>
                         <outlet property="selectedDateLabel" destination="Vdx-n0-GdX" id="J0C-yA-6E1"/>
                         <outlet property="tableView" destination="9mN-97-6H8" id="2jd-p6-pwj"/>
                         <outlet property="timeRemainingLabel" destination="juH-pd-mmI" id="Wgs-HE-dhZ"/>
@@ -338,6 +345,7 @@ This team-based and activity-oriented course also covers general software develo
         <image name="AboutTabIcon" width="28" height="14"/>
         <image name="ScheduleTabIcon" width="28" height="22"/>
         <image name="cornerPoing" width="395" height="454"/>
+        <image name="lookingRightPoing" width="395" height="454"/>
         <image name="portrait7" width="100" height="100"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
