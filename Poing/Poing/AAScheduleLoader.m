@@ -47,6 +47,7 @@
 #define PERIOD_CHAPEL   @"Chapel"
 #define PERIOD_LUNCH    @"Lunch"
 #define PERIOD_MEETING  @"Meeting"
+#define PERIOD_CONVOCATION @"Convocation"
 
 @implementation AAScheduleLoader
 
@@ -158,6 +159,8 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     [self loadAssembly2PeriodDataIntoContext:context];
     [self loadAssembly3PeriodDataIntoContext:context];
     [self loadVarietyAtheleticPeriodDataIntoContext:context];
+    [self loadConvocationPeriodDataIntoContext:context];
+    [self loadFairPeriodDataIntoContext:context];
 }
 
 + (void)loadBasicPeriodDataIntoContext:(NSManagedObjectContext *)context
@@ -658,6 +661,70 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                 PERIOD_2];
     [self loadBellName:bellType
              cycleName:CYCLE_3
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+}
+
++ (void)loadConvocationPeriodDataIntoContext:(NSManagedObjectContext *)context
+{
+    NSString *bellType = BELL_SPECIAL_CONVOCATION;
+    NSArray *periods = nil;
+    
+    // Convocation - CYCLE 1
+    NSArray *times = @[@{@"start": @"07:40", @"end": @"07:50"},
+                       @{@"start": @"07:55", @"end": @"08:15"},
+                       @{@"start": @"08:20", @"end": @"09:00"},
+                       @{@"start": @"09:05", @"end": @"09:45"},
+                       @{@"start": @"09:50", @"end": @"10:30"},
+                       @{@"start": @"10:35", @"end": @"11:15"},
+                       @{@"start": @"11:20", @"end": @"12:00"},
+                       @{@"start": @"12:00", @"end": @"12:45"},
+                       @{@"start": @"12:50", @"end": @"13:30"},
+                       @{@"start": @"13:35", @"end": @"14:15"},
+                       @{@"start": @"14:20", @"end": @"15:00"}];
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_CONVOCATION,
+                PERIOD_1,
+                PERIOD_2,
+                PERIOD_3,
+                PERIOD_4,
+                PERIOD_5,
+                PERIOD_LUNCH,
+                PERIOD_6,
+                PERIOD_7,
+                PERIOD_8];
+    [self loadBellName:bellType
+             cycleName:CYCLE_1
+               periods:periods
+                 times:times intoManagedObjectContext:context];
+}
+
++ (void)loadFairPeriodDataIntoContext:(NSManagedObjectContext *)context
+{
+    NSString *bellType = BELL_SPECIAL_FAIR_DAY;
+    NSArray *periods = nil;
+    
+    // Fair Day - CYCLE 1
+    NSArray *times = @[@{@"start": @"07:40", @"end": @"07:50"},
+                       @{@"start": @"07:50", @"end": @"08:10"},
+                       @{@"start": @"08:15", @"end": @"08:35"},
+                       @{@"start": @"08:40", @"end": @"09:00"},
+                       @{@"start": @"09:05", @"end": @"09:25"},
+                       @{@"start": @"09:35", @"end": @"09:55"},
+                       @{@"start": @"10:00", @"end": @"10:20"},
+                       @{@"start": @"10:25", @"end": @"10:45"},
+                       @{@"start": @"10:50", @"end": @"11:10"}];
+    periods = @[PERIOD_HOME_ROOM,
+                PERIOD_1,
+                PERIOD_2,
+                PERIOD_3,
+                PERIOD_4,
+                PERIOD_5,
+                PERIOD_6,
+                PERIOD_7,
+                PERIOD_8];
+    [self loadBellName:bellType
+             cycleName:CYCLE_1
                periods:periods
                  times:times intoManagedObjectContext:context];
 }
