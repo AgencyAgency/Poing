@@ -28,7 +28,7 @@
 #define BELL_SPECIAL_CONVOCATION @"Special Convocation Schedule"
 #define BELL_SPECIAL_FAIR_DAY @"Special Fair Day Schedule"
 #define BELL_SPECIAL_MAY_DAY @"Special May Day Schedule"
-#define BELL_VARSITY_ATHLETIC_ASSEMBLY @"VarietyAthletic Assembly Schedule"
+#define BELL_VARIETY_ATHLETIC_ASSEMBLY @"VarietyAthletic Assembly Schedule"
 
 #define CYCLE_1 @"1"
 #define CYCLE_3 @"3"
@@ -157,7 +157,7 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     [self loadAssembly1PeriodDataIntoContext:context];
     [self loadAssembly2PeriodDataIntoContext:context];
     [self loadAssembly3PeriodDataIntoContext:context];
-    [self loadVarsityAtheleticPeriodDataIntoContext:context];
+    [self loadVarietyAtheleticPeriodDataIntoContext:context];
 }
 
 + (void)loadBasicPeriodDataIntoContext:(NSManagedObjectContext *)context
@@ -594,12 +594,12 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                  times:times intoManagedObjectContext:context];
 }
 
-+ (void)loadVarsityAtheleticPeriodDataIntoContext:(NSManagedObjectContext *)context
++ (void)loadVarietyAtheleticPeriodDataIntoContext:(NSManagedObjectContext *)context
 {
-    NSString *bellType = BELL_VARSITY_ATHLETIC_ASSEMBLY;
+    NSString *bellType = BELL_VARIETY_ATHLETIC_ASSEMBLY;
     NSArray *periods = nil;
     
-    // VarsityAthletic - CYCLE 1
+    // VarietyAthletic - CYCLE 1
     NSArray *times = @[@{@"start": @"07:40", @"end": @"07:45"},
                        @{@"start": @"07:50", @"end": @"08:26"},
                        @{@"start": @"08:31", @"end": @"09:07"},
@@ -627,7 +627,7 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                periods:periods
                  times:times intoManagedObjectContext:context];
     
-    // VarsityAthletic - CYCLE 7
+    // VarietyAthletic - CYCLE 7
     periods = @[PERIOD_HOME_ROOM,
                 PERIOD_7,
                 PERIOD_8,
@@ -644,7 +644,7 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                periods:periods
                  times:times intoManagedObjectContext:context];
     
-    // VarsityAthletic - CYCLE 3
+    // VarietyAthletic - CYCLE 3
     periods = @[PERIOD_HOME_ROOM,
                 PERIOD_3,
                 PERIOD_4,
