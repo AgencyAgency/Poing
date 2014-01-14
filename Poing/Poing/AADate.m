@@ -19,9 +19,9 @@
     static AADate *sharedMyDate = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSDate *offsetDate = [BellCyclePeriod dateFromFullFormattedHSTString:@"2014-01-07 09:45"];
+        NSDate *offsetDate = [BellCyclePeriod dateFromFullFormattedHSTString:@"2014-01-11 09:45"];
         NSTimeInterval offset = [[NSDate date] timeIntervalSinceDate:offsetDate];
-        offset -= 54;
+        offset -= 54; // offset seconds adjustment, for the impatient
         sharedMyDate = [[self alloc] initWithOffset:offset];
     });
     return sharedMyDate;

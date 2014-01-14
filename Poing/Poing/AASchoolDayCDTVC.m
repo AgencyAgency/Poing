@@ -7,8 +7,9 @@
 //
 
 #import "AASchoolDayCDTVC.h"
-#import "AABellScheduleVC.h"
 #import "AAAppDelegate.h"
+#import "AABellScheduleVC.h"
+#import "AADate.h"
 #import "AASchedule.h"
 #import "SchoolDay+Info.h"
 #import "BellCycle+Info.h"
@@ -44,7 +45,7 @@
     NSTimeInterval offset = daysAhead * dayInSecs;
     
     NSDate *nextDate = [NSDate dateWithTimeInterval:offset
-                                          sinceDate:[NSDate date]];
+                                          sinceDate:[AADate now]];
     NSString *dateCode = [SchoolDay codeForHSTDate:nextDate];
     return [SchoolDay schoolDayForString:dateCode
                                inContext:self.managedObjectContext];
