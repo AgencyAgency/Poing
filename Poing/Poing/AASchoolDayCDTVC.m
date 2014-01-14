@@ -71,6 +71,10 @@
 {
     SchoolDay *today = [self.schedule schoolDayForToday];
     [self selectSchoolDay:today iteration:0];
+    
+    NSUInteger idx = [self indexOfMatchingSchoolDay:self.selectedSchoolDay];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 
 - (void)setSelectedSchoolDay:(SchoolDay *)selectedSchoolDay
@@ -78,10 +82,6 @@
     if (_selectedSchoolDay != selectedSchoolDay) {
         _selectedSchoolDay = selectedSchoolDay;
         self.detailViewController.schoolDay = selectedSchoolDay;
-        
-        NSUInteger idx = [self indexOfMatchingSchoolDay:selectedSchoolDay];
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
-        [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
     }
 }
 
