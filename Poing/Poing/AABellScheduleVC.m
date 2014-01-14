@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeRemainingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPeriodLabel;
 @property (weak, nonatomic) IBOutlet UILabel *selectedDateLabel;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingActivityView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *hidePoingConstraint;
 @property (nonatomic, assign) CGFloat unhidePoingOffset;
 @property (nonatomic, assign) CGFloat hidePoingOffset;
@@ -101,6 +102,7 @@
         self.bellCyclePeriods = [self.bellCycle.bellCyclePeriods array];
         self.tableView.alpha = 1.0;
         [self.tableView reloadData];
+        [self.loadingActivityView stopAnimating];
     } else {
         self.tableView.alpha = 0.0;
     }

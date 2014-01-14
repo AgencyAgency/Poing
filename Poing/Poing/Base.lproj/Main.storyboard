@@ -248,9 +248,15 @@ The AgencyAgency team wanted to create an app that would help the lives of ‘Io
                                 <rect key="frame" x="-158" y="648" width="395" height="454"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ZAF-JV-2P9">
+                                <rect key="frame" x="295" y="72" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="N85-bg-g3c" firstAttribute="leading" secondItem="ZAF-JV-2P9" secondAttribute="trailing" constant="8" symbolic="YES" id="6bX-HW-ggd"/>
                             <constraint firstItem="9mN-97-6H8" firstAttribute="leading" secondItem="N85-bg-g3c" secondAttribute="leading" id="7J2-Zd-Rum"/>
                             <constraint firstItem="1o2-cI-bsE" firstAttribute="top" secondItem="JUE-ft-gFq" secondAttribute="bottom" constant="-127" id="9iv-L8-l89"/>
                             <constraint firstItem="JUE-ft-gFq" firstAttribute="leading" secondItem="Vtr-MJ-Pt5" secondAttribute="leading" constant="-158" id="Epv-F2-31Z"/>
@@ -261,6 +267,7 @@ The AgencyAgency team wanted to create an app that would help the lives of ‘Io
                             <constraint firstAttribute="trailing" secondItem="N85-bg-g3c" secondAttribute="trailing" constant="20" symbolic="YES" id="UYC-l9-LpT"/>
                             <constraint firstItem="9mN-97-6H8" firstAttribute="top" secondItem="jdV-pl-aRr" secondAttribute="bottom" constant="20" symbolic="YES" id="YRR-uP-Yeg"/>
                             <constraint firstItem="1o2-cI-bsE" firstAttribute="top" secondItem="9mN-97-6H8" secondAttribute="bottom" constant="21" id="aoT-BP-Eky"/>
+                            <constraint firstItem="ZAF-JV-2P9" firstAttribute="top" secondItem="N85-bg-g3c" secondAttribute="top" id="b7s-ON-z0h"/>
                             <constraint firstItem="N85-bg-g3c" firstAttribute="top" secondItem="jdV-pl-aRr" secondAttribute="bottom" constant="8" id="bWs-oP-bPp"/>
                             <constraint firstItem="Vdx-n0-GdX" firstAttribute="leading" secondItem="juH-pd-mmI" secondAttribute="leading" id="dTh-Kb-QHG"/>
                             <constraint firstItem="mUr-UR-Q8u" firstAttribute="width" secondItem="Vdx-n0-GdX" secondAttribute="width" id="nna-cJ-4L3"/>
@@ -275,6 +282,7 @@ The AgencyAgency team wanted to create an app that would help the lives of ‘Io
                     <connections>
                         <outlet property="currentPeriodLabel" destination="mUr-UR-Q8u" id="uXd-1b-ewC"/>
                         <outlet property="hidePoingConstraint" destination="Epv-F2-31Z" id="cGU-FA-OxJ"/>
+                        <outlet property="loadingActivityView" destination="ZAF-JV-2P9" id="DX4-Yp-QeC"/>
                         <outlet property="selectedDateLabel" destination="Vdx-n0-GdX" id="J0C-yA-6E1"/>
                         <outlet property="tableView" destination="9mN-97-6H8" id="2jd-p6-pwj"/>
                         <outlet property="timeRemainingLabel" destination="juH-pd-mmI" id="Wgs-HE-dhZ"/>
