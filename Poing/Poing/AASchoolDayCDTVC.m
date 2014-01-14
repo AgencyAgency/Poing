@@ -74,7 +74,8 @@
     
     NSUInteger idx = [self indexOfMatchingSchoolDay:self.selectedSchoolDay];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:idx inSection:0];
-    [self.tableView selectRowAtIndexPath:indexPath animated:YES scrollPosition:UITableViewScrollPositionMiddle];
+    [self.tableView selectRowAtIndexPath:indexPath
+                                animated:YES scrollPosition:UITableViewScrollPositionMiddle];
 }
 
 - (void)setSelectedSchoolDay:(SchoolDay *)selectedSchoolDay
