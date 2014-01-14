@@ -19,18 +19,22 @@
     static AADate *sharedMyDate = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSDate *offsetDate = [BellCyclePeriod dateFromFullFormattedHSTString:@"2014-01-11 09:45"];
-        NSTimeInterval offset = [[NSDate date] timeIntervalSinceDate:offsetDate];
-        offset -= 54; // offset seconds adjustment, for the impatient
-        sharedMyDate = [[self alloc] initWithOffset:offset];
+        sharedMyDate = [[self alloc] init];
     });
     return sharedMyDate;
 }
 
-- (id)initWithOffset:(NSTimeInterval)offset
+- (NSTimeInterval)offsetSecondsFromHSTString:(NSString *)hstString
+{
+    NSDate *offsetDate = [BellCyclePeriod dateFromFullFormattedHSTString:hstString];
+    return [[NSDate date] timeIntervalSinceDate:offsetDate];
+}
+
+- (id)init
 {
     if (self = [super init]) {
-        _offset = offset;
+        _offset = [self offsetSecondsFromHSTString:@"2014-01-13 10:16"];
+        _offset -= 54; // offset seconds adjustment, for the impatient
     }
     return self;
 }
