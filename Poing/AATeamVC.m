@@ -50,7 +50,6 @@
         self.collViewHeightConstraint.priority = 1;
         
         self.aboutTextBottomConstraint.constant = 350.0;
-        NSLog(@"set up portrait");
         
     } else {
         self.collViewRightSpacerConstraint.priority = 999;
@@ -61,7 +60,6 @@
         self.collViewHeightConstraint.priority = 999;
         
         self.aboutTextBottomConstraint.constant = 250.0;
-        NSLog(@"set up landscape");
     }
 }
 

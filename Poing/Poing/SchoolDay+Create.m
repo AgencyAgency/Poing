@@ -27,7 +27,6 @@
     SchoolDay *schoolDay = nil;
     if ([dayString length]) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SchoolDay"];
-        NSLog(@"dayString: %@", dayString);
         NSDate *day = [self dateFromSchoolDayString:dayString];
         request.predicate = [NSPredicate predicateWithFormat:@"day = %@", day];
         
