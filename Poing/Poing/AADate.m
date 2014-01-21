@@ -34,7 +34,7 @@
 {
     if (self = [super init]) {
         _offset = [self offsetSecondsFromHSTString:@"2014-01-13 10:16"];
-        _offset -= 54; // offset seconds adjustment, for the impatient
+        _offset -= 58; // offset seconds adjustment, for the impatient
     }
     return self;
 }
@@ -42,9 +42,9 @@
 + (NSDate *)now
 {
     // Fake a date with this.
-//    return [[self sharedDate] now];
+    return [[self sharedDate] now];
     
-    return [NSDate date];
+//    return [NSDate date];
 }
 
 - (NSDate *)now

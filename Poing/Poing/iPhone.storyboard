@@ -80,55 +80,56 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="eJB-Kb-wxD">
-                                    <rect key="frame" x="0.0" y="64" width="320" height="119"/>
+                                    <rect key="frame" x="0.0" y="64" width="320" height="121"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-1W-Lyx">
-                                            <rect key="frame" x="20" y="20" width="280" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bell - Cycle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zeh-1W-Lyx">
+                                            <rect key="frame" x="20" y="20" width="280" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bell Cycle" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaV-gR-tSK">
-                                            <rect key="frame" x="20" y="49" width="280" height="21"/>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CaV-gR-tSK">
+                                            <rect key="frame" x="20" y="48" width="280" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Period" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0N-hv-Q5R">
-                                            <rect key="frame" x="20" y="78" width="136" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remaining" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QJi-o0-63I">
-                                            <rect key="frame" x="164" y="78" width="136" height="21"/>
+                                            <rect key="frame" x="164" y="81" width="136" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="136" id="tOc-8Z-ifS"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Period" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y0N-hv-Q5R">
+                                            <rect key="frame" x="164" y="103" width="136" height="14"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="y0N-hv-Q5R" firstAttribute="trailing" secondItem="QJi-o0-63I" secondAttribute="trailing" id="9O7-VD-Kbk"/>
                                         <constraint firstItem="CaV-gR-tSK" firstAttribute="leading" secondItem="zeh-1W-Lyx" secondAttribute="leading" id="BLK-VZ-Wyb"/>
-                                        <constraint firstItem="y0N-hv-Q5R" firstAttribute="leading" secondItem="eJB-Kb-wxD" secondAttribute="leading" constant="20" symbolic="YES" id="FDQ-GB-f6v"/>
+                                        <constraint firstItem="y0N-hv-Q5R" firstAttribute="leading" secondItem="QJi-o0-63I" secondAttribute="leading" id="Ees-yW-G6X"/>
                                         <constraint firstItem="zeh-1W-Lyx" firstAttribute="top" secondItem="eJB-Kb-wxD" secondAttribute="top" constant="20" symbolic="YES" id="Kgh-tf-ECe"/>
-                                        <constraint firstItem="y0N-hv-Q5R" firstAttribute="top" secondItem="QJi-o0-63I" secondAttribute="top" id="OMe-cf-m9Z"/>
                                         <constraint firstItem="CaV-gR-tSK" firstAttribute="trailing" secondItem="zeh-1W-Lyx" secondAttribute="trailing" id="QB1-iW-Yhr"/>
-                                        <constraint firstItem="y0N-hv-Q5R" firstAttribute="top" secondItem="CaV-gR-tSK" secondAttribute="bottom" constant="8" symbolic="YES" id="SYc-LL-ITG"/>
-                                        <constraint firstAttribute="trailing" secondItem="QJi-o0-63I" secondAttribute="trailing" constant="20" symbolic="YES" id="Tp8-KP-tPb"/>
-                                        <constraint firstItem="zeh-1W-Lyx" firstAttribute="leading" secondItem="y0N-hv-Q5R" secondAttribute="leading" id="j0a-2v-onZ"/>
+                                        <constraint firstItem="QJi-o0-63I" firstAttribute="top" secondItem="CaV-gR-tSK" secondAttribute="bottom" constant="16" id="Zav-A4-w8g"/>
                                         <constraint firstAttribute="trailing" secondItem="zeh-1W-Lyx" secondAttribute="trailing" constant="20" symbolic="YES" id="kVU-LO-hIh"/>
-                                        <constraint firstItem="QJi-o0-63I" firstAttribute="leading" secondItem="y0N-hv-Q5R" secondAttribute="trailing" constant="8" symbolic="YES" id="n1D-Rd-MLa"/>
+                                        <constraint firstItem="y0N-hv-Q5R" firstAttribute="top" secondItem="QJi-o0-63I" secondAttribute="bottom" constant="2" id="opR-rY-Mqg"/>
                                         <constraint firstItem="zeh-1W-Lyx" firstAttribute="leading" secondItem="eJB-Kb-wxD" secondAttribute="leading" constant="20" symbolic="YES" id="rvy-j1-efy"/>
                                         <constraint firstItem="CaV-gR-tSK" firstAttribute="top" secondItem="zeh-1W-Lyx" secondAttribute="bottom" constant="8" symbolic="YES" id="uyv-NS-ekG"/>
-                                        <constraint firstItem="y0N-hv-Q5R" firstAttribute="width" secondItem="QJi-o0-63I" secondAttribute="width" id="wrU-Xq-mId"/>
+                                        <constraint firstItem="QJi-o0-63I" firstAttribute="trailing" secondItem="CaV-gR-tSK" secondAttribute="trailing" id="zxk-aL-K2Z"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Period Cell" textLabel="qKv-oT-T0S" detailTextLabel="g02-jH-2Si" style="IBUITableViewCellStyleSubtitle" id="Xz2-RV-mzZ" customClass="AABellCyclePeriodCell">
-                                        <rect key="frame" x="0.0" y="205" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="207" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Xz2-RV-mzZ" id="WwS-rx-N9x">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -169,10 +170,10 @@
                     <navigationItem key="navigationItem" title="Periods" id="FZl-Yi-jEx"/>
                     <connections>
                         <outlet property="currentPeriodLabel" destination="y0N-hv-Q5R" id="DC4-EU-Y6f"/>
-                        <outlet property="selectedDateLabel" destination="zeh-1W-Lyx" id="uKK-sD-G9z"/>
+                        <outlet property="selectedDateLabel" destination="CaV-gR-tSK" id="7t8-5O-swt"/>
                         <outlet property="tableView" destination="qnc-7A-Zqo" id="SpR-jK-1Pf"/>
                         <outlet property="timeRemainingLabel" destination="QJi-o0-63I" id="IVb-Vn-eyb"/>
-                        <outlet property="titleLabel" destination="CaV-gR-tSK" id="1ib-Gj-qCF"/>
+                        <outlet property="titleLabel" destination="zeh-1W-Lyx" id="7vu-eV-DeY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YCU-ub-87U" userLabel="First Responder" sceneMemberID="firstResponder"/>

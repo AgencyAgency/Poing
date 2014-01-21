@@ -63,8 +63,6 @@
     
     if (_currentBellCyclePeriod) {
         self.timeRemainingLabel.text = @"Loading...";
-        NSString *periodText = [NSString stringWithFormat:@"left in period %@", [_currentBellCyclePeriod.period.name description]];
-        self.currentPeriodLabel.text = [periodText description];
     }
 }
 
@@ -94,11 +92,15 @@
    
     self.titleLabel.text = @"Loading...";
     self.timeRemainingLabel.text = @"";
+    self.timeRemainingLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
     self.currentPeriodLabel.text = @"";
+    self.currentPeriodLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
     self.selectedDateLabel.text = @"";
     if (self.bellCycle) {
         self.selectedDateLabel.text = [self.schoolDay formattedDay];
+        self.selectedDateLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
         self.titleLabel.text = [self.bellCycle title];
+        self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
         self.bellCyclePeriods = [self.bellCycle.bellCyclePeriods array];
         self.tableView.alpha = 1.0;
         [self.tableView reloadData];
@@ -252,6 +254,10 @@
             [self updateVisibleCellBackgrounds];
         }
         self.timeRemainingLabel.text = [NSString stringWithFormat:@"%02ld:%02ld seconds", (long)mins, (long)secs];
+        if (![self.currentPeriodLabel.text length]  ) {
+            NSString *periodText = [NSString stringWithFormat:@"left in period %@", [_currentBellCyclePeriod.period.name description]];
+            self.currentPeriodLabel.text = [periodText description];
+        }
         
     } else {
         self.currentBellCyclePeriod = [self.schoolDay currentBellCyclePeriod];
