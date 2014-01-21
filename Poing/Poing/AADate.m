@@ -42,9 +42,9 @@
 + (NSDate *)now
 {
     // Fake a date with this.
-    return [[self sharedDate] now];
+//    return [[self sharedDate] now];
     
-//    return [NSDate date];
+    return [NSDate date];
 }
 
 - (NSDate *)now
