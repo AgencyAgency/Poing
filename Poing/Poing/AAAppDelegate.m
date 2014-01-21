@@ -13,6 +13,20 @@
 
 @implementation AAAppDelegate
 
+- (UIViewController *)inititalVCForIPhone
+{
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    return navigationController.topViewController;
+}
+
+- (UIViewController *)initialForVCForIPad
+{
+    UITabBarController *rootController = (UITabBarController *)self.window.rootViewController;
+    UISplitViewController *splitVC = rootController.viewControllers[0];
+    UINavigationController *navVC = splitVC.viewControllers[0];
+    return navVC.viewControllers[0];
+}
+
 - (void)documentIsReady
 {
     if (self.document.documentState == UIDocumentStateNormal) {
@@ -20,12 +34,9 @@
         [AAScheduleLoader loadScheduleDataWithContext:self.managedObjectContext];
 //        [AATeacherLoader loadTeacherDataWithContext:self.managedObjectContext];
         
-        UITabBarController *rootController = (UITabBarController *)self.window.rootViewController;
-        UISplitViewController *splitVC = rootController.viewControllers[0];
-        UINavigationController *navVC = splitVC.viewControllers[0];
-        AASchoolDayCDTVC *schoolDayCDTVC = navVC.viewControllers[0];
-        schoolDayCDTVC.managedObjectContext = self.managedObjectContext;
-        [schoolDayCDTVC selectToday];
+        AASchoolDayCDTVC *vc = (AASchoolDayCDTVC *)([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? [self initialForVCForIPad] : [self inititalVCForIPhone]);
+        vc.managedObjectContext = self.managedObjectContext;
+        [vc selectToday];
     }
 }
 

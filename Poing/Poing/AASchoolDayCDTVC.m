@@ -138,4 +138,20 @@
     self.selectedSchoolDay = schoolDay;
 }
 
+
+#pragma mark - Segues
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        NSManagedObject *object = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+        
+//        SchoolDay *schoolDay = (SchoolDay *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+//        self.selectedSchoolDay = schoolDay;
+        
+        [(AABellScheduleVC *)[segue destinationViewController] setSchoolDay:self.selectedSchoolDay];
+    }
+}
+
 @end

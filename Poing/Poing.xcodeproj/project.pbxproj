@@ -15,7 +15,7 @@
 		CF108BE7185C0A01001E6706 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF108BE5185C0A01001E6706 /* InfoPlist.strings */; };
 		CF108BE9185C0A01001E6706 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108BE8185C0A01001E6706 /* main.m */; };
 		CF108BED185C0A01001E6706 /* AAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108BEC185C0A01001E6706 /* AAAppDelegate.m */; };
-		CF108BF0185C0A01001E6706 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF108BEE185C0A01001E6706 /* Main.storyboard */; };
+		CF108BF0185C0A01001E6706 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF108BEE185C0A01001E6706 /* iPad.storyboard */; };
 		CF108BF8185C0A01001E6706 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF108BF7185C0A01001E6706 /* Images.xcassets */; };
 		CF108BFF185C0A01001E6706 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF108BFE185C0A01001E6706 /* XCTest.framework */; };
 		CF108C00185C0A01001E6706 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF108BDC185C0A01001E6706 /* Foundation.framework */; };
@@ -23,6 +23,7 @@
 		CF108C09185C0A01001E6706 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CF108C07185C0A01001E6706 /* InfoPlist.strings */; };
 		CF108C0B185C0A01001E6706 /* PoingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108C0A185C0A01001E6706 /* PoingTests.m */; };
 		CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */; };
+		CF17FFC2188E40EB006965BB /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF17FFC1188E40EB006965BB /* iPhone.storyboard */; };
 		CF75D9BD188314550089899D /* AABellCyclePeriodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75D9BC188314550089899D /* AABellCyclePeriodCell.m */; };
 		CF75DA0B18834E000089899D /* AATeamVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75DA0A18834E000089899D /* AATeamVC.m */; };
 		CF75DA0E188361A60089899D /* AAPortraitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75DA0D188361A60089899D /* AAPortraitCell.m */; };
@@ -84,7 +85,7 @@
 		CF108BEA185C0A01001E6706 /* Poing-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Poing-Prefix.pch"; sourceTree = "<group>"; };
 		CF108BEB185C0A01001E6706 /* AAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AAAppDelegate.h; sourceTree = "<group>"; };
 		CF108BEC185C0A01001E6706 /* AAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AAAppDelegate.m; sourceTree = "<group>"; };
-		CF108BEF185C0A01001E6706 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CF108BEF185C0A01001E6706 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPad.storyboard; sourceTree = "<group>"; };
 		CF108BF7185C0A01001E6706 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CF108BFD185C0A01001E6706 /* PoingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF108BFE185C0A01001E6706 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -92,6 +93,7 @@
 		CF108C08185C0A01001E6706 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CF108C0A185C0A01001E6706 /* PoingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoingTests.m; sourceTree = "<group>"; };
 		CF108C15185C3D01001E6706 /* BellSchedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BellSchedule.xcdatamodel; sourceTree = "<group>"; };
+		CF17FFC1188E40EB006965BB /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
 		CF75D9BB188314550089899D /* AABellCyclePeriodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABellCyclePeriodCell.h; sourceTree = "<group>"; };
 		CF75D9BC188314550089899D /* AABellCyclePeriodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AABellCyclePeriodCell.m; sourceTree = "<group>"; };
 		CF75DA0918834E000089899D /* AATeamVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AATeamVC.h; path = ../AATeamVC.h; sourceTree = "<group>"; };
@@ -228,7 +230,8 @@
 				CF75DA0F188361AF0089899D /* Team */,
 				CF108BEB185C0A01001E6706 /* AAAppDelegate.h */,
 				CF108BEC185C0A01001E6706 /* AAAppDelegate.m */,
-				CF108BEE185C0A01001E6706 /* Main.storyboard */,
+				CF108BEE185C0A01001E6706 /* iPad.storyboard */,
+				CF17FFC1188E40EB006965BB /* iPhone.storyboard */,
 				CFB56D461866D1D8007ABFB1 /* AADate.h */,
 				CFB56D471866D1D8007ABFB1 /* AADate.m */,
 				CFB56D4318667B0A007ABFB1 /* AASchedule.h */,
@@ -474,10 +477,11 @@
 				CFB56D6E1867C4A2007ABFB1 /* teachers.json in Resources */,
 				CF108BF8185C0A01001E6706 /* Images.xcassets in Resources */,
 				CF108BE7185C0A01001E6706 /* InfoPlist.strings in Resources */,
+				CF17FFC2188E40EB006965BB /* iPhone.storyboard in Resources */,
 				21687FFA187E00CA00E08886 /* Casey's Picture@2x.png in Resources */,
 				21687FF6187DFB9400E08886 /* Casey's Picture.png in Resources */,
 				CF85FD10185E5B5800C70BE1 /* schedule.json in Resources */,
-				CF108BF0185C0A01001E6706 /* Main.storyboard in Resources */,
+				CF108BF0185C0A01001E6706 /* iPad.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,12 +565,12 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		CF108BEE185C0A01001E6706 /* Main.storyboard */ = {
+		CF108BEE185C0A01001E6706 /* iPad.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				CF108BEF185C0A01001E6706 /* Base */,
 			);
-			name = Main.storyboard;
+			name = iPad.storyboard;
 			sourceTree = "<group>";
 		};
 		CF108C07185C0A01001E6706 /* InfoPlist.strings */ = {
@@ -663,6 +667,7 @@
 				GCC_PREFIX_HEADER = "Poing/Poing-Prefix.pch";
 				INFOPLIST_FILE = "Poing/Poing-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -676,6 +681,7 @@
 				GCC_PREFIX_HEADER = "Poing/Poing-Prefix.pch";
 				INFOPLIST_FILE = "Poing/Poing-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
