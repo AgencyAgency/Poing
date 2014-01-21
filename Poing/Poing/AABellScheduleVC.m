@@ -9,6 +9,7 @@
 #import "AABellScheduleVC.h"
 #import "AABellCyclePeriodCell.h"
 #import "AADate.h"
+#import "AAFontifier.h"
 #import "BellCycle+Info.h"
 #import "BellCyclePeriod+Info.h"
 #import "Period.h"
@@ -97,7 +98,8 @@
     self.currentPeriodLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
     self.selectedDateLabel.text = @"";
     if (self.bellCycle) {
-        self.selectedDateLabel.text = [self.schoolDay formattedDay];
+        self.selectedDateLabel.attributedText = [AAFontifier highlightTodayInString:[self.schoolDay formattedDay]
+                                                                            forFont:self.selectedDateLabel.font];
         self.selectedDateLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
         self.titleLabel.text = [self.bellCycle title];
         self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];

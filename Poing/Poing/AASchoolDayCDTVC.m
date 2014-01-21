@@ -10,6 +10,7 @@
 #import "AAAppDelegate.h"
 #import "AABellScheduleVC.h"
 #import "AADate.h"
+#import "AAFontifier.h"
 #import "AASchedule.h"
 #import "SchoolDay+Info.h"
 #import "BellCycle+Info.h"
@@ -125,7 +126,8 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     SchoolDay *schoolDay = (SchoolDay *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text = [schoolDay formattedDay];
+    cell.textLabel.attributedText = [AAFontifier highlightTodayInString:[schoolDay formattedDay]
+                                                                forFont:cell.textLabel.font];
     cell.detailTextLabel.text = [schoolDay.bellCycle title];
 }
 
