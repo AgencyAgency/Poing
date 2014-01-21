@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SchoolDay.h"
 
-@interface AABellScheduleVC : UITableViewController <UISplitViewControllerDelegate, UIPopoverControllerDelegate>
+@interface AABellScheduleVC : UIViewController <UITableViewDataSource, UITableViewDelegate, UISplitViewControllerDelegate, UIPopoverControllerDelegate>
 
 @property (strong, nonatomic) SchoolDay *schoolDay;
 
