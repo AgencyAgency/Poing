@@ -146,15 +146,19 @@
 - (void)updateBackgroundForCell:(AABellCyclePeriodCell *)cell
 {
     UIColor *backgroundColor = [UIColor clearColor];
+    UIColor *textColor = cell.textLabel.textColor;
     if ([self.schoolDay isToday]) {
         BellCyclePeriod *bellCyclePeriod = cell.bellCyclePeriod;
         
         NSDate *now = [AADate now];
         if ([bellCyclePeriod containsTimePartOfDate:now]) {
             backgroundColor = [UIColor magentaColor];
+            textColor = [UIColor whiteColor];
         }
     }
     cell.backgroundColor = backgroundColor;
+    cell.textLabel.textColor = textColor;
+    cell.detailTextLabel.textColor = textColor;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
