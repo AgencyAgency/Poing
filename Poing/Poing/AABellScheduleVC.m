@@ -99,7 +99,11 @@
     if (self.bellCycle) {
         self.selectedDateLabel.text = [self.schoolDay formattedDayWithToday];
         self.selectedDateLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
-        if ([self.schoolDay isToday]) self.selectedDateLabel.textColor = [UIColor magentaColor];
+        if ([self.schoolDay isToday]) {
+            self.selectedDateLabel.textColor = [UIColor magentaColor];
+        } else {
+            self.selectedDateLabel.textColor = [UIColor blackColor];
+        }
         
         self.titleLabel.text = [self.bellCycle title];
         self.titleLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline];
