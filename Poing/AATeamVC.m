@@ -12,6 +12,7 @@
 
 @interface AATeamVC () <UICollectionViewDataSource, UICollectionViewDelegate, UIPopoverControllerDelegate>
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *collViewBottomSpacerConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collViewTopSpacerConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *collViewHeightConstraint;
 
@@ -39,12 +40,22 @@
     _collViewRightSpacerConstraint.constant = 400.0f;
 }
 
+- (void)setCollContentInsetForOrientation:(UIInterfaceOrientation)orientation
+{
+    if (UIInterfaceOrientationIsPortrait(orientation)) {
+        self.collView.contentInset = UIEdgeInsetsMake(28.0, 0, 100.0, 0);
+    } else {
+        self.collView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    }
+}
+
 - (void)adjustToOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
     if (UIInterfaceOrientationIsPortrait(toInterfaceOrientation)) {
         self.collViewRightSpacerConstraint.priority = 1;
         self.collViewWidthConstraint.priority = 999;
         
+        self.collViewBottomSpacerConstraint.constant = 0.0;
         self.collViewTopSpacerConstraint.priority = 999;
         self.collViewHeightConstraint.constant = 100.0;
         self.collViewHeightConstraint.priority = 1;
@@ -55,12 +66,15 @@
         self.collViewRightSpacerConstraint.priority = 999;
         self.collViewWidthConstraint.priority = 1;
 
+        self.collViewBottomSpacerConstraint.constant = 62.0;
         self.collViewTopSpacerConstraint.priority = 1;
         self.collViewHeightConstraint.constant = 210.0;
         self.collViewHeightConstraint.priority = 999;
         
         self.aboutTextBottomConstraint.constant = 250.0;
     }
+    
+    [self setCollContentInsetForOrientation:toInterfaceOrientation];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
@@ -77,7 +91,15 @@
     [self adjustToOrientation:toInterfaceOrientation];
     self.collView.backgroundColor = [UIColor clearColor];
     
-    self.collView.scrollIndicatorInsets = UIEdgeInsetsMake(0,0,0,self.collView.bounds.size.width-8);
+    // Move scroll bar to left side of collection view:
+    self.collView.scrollIndicatorInsets = UIEdgeInsetsMake(20.0, 0, 54.0, self.collView.bounds.size.width-8);
+    
+    // Arrange collection to fit, depending on orrientation:
+    [self setCollContentInsetForOrientation:[[UIApplication sharedApplication] statusBarOrientation]];
+    
+    // If portrait, want to make sure the portraits are lined up
+    // wit the top of the screen:
+    [self.collView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:NO];
 }
 
 

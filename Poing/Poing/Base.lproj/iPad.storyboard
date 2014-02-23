@@ -21,7 +21,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pb2-Sz-HLK">
-                                <rect key="frame" x="20" y="28" width="100" height="917"/>
+                                <rect key="frame" x="20" y="0.0" width="100" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="1" constant="100" id="GAn-zP-F5e"/>
@@ -99,14 +99,15 @@ The AgencyAgency team wanted to create an app that would help the lives of ‘Io
                             <constraint firstItem="7Vh-oh-aj3" firstAttribute="top" secondItem="XQe-p9-e7o" secondAttribute="bottom" constant="8" symbolic="YES" id="f0z-cR-jgK"/>
                             <constraint firstItem="Pb2-Sz-HLK" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" constant="20" symbolic="YES" id="h5L-hZ-Kav"/>
                             <constraint firstItem="XQe-p9-e7o" firstAttribute="top" secondItem="Td3-S2-q0E" secondAttribute="bottom" constant="20" id="ljy-eV-B0X"/>
-                            <constraint firstItem="Pb2-Sz-HLK" firstAttribute="top" secondItem="Td3-S2-q0E" secondAttribute="bottom" priority="999" constant="20" symbolic="YES" id="nMh-PO-odY"/>
-                            <constraint firstAttribute="bottom" secondItem="Pb2-Sz-HLK" secondAttribute="bottom" constant="79" id="tgl-Ca-P6Y"/>
+                            <constraint firstItem="Pb2-Sz-HLK" firstAttribute="top" secondItem="Td3-S2-q0E" secondAttribute="bottom" priority="999" constant="-20" id="nMh-PO-odY"/>
+                            <constraint firstAttribute="bottom" secondItem="Pb2-Sz-HLK" secondAttribute="bottom" id="tgl-Ca-P6Y"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="AboutTabIcon" id="acW-dT-cKf"/>
                     <connections>
                         <outlet property="aboutTextBottomConstraint" destination="LIv-yY-c8R" id="SlA-Ac-lvw"/>
                         <outlet property="collView" destination="Pb2-Sz-HLK" id="vuE-0b-14d"/>
+                        <outlet property="collViewBottomSpacerConstraint" destination="tgl-Ca-P6Y" id="tRM-N7-u00"/>
                         <outlet property="collViewHeightConstraint" destination="GAn-zP-F5e" id="FTH-ia-XQL"/>
                         <outlet property="collViewRightSpacerConstraint" destination="8Ph-Q2-tTS" id="2Pi-vA-ifi"/>
                         <outlet property="collViewTopSpacerConstraint" destination="nMh-PO-odY" id="5bj-Ei-asV"/>
