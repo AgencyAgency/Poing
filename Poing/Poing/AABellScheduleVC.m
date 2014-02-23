@@ -145,8 +145,8 @@
 
 - (void)updateBackgroundForCell:(AABellCyclePeriodCell *)cell
 {
-    UIColor *backgroundColor = [UIColor clearColor];
-    UIColor *textColor = [UIColor blackColor];
+    UIColor *backgroundColor = [UIColor clearColor]; // default background color
+    UIColor *textColor = [UIColor blackColor];       // default text color
     if ([self.schoolDay isToday]) {
         BellCyclePeriod *bellCyclePeriod = cell.bellCyclePeriod;
         
