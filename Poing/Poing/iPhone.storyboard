@@ -42,7 +42,13 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bell Cycles" id="iHG-9W-nUo"/>
+                    <navigationItem key="navigationItem" title="Bell Cycles" id="iHG-9W-nUo">
+                        <barButtonItem key="rightBarButtonItem" title="Today" id="JAG-ai-S0v">
+                            <connections>
+                                <action selector="todayPressed:" destination="WI0-lc-OrE" id="jch-Yr-oVM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bui-Ae-15K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -69,6 +69,11 @@
     [self selectSchoolDay:nextSchoolDay iteration:iteration];
 }
 
+- (IBAction)todayPressed:(UIBarButtonItem *)sender
+{
+    [self selectToday];
+}
+
 - (void)selectToday
 {
     SchoolDay *today = [self.schedule schoolDayForToday];

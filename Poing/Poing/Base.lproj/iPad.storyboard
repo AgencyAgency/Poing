@@ -333,7 +333,13 @@ The AgencyAgency team wanted to create an app that would help the lives of ‘Io
                             <outlet property="delegate" destination="7sC-D3-nPe" id="dze-GJ-rYA"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Bell Cycles" id="HzV-WZ-Odk"/>
+                    <navigationItem key="navigationItem" title="Bell Cycles" id="HzV-WZ-Odk">
+                        <barButtonItem key="rightBarButtonItem" title="Today" id="S4r-yJ-Kub">
+                            <connections>
+                                <action selector="todayPressed:" destination="7sC-D3-nPe" id="DzB-yv-o8g"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SY9-sv-FHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
