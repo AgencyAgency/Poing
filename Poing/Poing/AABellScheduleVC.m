@@ -9,6 +9,7 @@
 #import "AABellScheduleVC.h"
 #import "AABellCyclePeriodCell.h"
 #import "AADate.h"
+#import "AAStyle.h"
 #import "BellCycle+Info.h"
 #import "BellCyclePeriod+Info.h"
 #import "Period.h"
@@ -100,7 +101,7 @@
         self.selectedDateLabel.text = [self.schoolDay formattedDayWithToday];
         self.selectedDateLabel.font = [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
         if ([self.schoolDay isToday]) {
-            self.selectedDateLabel.textColor = [UIColor magentaColor];
+            self.selectedDateLabel.textColor = [AAStyle colorForToday];
         } else {
             self.selectedDateLabel.textColor = [UIColor blackColor];
         }
@@ -155,14 +156,14 @@
         BellCyclePeriod *bellCyclePeriod = cell.bellCyclePeriod;
         
         NSDate *now = [AADate now];
-        if ([self.schoolDay isToday]) {
-            if ([bellCyclePeriod containsTimePartOfDate:now]) {
-                backgroundColor = [UIColor magentaColor];
-                textColor = [UIColor whiteColor];
-            } else if ([bellCyclePeriod isPastAssumingToday]) {
-                textColor = [UIColor colorWithWhite:0.7 alpha:1.0];
-            }
+        if ([bellCyclePeriod containsTimePartOfDate:now]) {
+            backgroundColor = [AAStyle colorForToday];
+            textColor = [UIColor whiteColor];
+        } else if ([bellCyclePeriod isPastAssumingToday]) {
+            textColor = [AAStyle colorForPastText];
         }
+    } else if ([self.schoolDay isPast]) {
+        textColor = [AAStyle colorForPastText];
     }
     cell.backgroundColor = backgroundColor;
     cell.textLabel.textColor = textColor;

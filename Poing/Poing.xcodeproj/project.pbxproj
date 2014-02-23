@@ -32,6 +32,7 @@
 		CF75DA0B18834E000089899D /* AATeamVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75DA0A18834E000089899D /* AATeamVC.m */; };
 		CF75DA0E188361A60089899D /* AAPortraitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75DA0D188361A60089899D /* AAPortraitCell.m */; };
 		CF75DA12188394050089899D /* AAMemberDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75DA11188394050089899D /* AAMemberDetailVC.m */; };
+		CF75FF1F18BA24C600FCA17B /* AAStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75FF1E18BA24C600FCA17B /* AAStyle.m */; };
 		CF85FCE3185D4F7000C70BE1 /* Period.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE2185D4F7000C70BE1 /* Period.m */; };
 		CF85FCE9185D4F7000C70BE1 /* Bell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCE8185D4F7000C70BE1 /* Bell.m */; };
 		CF85FCEC185D4F7000C70BE1 /* BellCyclePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = CF85FCEB185D4F7000C70BE1 /* BellCyclePeriod.m */; };
@@ -115,6 +116,8 @@
 		CF75DA0D188361A60089899D /* AAPortraitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPortraitCell.m; sourceTree = "<group>"; };
 		CF75DA10188394050089899D /* AAMemberDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAMemberDetailVC.h; sourceTree = "<group>"; };
 		CF75DA11188394050089899D /* AAMemberDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAMemberDetailVC.m; sourceTree = "<group>"; };
+		CF75FF1D18BA24C600FCA17B /* AAStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAStyle.h; sourceTree = "<group>"; };
+		CF75FF1E18BA24C600FCA17B /* AAStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAStyle.m; sourceTree = "<group>"; };
 		CF85FCE1185D4F7000C70BE1 /* Period.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Period.h; sourceTree = "<group>"; };
 		CF85FCE2185D4F7000C70BE1 /* Period.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Period.m; sourceTree = "<group>"; };
 		CF85FCE7185D4F7000C70BE1 /* Bell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bell.h; sourceTree = "<group>"; };
@@ -276,6 +279,8 @@
 				CFB56D471866D1D8007ABFB1 /* AADate.m */,
 				CFB56D4318667B0A007ABFB1 /* AASchedule.h */,
 				CFB56D4418667B0A007ABFB1 /* AASchedule.m */,
+				CF75FF1D18BA24C600FCA17B /* AAStyle.h */,
+				CF75FF1E18BA24C600FCA17B /* AAStyle.m */,
 				CF108BF7185C0A01001E6706 /* Images.xcassets */,
 				CF108BE3185C0A01001E6706 /* Supporting Files */,
 			);
@@ -564,6 +569,7 @@
 				CF29EEA018BA0BE800F723F0 /* AASlimTeamTVC.m in Sources */,
 				CF85FD70185EF63100C70BE1 /* BellCycle.m in Sources */,
 				CF85FD0E185E4D1100C70BE1 /* BellCycle+Create.m in Sources */,
+				CF75FF1F18BA24C600FCA17B /* AAStyle.m in Sources */,
 				CFB56D5C1867B770007ABFB1 /* Teacher.m in Sources */,
 				CFB56D661867B85F007ABFB1 /* Teacher+Create.m in Sources */,
 				CF85FD16185E649500C70BE1 /* AASchoolDayCDTVC.m in Sources */,

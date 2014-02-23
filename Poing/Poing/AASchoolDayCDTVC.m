@@ -12,6 +12,7 @@
 #import "AADate.h"
 #import "AASchedule.h"
 #import "AASlimTeamTVC.h"
+#import "AAStyle.h"
 #import "SchoolDay+Info.h"
 #import "BellCycle+Info.h"
 #import "BellCyclePeriod.h"
@@ -159,9 +160,9 @@
 {
     UIColor *textColor = [UIColor blackColor];
     if ([schoolDay isPast]) {
-        textColor = [UIColor colorWithWhite:0.7 alpha:1.0];
+        textColor = [AAStyle colorForPastText];
     } else if ([schoolDay isToday]) {
-        textColor = [UIColor magentaColor];
+        textColor = [AAStyle colorForToday];
     }
     cell.textLabel.textColor = textColor;
     cell.detailTextLabel.textColor = textColor;
