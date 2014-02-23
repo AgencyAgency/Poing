@@ -17,5 +17,6 @@
 + (NSString *)codeForHSTDate:(NSDate *)date;
 + (BOOL)isTodaySchoolDayAsGMT:(NSDate *)gmtDate;
 - (BOOL)isToday;
+- (BOOL)isPast;
 - (BellCyclePeriod *)currentBellCyclePeriod;
 @end

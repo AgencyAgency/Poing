@@ -129,6 +129,13 @@
     cell.textLabel.attributedText = [AAFontifier highlightTodayInString:[schoolDay formattedDay]
                                                                 forFont:cell.textLabel.font];
     cell.detailTextLabel.text = [schoolDay.bellCycle title];
+    
+    // Prepare background color:
+    cell.backgroundView = [[UIView alloc] initWithFrame:cell.bounds];
+    for (UIView* view in cell.contentView.subviews) {
+        view.backgroundColor = [UIColor clearColor];
+        view.opaque = NO;
+    }
 }
 
 
@@ -138,6 +145,17 @@
 {
     SchoolDay *schoolDay = (SchoolDay *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
     self.selectedSchoolDay = schoolDay;
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // If is in the past, then make it gray:
+    SchoolDay *schoolDay = (SchoolDay *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
+    if ([schoolDay isPast]) {
+        cell.backgroundView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0];
+    } else {
+        cell.backgroundView.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 

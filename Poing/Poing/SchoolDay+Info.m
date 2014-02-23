@@ -99,6 +99,13 @@
     return [self.class isTodaySchoolDayAsGMT:self.day];
 }
 
+- (BOOL)isPast
+{
+    NSString *hstDateCode = [self.class codeForHSTDate:[AADate now]];
+    NSDate *todayInGMT = [self.class dateFromSchoolDayString:hstDateCode];
+    return [self.day compare:todayInGMT] == NSOrderedAscending;
+}
+
 - (BellCyclePeriod *)currentBellCyclePeriod
 {
     BellCyclePeriod *bellCyclePeriod = nil;
