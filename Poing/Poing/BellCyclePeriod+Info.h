@@ -14,4 +14,5 @@
 - (NSString *)formattedEndTime;
 - (NSDate *)endTimeAssumingToday;
 - (BOOL)containsTimePartOfDate:(NSDate *)date;
+- (BOOL)isPastAssumingToday;
 @end

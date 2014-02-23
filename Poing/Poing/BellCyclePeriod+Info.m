@@ -92,4 +92,9 @@
              [hstEnd   compare:date] == NSOrderedDescending);
 }
 
+- (BOOL)isPastAssumingToday
+{
+    return [[self endTimeAssumingToday] compare:[AADate now]] == NSOrderedAscending;
+}
+
 @end

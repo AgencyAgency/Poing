@@ -155,9 +155,13 @@
         BellCyclePeriod *bellCyclePeriod = cell.bellCyclePeriod;
         
         NSDate *now = [AADate now];
-        if ([bellCyclePeriod containsTimePartOfDate:now]) {
-            backgroundColor = [UIColor magentaColor];
-            textColor = [UIColor whiteColor];
+        if ([self.schoolDay isToday]) {
+            if ([bellCyclePeriod containsTimePartOfDate:now]) {
+                backgroundColor = [UIColor magentaColor];
+                textColor = [UIColor whiteColor];
+            } else if ([bellCyclePeriod isPastAssumingToday]) {
+                textColor = [UIColor colorWithWhite:0.7 alpha:1.0];
+            }
         }
     }
     cell.backgroundColor = backgroundColor;
