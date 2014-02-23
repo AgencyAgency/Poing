@@ -13,6 +13,7 @@
 + (SchoolDay *)schoolDayForString:(NSString *)dayString inContext:(NSManagedObjectContext *)context;
 + (NSArray *)allSchoolDaysInManagedObjectContext:(NSManagedObjectContext *)context;
 - (NSString *)formattedDay;
+- (NSString *)formattedDayWithToday;
 
 + (NSString *)codeForHSTDate:(NSDate *)date;
 + (BOOL)isTodaySchoolDayAsGMT:(NSDate *)gmtDate;

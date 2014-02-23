@@ -10,10 +10,10 @@
 #import "AAAppDelegate.h"
 #import "AABellScheduleVC.h"
 #import "AADate.h"
-#import "AAFontifier.h"
 #import "AASchedule.h"
 #import "SchoolDay+Info.h"
 #import "BellCycle+Info.h"
+#import "BellCyclePeriod.h"
 
 @interface AASchoolDayCDTVC ()
 @property (strong, nonatomic) AABellScheduleVC *detailViewController;
@@ -131,16 +131,8 @@
 - (void)configureCell:(UITableViewCell *)cell atIndexPath:(NSIndexPath *)indexPath
 {
     SchoolDay *schoolDay = (SchoolDay *)[self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.attributedText = [AAFontifier highlightTodayInString:[schoolDay formattedDay]
-                                                                forFont:cell.textLabel.font];
+    cell.textLabel.text = [schoolDay formattedDay];
     cell.detailTextLabel.text = [schoolDay.bellCycle title];
-    
-    // Prepare background color:
-    cell.backgroundView = [[UIView alloc] initWithFrame:cell.bounds];
-    for (UIView* view in cell.contentView.subviews) {
-        view.backgroundColor = [UIColor clearColor];
-        view.opaque = NO;
-    }
 }
 
 
@@ -152,15 +144,23 @@
     self.selectedSchoolDay = schoolDay;
 }
 
+- (void)updateAppearanceForCell:(UITableViewCell *)cell schoolDay:(SchoolDay *)schoolDay
+{
+    UIColor *textColor = [UIColor blackColor];
+    if ([schoolDay isPast]) {
+        textColor = [UIColor colorWithWhite:0.7 alpha:1.0];
+    } else if ([schoolDay isToday]) {
+        textColor = [UIColor magentaColor];
+    }
+    cell.textLabel.textColor = textColor;
+    cell.detailTextLabel.textColor = textColor;
+}
+
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // If is in the past, then make it gray:
     SchoolDay *schoolDay = (SchoolDay *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
-    if ([schoolDay isPast]) {
-        cell.backgroundView.backgroundColor = [UIColor colorWithWhite:0.5 alpha:1.0];
-    } else {
-        cell.backgroundView.backgroundColor = [UIColor whiteColor];
-    }
+    [self updateAppearanceForCell:cell schoolDay:schoolDay];
 }
 
 
