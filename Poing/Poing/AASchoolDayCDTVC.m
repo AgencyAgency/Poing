@@ -11,6 +11,7 @@
 #import "AABellScheduleVC.h"
 #import "AADate.h"
 #import "AASchedule.h"
+#import "AASlimTeamTVC.h"
 #import "SchoolDay+Info.h"
 #import "BellCycle+Info.h"
 #import "BellCyclePeriod.h"
@@ -174,6 +175,14 @@
 }
 
 
+#pragma mark - Slim Team VC Delegates
+
+- (void)didDismissSlimTeamVC:(AASlimTeamTVC *)slimTeamVC
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -184,6 +193,12 @@
         self.selectedSchoolDay = schoolDay;
         
         [(AABellScheduleVC *)[segue destinationViewController] setSchoolDay:self.selectedSchoolDay];
+    } else if ([[segue identifier] isEqualToString:@"Show Slim Team"]) {
+        UINavigationController *navController = (UINavigationController *)segue.destinationViewController;
+        if ([navController.topViewController isKindOfClass:[AASlimTeamTVC class]]) {
+            AASlimTeamTVC *slimTeamVC = (AASlimTeamTVC *)navController.topViewController;
+            slimTeamVC.delegate = self;
+        }
     }
 }
 

@@ -7,8 +7,9 @@
 //
 
 #import "CoreDataTableViewController.h"
+#import "AASlimTeamTVCDelegate.h"
 
-@interface AASchoolDayCDTVC : CoreDataTableViewController
+@interface AASchoolDayCDTVC : CoreDataTableViewController <AASlimTeamTVCDelegate>
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 - (void)selectToday;

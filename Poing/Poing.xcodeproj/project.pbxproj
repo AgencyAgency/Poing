@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		21687FF6187DFB9400E08886 /* Casey's Picture.png in Resources */ = {isa = PBXBuildFile; fileRef = 21687FF5187DFB9400E08886 /* Casey's Picture.png */; };
 		21687FFA187E00CA00E08886 /* Casey's Picture@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21687FF9187E00CA00E08886 /* Casey's Picture@2x.png */; };
+		CF09D99618BA14690050B520 /* AASlimPortraitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF09D99518BA14690050B520 /* AASlimPortraitCell.m */; };
+		CF09D99B18BA17180050B520 /* AAMemberDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = CF09D99A18BA17180050B520 /* AAMemberDetail.m */; };
+		CF09D99E18BA188D0050B520 /* AASlimPortraitVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF09D99D18BA188D0050B520 /* AASlimPortraitVC.m */; };
 		CF108BDD185C0A01001E6706 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF108BDC185C0A01001E6706 /* Foundation.framework */; };
 		CF108BDF185C0A01001E6706 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF108BDE185C0A01001E6706 /* CoreGraphics.framework */; };
 		CF108BE1185C0A01001E6706 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF108BE0185C0A01001E6706 /* UIKit.framework */; };
@@ -24,6 +27,7 @@
 		CF108C0B185C0A01001E6706 /* PoingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CF108C0A185C0A01001E6706 /* PoingTests.m */; };
 		CF108C16185C3D01001E6706 /* BellSchedule.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF108C14185C3D01001E6706 /* BellSchedule.xcdatamodeld */; };
 		CF17FFC2188E40EB006965BB /* iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF17FFC1188E40EB006965BB /* iPhone.storyboard */; };
+		CF29EEA018BA0BE800F723F0 /* AASlimTeamTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF29EE9F18BA0BE800F723F0 /* AASlimTeamTVC.m */; };
 		CF75D9BD188314550089899D /* AABellCyclePeriodCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75D9BC188314550089899D /* AABellCyclePeriodCell.m */; };
 		CF75DA0B18834E000089899D /* AATeamVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75DA0A18834E000089899D /* AATeamVC.m */; };
 		CF75DA0E188361A60089899D /* AAPortraitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CF75DA0D188361A60089899D /* AAPortraitCell.m */; };
@@ -75,6 +79,12 @@
 /* Begin PBXFileReference section */
 		21687FF5187DFB9400E08886 /* Casey's Picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Casey's Picture.png"; sourceTree = "<group>"; };
 		21687FF9187E00CA00E08886 /* Casey's Picture@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Casey's Picture@2x.png"; sourceTree = "<group>"; };
+		CF09D99418BA14690050B520 /* AASlimPortraitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASlimPortraitCell.h; sourceTree = "<group>"; };
+		CF09D99518BA14690050B520 /* AASlimPortraitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASlimPortraitCell.m; sourceTree = "<group>"; };
+		CF09D99918BA17180050B520 /* AAMemberDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAMemberDetail.h; sourceTree = "<group>"; };
+		CF09D99A18BA17180050B520 /* AAMemberDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAMemberDetail.m; sourceTree = "<group>"; };
+		CF09D99C18BA188D0050B520 /* AASlimPortraitVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASlimPortraitVC.h; sourceTree = "<group>"; };
+		CF09D99D18BA188D0050B520 /* AASlimPortraitVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASlimPortraitVC.m; sourceTree = "<group>"; };
 		CF108BD9185C0A01001E6706 /* Poing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Poing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF108BDC185C0A01001E6706 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CF108BDE185C0A01001E6706 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -94,6 +104,9 @@
 		CF108C0A185C0A01001E6706 /* PoingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoingTests.m; sourceTree = "<group>"; };
 		CF108C15185C3D01001E6706 /* BellSchedule.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BellSchedule.xcdatamodel; sourceTree = "<group>"; };
 		CF17FFC1188E40EB006965BB /* iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = iPhone.storyboard; sourceTree = "<group>"; };
+		CF29EE9E18BA0BE800F723F0 /* AASlimTeamTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AASlimTeamTVC.h; sourceTree = "<group>"; };
+		CF29EE9F18BA0BE800F723F0 /* AASlimTeamTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AASlimTeamTVC.m; sourceTree = "<group>"; };
+		CF29EEA118BA0C0500F723F0 /* AASlimTeamTVCDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AASlimTeamTVCDelegate.h; sourceTree = "<group>"; };
 		CF75D9BB188314550089899D /* AABellCyclePeriodCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AABellCyclePeriodCell.h; sourceTree = "<group>"; };
 		CF75D9BC188314550089899D /* AABellCyclePeriodCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AABellCyclePeriodCell.m; sourceTree = "<group>"; };
 		CF75DA0918834E000089899D /* AATeamVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AATeamVC.h; path = ../AATeamVC.h; sourceTree = "<group>"; };
@@ -190,6 +203,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF09D99718BA14790050B520 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				CF75DA10188394050089899D /* AAMemberDetailVC.h */,
+				CF75DA11188394050089899D /* AAMemberDetailVC.m */,
+				CF75DA0C188361A60089899D /* AAPortraitCell.h */,
+				CF75DA0D188361A60089899D /* AAPortraitCell.m */,
+				CF75DA0918834E000089899D /* AATeamVC.h */,
+				CF75DA0A18834E000089899D /* AATeamVC.m */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+		CF09D99818BA147F0050B520 /* iPhone */ = {
+			isa = PBXGroup;
+			children = (
+				CF09D99418BA14690050B520 /* AASlimPortraitCell.h */,
+				CF09D99518BA14690050B520 /* AASlimPortraitCell.m */,
+				CF09D99C18BA188D0050B520 /* AASlimPortraitVC.h */,
+				CF09D99D18BA188D0050B520 /* AASlimPortraitVC.m */,
+				CF29EE9E18BA0BE800F723F0 /* AASlimTeamTVC.h */,
+				CF29EE9F18BA0BE800F723F0 /* AASlimTeamTVC.m */,
+				CF29EEA118BA0C0500F723F0 /* AASlimTeamTVCDelegate.h */,
+			);
+			name = iPhone;
+			sourceTree = "<group>";
+		};
 		CF108BD0185C0A01001E6706 = {
 			isa = PBXGroup;
 			children = (
@@ -284,12 +324,10 @@
 		CF75DA0F188361AF0089899D /* Team */ = {
 			isa = PBXGroup;
 			children = (
-				CF75DA10188394050089899D /* AAMemberDetailVC.h */,
-				CF75DA11188394050089899D /* AAMemberDetailVC.m */,
-				CF75DA0C188361A60089899D /* AAPortraitCell.h */,
-				CF75DA0D188361A60089899D /* AAPortraitCell.m */,
-				CF75DA0918834E000089899D /* AATeamVC.h */,
-				CF75DA0A18834E000089899D /* AATeamVC.m */,
+				CF09D99718BA14790050B520 /* iPad */,
+				CF09D99818BA147F0050B520 /* iPhone */,
+				CF09D99918BA17180050B520 /* AAMemberDetail.h */,
+				CF09D99A18BA17180050B520 /* AAMemberDetail.m */,
 			);
 			name = Team;
 			sourceTree = "<group>";
@@ -507,11 +545,14 @@
 				CF85FD13185E635300C70BE1 /* CoreDataTableViewController.m in Sources */,
 				CF85FD0B185E494F00C70BE1 /* SchoolDay+Create.m in Sources */,
 				CF85FD08185E492D00C70BE1 /* SchoolDay.m in Sources */,
+				CF09D99618BA14690050B520 /* AASlimPortraitCell.m in Sources */,
 				CFB56D631867B7AC007ABFB1 /* Course+Create.m in Sources */,
 				CFB56D6C1867BBAB007ABFB1 /* AATeacherLoader.m in Sources */,
 				CF85FCEC185D4F7000C70BE1 /* BellCyclePeriod.m in Sources */,
+				CF09D99B18BA17180050B520 /* AAMemberDetail.m in Sources */,
 				CF75DA0E188361A60089899D /* AAPortraitCell.m in Sources */,
 				CF85FCF7185D5C7900C70BE1 /* Bell+Create.m in Sources */,
+				CF09D99E18BA188D0050B520 /* AASlimPortraitVC.m in Sources */,
 				CFB489F8187A84EC00B0C406 /* Section.m in Sources */,
 				CF85FCEF185D4F7000C70BE1 /* Cycle.m in Sources */,
 				CF85FCFD185D7EC100C70BE1 /* Period+Create.m in Sources */,
@@ -520,6 +561,7 @@
 				CFB56D481866D1D8007ABFB1 /* AADate.m in Sources */,
 				CFB56D4518667B0A007ABFB1 /* AASchedule.m in Sources */,
 				CF85FCFA185D712500C70BE1 /* Cycle+Create.m in Sources */,
+				CF29EEA018BA0BE800F723F0 /* AASlimTeamTVC.m in Sources */,
 				CF85FD70185EF63100C70BE1 /* BellCycle.m in Sources */,
 				CF85FD0E185E4D1100C70BE1 /* BellCycle+Create.m in Sources */,
 				CFB56D5C1867B770007ABFB1 /* Teacher.m in Sources */,

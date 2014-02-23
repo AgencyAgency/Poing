@@ -43,6 +43,11 @@
                         </prototypes>
                     </tableView>
                     <navigationItem key="navigationItem" title="Bell Cycles" id="iHG-9W-nUo">
+                        <barButtonItem key="leftBarButtonItem" image="AboutTabIcon" id="377-W8-o6m">
+                            <connections>
+                                <segue destination="Wmb-IO-vHs" kind="modal" identifier="Show Slim Team" modalTransitionStyle="coverVertical" id="oMR-st-G6Z"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Today" id="JAG-ai-S0v">
                             <connections>
                                 <action selector="todayPressedForSegue:" destination="WI0-lc-OrE" id="mmO-PH-Ub8"/>
@@ -53,6 +58,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bui-Ae-15K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="209" y="24"/>
+        </scene>
+        <!--Slim PortraitVC - Cara-->
+        <scene sceneID="4J5-Nc-wP4">
+            <objects>
+                <viewController id="dwK-rp-iP1" customClass="AASlimPortraitVC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="raU-PF-z94"/>
+                        <viewControllerLayoutGuide type="bottom" id="92B-47-AU1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6OI-NQ-SYZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="portrait7" translatesAutoresizingMaskIntoConstraints="NO" id="Sfd-90-hiB">
+                                <rect key="frame" x="20" y="82" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRK-2p-bKc">
+                                <rect key="frame" x="128" y="72" width="172" height="488"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nRK-2p-bKc" secondAttribute="trailing" constant="20" symbolic="YES" id="3dA-Kf-AeR"/>
+                            <constraint firstItem="Sfd-90-hiB" firstAttribute="top" secondItem="raU-PF-z94" secondAttribute="bottom" constant="18" id="9jb-Td-m4p"/>
+                            <constraint firstItem="92B-47-AU1" firstAttribute="top" secondItem="nRK-2p-bKc" secondAttribute="bottom" constant="20" symbolic="YES" id="Asp-H0-htJ"/>
+                            <constraint firstItem="nRK-2p-bKc" firstAttribute="top" secondItem="raU-PF-z94" secondAttribute="bottom" constant="20" symbolic="YES" id="CpS-3K-Eqf"/>
+                            <constraint firstItem="Sfd-90-hiB" firstAttribute="leading" secondItem="6OI-NQ-SYZ" secondAttribute="leading" constant="20" symbolic="YES" id="Hk5-vk-4YT"/>
+                            <constraint firstItem="nRK-2p-bKc" firstAttribute="leading" secondItem="Sfd-90-hiB" secondAttribute="trailing" constant="8" symbolic="YES" id="XM8-fb-2fC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Cara" id="TXk-hr-nh9"/>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="nRK-2p-bKc" id="7mX-qi-4UE"/>
+                        <outlet property="portraitImageView" destination="Sfd-90-hiB" id="O4P-Bx-nQt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2xD-Ew-fkP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="-636"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KqB-LF-fMd">
@@ -188,7 +238,83 @@
             </objects>
             <point key="canvasLocation" x="600" y="24"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gMc-NF-GRa">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Wmb-IO-vHs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Nd-n8-sF4">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="OBO-pI-RUi" kind="relationship" relationship="rootViewController" id="MmV-fJ-cgS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xs-6x-rCB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="439" y="-636"/>
+        </scene>
+        <!--Slim TeamTVC - Meet the Team-->
+        <scene sceneID="QgC-OY-T6s">
+            <objects>
+                <tableViewController id="OBO-pI-RUi" customClass="AASlimTeamTVC" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="116" sectionHeaderHeight="22" sectionFooterHeight="22" id="VIm-4O-r2a">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Profile Name Cell" rowHeight="116" id="7Ll-yM-QLL" customClass="AASlimPortraitCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="116"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7Ll-yM-QLL" id="H9c-eX-UCp">
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="115"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="portrait7" translatesAutoresizingMaskIntoConstraints="NO" id="n9Q-x5-TDn">
+                                            <rect key="frame" x="20" y="8" width="100" height="100"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cara" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yi-Q5-wTZ">
+                                            <rect key="frame" x="140" y="31" width="147" height="53"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="30"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="portraitImageView" destination="n9Q-x5-TDn" id="VaB-lU-DuI"/>
+                                    <outlet property="portraitLabel" destination="1yi-Q5-wTZ" id="Zru-Nc-2eN"/>
+                                    <segue destination="dwK-rp-iP1" kind="push" identifier="Show Slim Potrait" id="xOV-Gb-mUp"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="OBO-pI-RUi" id="gpF-6a-cQr"/>
+                            <outlet property="delegate" destination="OBO-pI-RUi" id="6y7-tb-hZc"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Meet the Team" id="55d-4l-uoN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="XKg-oh-DWi">
+                            <connections>
+                                <action selector="closeButtonPressed:" destination="OBO-pI-RUi" id="MzH-vN-urZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="45L-Na-5Te" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905" y="-636"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="AboutTabIcon" width="28" height="14"/>
+        <image name="portrait7" width="100" height="100"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
