@@ -76,6 +76,8 @@
     UIInterfaceOrientation toInterfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     [self adjustToOrientation:toInterfaceOrientation];
     self.collView.backgroundColor = [UIColor clearColor];
+    
+    self.collView.scrollIndicatorInsets = UIEdgeInsetsMake(0,0,0,self.collView.bounds.size.width-8);
 }
 
 
