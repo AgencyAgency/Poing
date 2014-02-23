@@ -33,7 +33,7 @@
 - (id)init
 {
     if (self = [super init]) {
-        _offset = [self offsetSecondsFromHSTString:@"2014-01-13 10:16"];
+        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 13:32"];
         _offset -= 56; // offset seconds adjustment, for the impatient
     }
     return self;
