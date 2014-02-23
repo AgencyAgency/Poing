@@ -146,12 +146,30 @@
     NSString *start = [bellCyclePeriod formattedStartTime];
     NSString *end = [bellCyclePeriod formattedEndTime];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ - %@", start, end];
-    cell.schoolDay = self.schoolDay;
 }
 
 - (void)updateBackgroundForCell:(AABellCyclePeriodCell *)cell
 {
-    [cell styleForSelected:NO];
+    BellCyclePeriod *bellCyclePeriod = cell.bellCyclePeriod;
+    
+    UIColor *backgroundColor = [UIColor clearColor]; // default background color
+    UIColor *textColor = [UIColor blackColor];       // default text color
+
+    if ([self.schoolDay isToday]) {
+        NSDate *now = [AADate now];
+        if ([bellCyclePeriod containsTimePartOfDate:now]) {
+            backgroundColor = [AAStyle colorForToday];
+            textColor = [UIColor whiteColor];
+        } else if ([bellCyclePeriod isPastAssumingToday]) {
+            textColor = [AAStyle colorForPastText];
+        }
+    } else if ([self.schoolDay isPast]) {
+        textColor = [AAStyle colorForPastText];
+    }
+
+    cell.backgroundColor = backgroundColor;
+    cell.textLabel.textColor = textColor;
+    cell.detailTextLabel.textColor = textColor;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
