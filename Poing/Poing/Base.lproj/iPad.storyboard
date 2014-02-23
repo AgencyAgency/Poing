@@ -336,7 +336,7 @@ The AgencyAgency team wanted to create an app that would help the lives of ‘Io
                     <navigationItem key="navigationItem" title="Bell Cycles" id="HzV-WZ-Odk">
                         <barButtonItem key="rightBarButtonItem" title="Today" id="S4r-yJ-Kub">
                             <connections>
-                                <action selector="todayPressed:" destination="7sC-D3-nPe" id="DzB-yv-o8g"/>
+                                <action selector="todayPressed:" destination="7sC-D3-nPe" id="aMX-1P-gxR"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

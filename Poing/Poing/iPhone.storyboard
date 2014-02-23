@@ -45,7 +45,7 @@
                     <navigationItem key="navigationItem" title="Bell Cycles" id="iHG-9W-nUo">
                         <barButtonItem key="rightBarButtonItem" title="Today" id="JAG-ai-S0v">
                             <connections>
-                                <action selector="todayPressed:" destination="WI0-lc-OrE" id="jch-Yr-oVM"/>
+                                <action selector="todayPressedForSegue:" destination="WI0-lc-OrE" id="mmO-PH-Ub8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
