@@ -121,6 +121,26 @@
     self.schedule = [AASchedule scheduleOfSchoolDays:[self.fetchedResultsController fetchedObjects]];
 }
 
+- (void)checkAndRefreshForNewDay
+{
+    if (self.selectedSchoolDay) {
+        [self selectToday];
+        for (UITableViewCell *cell in [self.tableView visibleCells]) {
+            NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+            SchoolDay *day = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            [self updateAppearanceForCell:cell
+                                schoolDay:day];
+        }
+    }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self checkAndRefreshForNewDay];
+}
+
 - (void)awakeFromNib
 {
     self.clearsSelectionOnViewWillAppear = NO;

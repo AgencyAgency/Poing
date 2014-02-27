@@ -13,4 +13,6 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 - (void)selectToday;
+- (void)checkAndRefreshForNewDay;
+
 @end

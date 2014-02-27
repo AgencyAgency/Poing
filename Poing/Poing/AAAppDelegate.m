@@ -27,6 +27,11 @@
     return navVC.viewControllers[0];
 }
 
+- (UIViewController *)initialVC
+{
+    return ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? [self initialForVCForIPad] : [self inititalVCForIPhone]);
+}
+
 - (void)documentIsReady
 {
     if (self.document.documentState == UIDocumentStateNormal) {
@@ -34,9 +39,11 @@
         [AAScheduleLoader loadScheduleDataWithContext:self.managedObjectContext];
 //        [AATeacherLoader loadTeacherDataWithContext:self.managedObjectContext];
         
-        AASchoolDayCDTVC *vc = (AASchoolDayCDTVC *)([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad ? [self initialForVCForIPad] : [self inititalVCForIPhone]);
-        vc.managedObjectContext = self.managedObjectContext;
-        [vc selectToday];
+        AASchoolDayCDTVC *vc = (AASchoolDayCDTVC *)[self initialVC];
+        if ([vc isKindOfClass:[AASchoolDayCDTVC class]]) {
+            vc.managedObjectContext = self.managedObjectContext;
+            [vc selectToday];
+        }
     }
 }
 
@@ -107,6 +114,10 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    AASchoolDayCDTVC *vc = (AASchoolDayCDTVC *)[self initialVC];
+    if ([vc isKindOfClass:[AASchoolDayCDTVC class]]) {
+        [vc checkAndRefreshForNewDay];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
