@@ -33,8 +33,13 @@
 - (id)init
 {
     if (self = [super init]) {
+        // Home room
+//        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 7:44"];
+        // Chapel
+//        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 8:08"];
+        
         // 5 minutes left in 6th period:
-//        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 13:22"];
+        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 13:22"];
         
         // End of 6th period (almost passing):
 //        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 13:27"];
@@ -42,7 +47,7 @@
         // End of passing (almost 1st period):
 //        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 13:32"];
         
-        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 23:59"];
+//        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 23:59"];
         
         _offset -= 56; // offset seconds adjustment, for the impatient
     }

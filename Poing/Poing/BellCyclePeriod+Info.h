@@ -12,6 +12,7 @@
 + (NSDate *)dateFromFullFormattedHSTString:(NSString *)hstString;
 - (NSString *)formattedStartTime;
 - (NSString *)formattedEndTime;
+- (NSDate *)startTimeAssumingToday;
 - (NSDate *)endTimeAssumingToday;
 - (BOOL)containsTimePartOfDate:(NSDate *)date;
 - (BOOL)isPastAssumingToday;
