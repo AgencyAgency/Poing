@@ -49,15 +49,13 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    if ([self.schoolDay isToday]) [self startTickerLoop];
+    [self startTickerLoop];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    if (self.displayLink) {
-        [self.displayLink invalidate];
-        self.displayLink = nil;
-    }
+    [self.displayLink invalidate];
+    self.displayLink = nil;
 }
 
 - (void)setCurrentBellCyclePeriod:(BellCyclePeriod *)currentBellCyclePeriod
@@ -259,6 +257,10 @@
 
 - (void)tick:(CADisplayLink *)sender
 {
+    if (![self.schoolDay isToday]) {
+        return;
+    }
+    
     NSInteger mins;
     NSInteger secs;
     NSString *periodName;
