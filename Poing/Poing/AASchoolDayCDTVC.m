@@ -22,6 +22,7 @@
 
 @property (strong, nonatomic) AASchedule *schedule;
 @property (strong, nonatomic) SchoolDay *selectedSchoolDay;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *todayBarButton;
 @end
 
 @implementation AASchoolDayCDTVC
@@ -102,6 +103,13 @@
     if (_selectedSchoolDay != selectedSchoolDay) {
         _selectedSchoolDay = selectedSchoolDay;
         self.detailViewController.schoolDay = selectedSchoolDay;
+    }
+
+    if ([selectedSchoolDay isToday]) {
+        [self.todayBarButton setTitle:@"Today"];
+        
+    } else {
+        [self.todayBarButton setTitle:@"Closest 〉"];
     }
 }
 
