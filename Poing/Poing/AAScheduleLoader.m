@@ -57,8 +57,14 @@
 
 + (BOOL)scheduleLoadRequired:(NSManagedObjectContext *)context
 {
-    return ![SchoolDay schoolDayForString:@"2013-08-26"
-                                inContext:context];
+    BOOL hasFirstDay = [SchoolDay schoolDayForString:@"2013-08-26"
+                                           inContext:context];
+    
+    SchoolDay *day = [SchoolDay schoolDayForString:@"2014-03-31"
+                                         inContext:context];
+    BOOL hasLatestOverride = [day.bellCycle.bell.name isEqualToString:BELL_ASSEMBLY_1];
+    
+    return !hasFirstDay || !hasLatestOverride;
 }
 
 + (void)loadScheduleDataWithContext:(NSManagedObjectContext *)context
@@ -161,12 +167,12 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
     [self overrides:context];
 }
 
-+ (void)overrides:(NSManagedObjectContext *)context
++ (void)overDayString:(NSString *)dayString
+             bellName:(NSString *)bellName
+            cycleName:(NSString *)cycleName
+              context:(NSManagedObjectContext *)context
 {
-    // Change bell-cycle for Moving Up Chapel day from
-    // regular "Chapel" to "Chapel Moving Up".
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SchoolDay"];
-    NSString *dayString = @"2014-05-22";
     NSDate *day = [SchoolDay dateFromSchoolDayString:dayString];
     request.predicate = [NSPredicate predicateWithFormat:@"day = %@", day];
     
@@ -177,10 +183,44 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
         // handle error
         NSAssert(NO, @"wrong number of school day matches returned.");
     } else {
-        BellCycle *bellCycle = [BellCycle bellCycleWithBellName:BELL_CHAPEL_MOVING_UP cycleName:CYCLE_7 inManagedObjectContext:context];
+        BellCycle *bellCycle = [BellCycle bellCycleWithBellName:bellName cycleName:cycleName inManagedObjectContext:context];
         SchoolDay *schoolDay = [matches lastObject];
         schoolDay.bellCycle = bellCycle;
     }
+}
+
+
++ (void)overrides:(NSManagedObjectContext *)context
+{
+    // Change bell-cycle for Moving Up Chapel day from
+    // regular "Chapel" to "Chapel Moving Up".
+    [self overDayString:@"2014-05-22"
+               bellName:BELL_CHAPEL_MOVING_UP
+              cycleName:CYCLE_7
+                context:context];
+//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SchoolDay"];
+//    NSString *dayString = @"2014-05-22";
+//    NSDate *day = [SchoolDay dateFromSchoolDayString:dayString];
+//    request.predicate = [NSPredicate predicateWithFormat:@"day = %@", day];
+//    
+//    NSError *error;
+//    NSArray *matches = [context executeFetchRequest:request error:&error];
+//    
+//    if (!matches || ([matches count] > 1 || ![matches count])) {
+//        // handle error
+//        NSAssert(NO, @"wrong number of school day matches returned.");
+//    } else {
+//        BellCycle *bellCycle = [BellCycle bellCycleWithBellName:BELL_CHAPEL_MOVING_UP cycleName:CYCLE_7 inManagedObjectContext:context];
+//        SchoolDay *schoolDay = [matches lastObject];
+//        schoolDay.bellCycle = bellCycle;
+//    }
+    
+    // Change bell-cycle for March 31, 2014 from
+    // "Chapel - Cycle 1" to "Assembly 1 - Cycle 1".
+    [self overDayString:@"2014-03-31"
+               bellName:BELL_ASSEMBLY_1
+              cycleName:CYCLE_1
+                context:context];
 }
 
 + (void)loadBasicPeriodDataIntoContext:(NSManagedObjectContext *)context
