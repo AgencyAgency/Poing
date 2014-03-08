@@ -39,13 +39,16 @@
 //        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 8:08"];
         
         // 5 minutes left in 6th period:
-        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 13:22"];
+//        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 13:22"];
         
         // End of 6th period (almost passing):
 //        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 13:27"];
         
         // End of passing (almost 1st period):
-//        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 13:32"];
+        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 13:32"];
+        
+        // Late in the evening...
+//        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 23:22"];
         
 //        _offset = [self offsetSecondsFromHSTString:@"2014-02-24 23:59"];
         
