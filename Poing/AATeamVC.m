@@ -121,7 +121,13 @@
 #pragma mark - Popover
 
 - (IBAction)portraitPressed:(UIButton *)sender {
-    AAMemberDetailVC *vc = (AAMemberDetailVC *)[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"Pop Details"];
+    UIStoryboard *storyboard = nil;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        storyboard = [UIStoryboard storyboardWithName:@"iPad" bundle:nil];
+    } else {
+        storyboard = [UIStoryboard storyboardWithName:@"iPhone" bundle:nil];
+    }
+    AAMemberDetailVC *vc = (AAMemberDetailVC *)[storyboard instantiateViewControllerWithIdentifier:@"Pop Details"];
     vc.memberIndex = sender.tag;
     self.detailsPopoverController = [[UIPopoverController alloc] initWithContentViewController:vc];
     self.detailsPopoverController.delegate = self;
