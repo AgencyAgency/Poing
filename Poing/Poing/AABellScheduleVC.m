@@ -49,13 +49,15 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self startTickerLoop];
+    if ([self.schoolDay isToday]) [self startTickerLoop];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [self.displayLink invalidate];
-    self.displayLink = nil;
+    if (self.displayLink) {
+        [self.displayLink invalidate];
+        self.displayLink = nil;
+    }
 }
 
 - (void)setCurrentBellCyclePeriod:(BellCyclePeriod *)currentBellCyclePeriod
