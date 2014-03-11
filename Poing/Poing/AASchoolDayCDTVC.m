@@ -23,6 +23,7 @@
 @property (strong, nonatomic) AASchedule *schedule;
 @property (strong, nonatomic) SchoolDay *selectedSchoolDay;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *todayBarButton;
+@property (assign, nonatomic) BOOL isFirstAppearance;
 @end
 
 @implementation AASchoolDayCDTVC
@@ -146,11 +147,15 @@
 {
     [super viewWillAppear:animated];
     
-    [self checkAndRefreshForNewDay];
+    if (self.isFirstAppearance) {
+        [self checkAndRefreshForNewDay];
+        self.isFirstAppearance = NO;
+    }
 }
 
 - (void)awakeFromNib
 {
+    self.isFirstAppearance = YES;
     self.clearsSelectionOnViewWillAppear = NO;
     self.preferredContentSize = CGSizeMake(320.0, 600.0);
     self.splitViewController.delegate = self.detailViewController;
