@@ -255,6 +255,31 @@
     self.displayLink.paused = YES;
 }
 
+- (void)printTimeRemainingHours:(long)hours mins:(long)mins secs:(long)secs periodName:(NSString *)periodName
+{
+    NSString *text = @"";
+    if (hours > 0) {
+        text = [NSString stringWithFormat:@"%ld:%02ld:%02ld seconds", (long)hours, (long)mins, (long)secs];
+    } else {
+        text = [NSString stringWithFormat:@"%ld:%02ld seconds", (long)mins, (long)secs];
+    }
+    self.timeRemainingLabel.text = text;
+    
+    NSString *periodText =  @"";
+    if ([periodName length]) periodText = [NSString stringWithFormat:@"left %@", periodName];
+    self.currentPeriodLabel.text = [periodText description];
+}
+
+- (void)printTimeRemainingMins:(long)mins secs:(long)secs periodName:(NSString *)periodName
+{
+    [self printTimeRemainingHours:0 mins:mins secs:secs periodName:periodName];
+}
+
+- (void)printTimeRemainingMins:(long)mins secs:(long)secs
+{
+    [self printTimeRemainingMins:mins secs:secs periodName:@""];
+}
+
 - (void)tick:(CADisplayLink *)sender
 {
     if (![self.schoolDay isToday]) {
@@ -265,7 +290,9 @@
     NSInteger secs;
     NSString *periodName;
     if (!self.currentBellCyclePeriod) {
+        // Update new period beginning:
         self.currentBellCyclePeriod = [self.schoolDay currentBellCyclePeriod];
+        [self updateVisibleCellBackgrounds];
     }
     if (self.currentBellCyclePeriod) {
         // get time left in period
@@ -273,19 +300,22 @@
         NSTimeInterval left = [end timeIntervalSinceDate:[AADate now]];
         NSString *pd = self.currentBellCyclePeriod.period.name;
         if ([pd length] == 1) {
-            periodName = [NSString stringWithFormat:@"period %@", pd];
+            periodName = [NSString stringWithFormat:@"in period %@", pd];
         } else {
-            periodName = pd;
+            periodName = [NSString stringWithFormat:@"in %@", pd];
         }
         
         mins = floor(left / 60);
         secs = (int)left % 60;
+        
         if (left < 0) {
+            // Switch to passing period:
             mins = 0;
             secs = 0;
             self.currentBellCyclePeriod = nil;
             [self updateVisibleCellBackgrounds];
-            periodName = @"";
+            [self printTimeRemainingMins:mins secs:secs];
+            return;
         }
         
     } else {
@@ -302,17 +332,20 @@
             NSTimeInterval tilNext = [start timeIntervalSinceDate:[AADate now]];
             mins = floor(tilNext / 60);
             secs = (int)tilNext % 60;
-            periodName = @"passing period";
+            if ([self.bellCyclePeriods indexOfObject:nextPeriod] == 0) {
+                // Before school starts:
+                NSUInteger hours = floor(mins/60);
+                mins = (int)mins % 60;
+                [self printTimeRemainingHours:hours mins:mins secs:secs periodName:@"before school starts"];
+                return;
+            }
+            periodName = @"in passing period";
         } else {
             return;
         }
     }
-    
-    self.timeRemainingLabel.text = [NSString stringWithFormat:@"%02ld:%02ld seconds", (long)mins, (long)secs];
-    
-    NSString *periodText =  @"";
-    if ([periodName length]) periodText = [NSString stringWithFormat:@"left in %@", periodName];
-    self.currentPeriodLabel.text = [periodText description];
+
+    [self printTimeRemainingMins:mins secs:secs periodName:periodName];
 }
 
 - (void)updateVisibleCellBackgrounds
