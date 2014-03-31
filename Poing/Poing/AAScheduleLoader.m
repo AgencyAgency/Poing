@@ -60,9 +60,9 @@
     BOOL hasFirstDay = (BOOL)[SchoolDay schoolDayForString:@"2013-08-26"
                                            inContext:context];
     
-    SchoolDay *day = [SchoolDay schoolDayForString:@"2014-03-31"
+    SchoolDay *day = [SchoolDay schoolDayForString:@"2014-04-17"
                                          inContext:context];
-    BOOL hasLatestOverride = (BOOL)[day.bellCycle.bell.name isEqualToString:BELL_ASSEMBLY_1];
+    BOOL hasLatestOverride = (BOOL)[day.bellCycle.bell.name isEqualToString:BELL_CHAPEL];
     
     return !hasFirstDay || !hasLatestOverride;
 }
@@ -198,28 +198,31 @@ intoManagedObjectContext:(NSManagedObjectContext *)context
                bellName:BELL_CHAPEL_MOVING_UP
               cycleName:CYCLE_7
                 context:context];
-//    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"SchoolDay"];
-//    NSString *dayString = @"2014-05-22";
-//    NSDate *day = [SchoolDay dateFromSchoolDayString:dayString];
-//    request.predicate = [NSPredicate predicateWithFormat:@"day = %@", day];
-//    
-//    NSError *error;
-//    NSArray *matches = [context executeFetchRequest:request error:&error];
-//    
-//    if (!matches || ([matches count] > 1 || ![matches count])) {
-//        // handle error
-//        NSAssert(NO, @"wrong number of school day matches returned.");
-//    } else {
-//        BellCycle *bellCycle = [BellCycle bellCycleWithBellName:BELL_CHAPEL_MOVING_UP cycleName:CYCLE_7 inManagedObjectContext:context];
-//        SchoolDay *schoolDay = [matches lastObject];
-//        schoolDay.bellCycle = bellCycle;
-//    }
     
     // Change bell-cycle for March 31, 2014 from
     // "Chapel - Cycle 1" to "Assembly 1 - Cycle 1".
     [self overDayString:@"2014-03-31"
                bellName:BELL_ASSEMBLY_1
               cycleName:CYCLE_1
+                context:context];
+    
+    // Extended days in 4/2014 are wrong!
+    // The must be swapped with the week before they were stated in the data.
+    [self overDayString:@"2014-04-09"
+               bellName:BELL_EXTENDED_2_7153
+              cycleName:CYCLE_7
+                context:context];
+    [self overDayString:@"2014-04-10"
+               bellName:BELL_EXTENDED_2_8264
+              cycleName:CYCLE_7
+                context:context];
+    [self overDayString:@"2014-04-16"
+               bellName:BELL_BASIC
+              cycleName:CYCLE_3
+                context:context];
+    [self overDayString:@"2014-04-17"
+               bellName:BELL_CHAPEL
+              cycleName:CYCLE_3
                 context:context];
 }
 
